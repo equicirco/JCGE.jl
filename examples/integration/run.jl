@@ -1,5 +1,9 @@
 # Minimal integration test: can load library model and build a kernel context.
 
+using Pkg
+Pkg.activate(joinpath(@__DIR__, "..", "..", "packages", "JCGELibrary"))
+Pkg.instantiate()
+
 using JCGECore
 using JCGEKernel
 using JCGEBlocks
