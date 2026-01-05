@@ -1,6 +1,6 @@
 module JCGECircular
 
-# Public API should be minimal and explicit.
-# Add exports as the API stabilizes.
+# Circular economy blocks will live here.
+# Keep this package depending only on core/calibrate/kernel/blocks as needed.
 
 end # module

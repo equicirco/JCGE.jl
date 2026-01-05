@@ -1,6 +1,8 @@
 using Test
 using JCGELibrary
+using JCGELibrary.StandardCGE
 
 @testset "JCGELibrary" begin
-    @test true
+    spec = StandardCGE.model()
+    @test spec.name == "StandardCGE"
 end

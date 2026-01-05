@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        pkg:
+          - packages/JCGECore
+          - packages/JCGECalibrate
+          - packages/JCGEKernel
+          - packages/JCGEBlocks
+          - packages/JCGECircular
+          - packages/JCGELibrary
+    steps:
+      - uses: actions/checkout@v4
+      - uses: julia-actions/setup-julia@v2
+        with:
+          version: '1'
+      - name: Test package
+        run: |
+          julia --project=${{ matrix.pkg }} -e 'using Pkg; Pkg.instantiate(); Pkg.test()'
+
+  integration:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: julia-actions/setup-julia@v2
+        with:
+          version: '1'
+      - name: Integration (spec loading)
+        run: |
+          julia --project=packages/JCGELibrary -e 'using Pkg; Pkg.instantiate()'
+          julia examples/integration/run.jl
