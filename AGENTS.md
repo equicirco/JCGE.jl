@@ -35,6 +35,10 @@ Rules:
 - Until v0.1: breakages allowed, but must be deliberate and reflected in tests and docs.
 - After v0.1: follow semver; document breaking changes.
 
+## Development approach (near-term)
+- Use a known JuMP CGE model ported into `JCGELibrary` as a concrete target.
+- Fill missing framework capabilities only as demanded by that model (model-driven development).
+
 ## Contracts (minimum interface)
 ### Run specification
 JCGECore defines the canonical specs:
@@ -64,6 +68,10 @@ JCGEKernel provides:
 ## Data policy
 - Only tiny redistributable toy data may be committed.
 - Anything large/licensed must be referenced by instructions, not stored.
+
+## Library organization
+- In `JCGELibrary`, each model owns its full subtree under `models/<ModelName>/`.
+- All model code, data, and docs live under that model directory; avoid top-level `data/` or `docs/`.
 
 ## RunSpec contract (v0.1)
 

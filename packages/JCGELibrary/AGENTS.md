@@ -14,6 +14,11 @@ This package is the place to store:
 
 Do not move generic framework logic into JCGELibrary.
 
+## Model directory rule
+- Each model lives under `models/<ModelName>/`.
+- All model-related assets (code, data, docs) must live under that model directory.
+- Do not add parallel top-level `data/` or `docs/` folders in JCGELibrary.
+
 ## Model module contract (required)
 Each model submodule (e.g. `StandardCGE`) must:
 1) live in `models/<ModelName>.jl`
@@ -40,3 +45,7 @@ Each model submodule (e.g. `StandardCGE`) must:
 - [ ] Add first model: `models/StandardCGE.jl`
 - [ ] Wire it into `src/JCGELibrary.jl` with `include` and `export`
 - [ ] Add one minimal integration test that loads the module and calls `model()`
+
+## Development approach (near-term)
+- Port a known JuMP CGE model into this package as the first real target model.
+- Use that model to drive missing framework features across JCGECore/Kernel/Blocks.

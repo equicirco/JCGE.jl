@@ -5,7 +5,7 @@ A package that bundles **model definitions** (as submodules) for the JCGE ecosys
 ## What belongs here
 - Named model modules (e.g. `StandardCGE`, `CircularToy`, `NO2019_Circular`, etc.) implemented as Julia submodules.
 - Model constructors returning a **spec** or **builder object** (recommended: `RunSpec`/`ModelSpec` + optional default scenarios).
-- Small toy datasets that are safe to ship in-repo (optional), under `data/<ModelName>/`.
+- Small toy datasets that are safe to ship in-repo (optional), under `models/<ModelName>/data/`.
 
 ## What does NOT belong here
 - Core framework code (data model, calibration, kernel, generic blocks): those stay in `JCGECore`, `JCGECalibrate`, `JCGEKernel`, `JCGEBlocks`, `JCGECircular`.
@@ -21,6 +21,7 @@ Typical usage should look like:
 
 ## Folder layout
 - `src/`: package module entrypoint
-- `models/`: one `.jl` file per model submodule
-- `data/`: optional small benchmark inputs per model
-- `docs/`: optional model notes and documentation per model
+- `models/<ModelName>/`: module file and all model-specific resources
+  - `models/<ModelName>/<ModelName>.jl`: model submodule
+  - `models/<ModelName>/data/`: optional small benchmark inputs
+  - `models/<ModelName>/docs/`: optional model notes and documentation
