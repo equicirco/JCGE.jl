@@ -1,4 +1,4 @@
-# JCGELibrary
+# JCGEExamples
 
 A package that bundles **model definitions** (as submodules) for the JCGE ecosystem.
 
@@ -15,8 +15,8 @@ A package that bundles **model definitions** (as submodules) for the JCGE ecosys
 ## Expected user-facing usage
 Typical usage should look like:
 
-- `using JCGELibrary`
-- `using JCGELibrary.<ModelName>`
+- `using JCGEExamples`
+- `using JCGEExamples.<ModelName>`
 - `spec = <ModelName>.model()` (returns a spec/object that the framework can build/run)
 
 ## Folder layout

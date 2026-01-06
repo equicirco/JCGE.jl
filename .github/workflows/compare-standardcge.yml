@@ -16,4 +16,4 @@ jobs:
           JCGE_SOLVE_TESTS: '1'
           JCGE_COMPARE_STANDARD: '1'
         run: |
-          julia --project=packages/JCGELibrary -e 'using Pkg; Pkg.instantiate(); Pkg.test()'
+          julia --project=packages/JCGEExamples -e 'using Pkg; Pkg.instantiate(); Pkg.test()'

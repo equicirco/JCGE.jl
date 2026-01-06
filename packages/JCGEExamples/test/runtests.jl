@@ -1,15 +1,15 @@
 using Test
-using JCGELibrary
-using JCGELibrary.StandardCGE
-using JCGELibrary.SimpleCGE
-using JCGELibrary.LargeCountryCGE
-using JCGELibrary.TwoCountryCGE
+using JCGEExamples
+using JCGEExamples.StandardCGE
+using JCGEExamples.SimpleCGE
+using JCGEExamples.LargeCountryCGE
+using JCGEExamples.TwoCountryCGE
 using JCGEKernel
 using JuMP
 using Ipopt
 import MathOptInterface as MOI
 
-@testset "JCGELibrary" begin
+@testset "JCGEExamples" begin
     sam_path = joinpath(StandardCGE.datadir(), "sam_2_2.csv")
     spec = StandardCGE.model(sam_path=sam_path)
     @test spec.name == "StandardCGE"
@@ -23,7 +23,7 @@ import MathOptInterface as MOI
 end
 
 if get(ENV, "JCGE_SOLVE_TESTS", "0") == "1"
-    @testset "JCGELibrary.Solve" begin
+    @testset "JCGEExamples.Solve" begin
         sam_path = joinpath(StandardCGE.datadir(), "sam_2_2.csv")
         spec = StandardCGE.model(sam_path=sam_path)
         result = JCGEKernel.run!(spec; optimizer=Ipopt.Optimizer, dataset_id="standard_cge_test")
@@ -49,7 +49,7 @@ if get(ENV, "JCGE_SOLVE_TESTS", "0") == "1"
 end
 
 if get(ENV, "JCGE_COMPARE_STANDARD", "0") == "1"
-    @testset "JCGELibrary.Compare.StandardCGE" begin
+    @testset "JCGEExamples.Compare.StandardCGE" begin
         using Pkg
         Pkg.add("StandardCGE")
         import StandardCGE as StdCGE

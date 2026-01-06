@@ -13,7 +13,7 @@ JCGE.jl is a monorepo containing multiple Julia packages for building CGE models
 - packages/JCGEKernel
 - packages/JCGEBlocks
 - packages/JCGECircular
-- packages/JCGELibrary
+- packages/JCGEExamples
 - examples/ (end-to-end usage and integration tests)
 - docs/ (optional documentation sources)
 - scripts/ (developer utilities)
@@ -25,18 +25,18 @@ JCGECore
     -> JCGEKernel
       -> JCGEBlocks
         -> JCGECircular
-          -> JCGELibrary
+          -> JCGEExamples
 
 Rules:
 - Core packages must never depend on extensions or the library.
-- JCGELibrary is always “top”; nothing depends on it.
+- JCGEExamples is always “top”; nothing depends on it.
 
 ## Public API stability
 - Until v0.1: breakages allowed, but must be deliberate and reflected in tests and docs.
 - After v0.1: follow semver; document breaking changes.
 
 ## Development approach (near-term)
-- Use a known JuMP CGE model ported into `JCGELibrary` as a concrete target.
+- Use a known JuMP CGE model ported into `JCGEExamples` as a concrete target.
 - Fill missing framework capabilities only as demanded by that model (model-driven development).
 
 ## Contracts (minimum interface)
@@ -70,7 +70,7 @@ JCGEKernel provides:
 - Anything large/licensed must be referenced by instructions, not stored.
 
 ## Library organization
-- In `JCGELibrary`, each model owns its full subtree under `models/<ModelName>/`.
+- In `JCGEExamples`, each model owns its full subtree under `models/<ModelName>/`.
 - All model code, data, and docs live under that model directory; avoid top-level `data/` or `docs/`.
 
 ## Block catalog (planned)

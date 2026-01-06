@@ -17,7 +17,7 @@ JCGE.jl is a modular, block-based framework for building and running computable 
 4. Implement a minimal set of standard blocks (JCGEBlocks).
 5. Add first circular-economy extension blocks (JCGECircular).
 6. Provide a tiny end-to-end example in `examples/` using a toy SAM.
-7. Port an existing JuMP CGE model into `JCGELibrary` as the first real model-driven development target.
+7. Port an existing JuMP CGE model into `JCGEExamples` as the first real model-driven development target.
 
 ## Definition of done (v0.1)
 - One toy SAM example runs end-to-end and replicates the benchmark within tolerance.

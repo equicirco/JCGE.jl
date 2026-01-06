@@ -1,4 +1,4 @@
-module JCGELibrary
+module JCGEExamples
 
 export StandardCGE
 export SimpleCGE

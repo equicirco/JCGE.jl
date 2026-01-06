@@ -16,7 +16,7 @@ jobs:
           - packages/JCGEKernel
           - packages/JCGEBlocks
           - packages/JCGECircular
-          - packages/JCGELibrary
+          - packages/JCGEExamples
     steps:
       - uses: actions/checkout@v4
       - uses: julia-actions/setup-julia@v2
@@ -36,5 +36,5 @@ jobs:
           version: '1'
       - name: Integration (spec loading)
         run: |
-          julia --project=packages/JCGELibrary -e 'using Pkg; Pkg.instantiate()'
+          julia --project=packages/JCGEExamples -e 'using Pkg; Pkg.instantiate()'
           julia examples/integration/run.jl

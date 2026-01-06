@@ -1,7 +1,7 @@
-# JCGELibrary — Development Guide (AGENTS)
+# JCGEExamples — Development Guide (AGENTS)
 
 ## Purpose
-JCGELibrary collects *concrete model definitions* (as submodules) built on top of the JCGE framework packages.
+JCGEExamples collects *concrete model definitions* (as submodules) built on top of the JCGE framework packages.
 
 This package is the place to store:
 - reference models used for development/regression,
@@ -10,14 +10,14 @@ This package is the place to store:
 
 ## Core rule: framework vs model separation
 - Framework packages define *capabilities* (blocks, kernel, calibration).
-- JCGELibrary defines *instances* (specific model structures, closures, default scenarios).
+- JCGEExamples defines *instances* (specific model structures, closures, default scenarios).
 
-Do not move generic framework logic into JCGELibrary.
+Do not move generic framework logic into JCGEExamples.
 
 ## Model directory rule
 - Each model lives under `models/<ModelName>/`.
 - All model-related assets (code, data, docs) must live under that model directory.
-- Do not add parallel top-level `data/` or `docs/` folders in JCGELibrary.
+- Do not add parallel top-level `data/` or `docs/` folders in JCGEExamples.
 
 ## Model module contract (required)
 Each model submodule (e.g. `<ModelName>`) must:
@@ -38,7 +38,7 @@ Each model submodule (e.g. `<ModelName>`) must:
   - instructions for the user to place files locally
 
 ## Versioning
-- Keep JCGELibrary compatible with the current JCGE framework versions used in the monorepo.
+- Keep JCGEExamples compatible with the current JCGE framework versions used in the monorepo.
 - Once published, changes to a model module API should be deliberate and documented.
 
 ## Development approach (near-term)

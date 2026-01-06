@@ -11,8 +11,8 @@ jobs:
       - uses: julia-actions/setup-julia@v2
         with:
           version: '1'
-      - name: Run solver tests (JCGELibrary)
+      - name: Run solver tests (JCGEExamples)
         env:
           JCGE_SOLVE_TESTS: '1'
         run: |
-          julia --project=packages/JCGELibrary -e 'using Pkg; Pkg.instantiate(); Pkg.test()'
+          julia --project=packages/JCGEExamples -e 'using Pkg; Pkg.instantiate(); Pkg.test()'
