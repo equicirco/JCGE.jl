@@ -1,4 +1,4 @@
-module StandardCGE
+module LargeCountryCGE
 
 using JCGEBlocks
 using JCGECalibrate
@@ -9,7 +9,7 @@ export model, baseline, scenario, datadir
 """
     model(; sam_table, sam_path, kwargs...) -> RunSpec
 
-Return a RunSpec for the StandardCGE model port.
+Return a RunSpec for the large-country CGE model port.
 """
 function model(; sam_table::Union{Nothing,JCGECalibrate.SAMTable} = nothing,
     sam_path::Union{Nothing,AbstractString} = nothing,
@@ -23,7 +23,7 @@ function model(; sam_table::Union{Nothing,JCGECalibrate.SAMTable} = nothing,
     investment_label::String = "INV",
     restOfTheWorld_label::String = "EXT")
     if sam_table === nothing
-        sam_path === nothing && error("Provide sam_table or sam_path to StandardCGE.model()")
+        sam_path === nothing && (sam_path = joinpath(@__DIR__, "data", "sam_2_2.csv"))
         sam_table = JCGECalibrate.load_sam_table(sam_path;
             goods = goods,
             factors = factors,
@@ -36,6 +36,7 @@ function model(; sam_table::Union{Nothing,JCGECalibrate.SAMTable} = nothing,
             restOfTheWorld_label = restOfTheWorld_label,
         )
     end
+
     start = JCGECalibrate.compute_starting_values(sam_table)
     params = JCGECalibrate.compute_calibration_params(sam_table, start)
 
@@ -73,11 +74,19 @@ function model(; sam_table::Union{Nothing,JCGECalibrate.SAMTable} = nothing,
 
     invest_block = JCGEBlocks.InvestmentBlock(:investment, commodities, (lambda = params.lambda, Sf = start.Sf))
 
-    price_params = (pWe = start.pWe, pWm = start.pWm)
-    price_block = JCGEBlocks.PriceLinkBlock(:prices, commodities, price_params)
+    price_block = JCGEBlocks.ExchangeRateLinkBlock(:prices, commodities)
 
-    bop_params = (pWe = start.pWe, pWm = start.pWm, Sf = start.Sf)
-    bop_block = JCGEBlocks.ExternalBalanceBlock(:bop, commodities, bop_params)
+    bop_block = JCGEBlocks.ExternalBalanceVarPriceBlock(:bop, commodities, (Sf = start.Sf,))
+
+    foreign_params = (
+        E0 = start.E0,
+        M0 = start.M0,
+        pWe0 = start.pWe,
+        pWm0 = start.pWm,
+        sigma = params.sigma,
+        psi = params.psi,
+    )
+    foreign_block = JCGEBlocks.ForeignTradeBlock(:foreign_trade, commodities, foreign_params)
 
     arm_params = (
         gamma = params.gamma,
@@ -119,6 +128,8 @@ function model(; sam_table::Union{Nothing,JCGECalibrate.SAMTable} = nothing,
         start_vals[JCGEBlocks.global_var(:pe, j)] = start.pe0[j]
         start_vals[JCGEBlocks.global_var(:pm, j)] = start.pm0[j]
         start_vals[JCGEBlocks.global_var(:pd, j)] = start.pd0[j]
+        start_vals[JCGEBlocks.global_var(:pWe, j)] = start.pWe[j]
+        start_vals[JCGEBlocks.global_var(:pWm, j)] = start.pWm[j]
         start_vals[JCGEBlocks.global_var(:Tz, j)] = start.Tz0[j]
         start_vals[JCGEBlocks.global_var(:Tm, j)] = start.Tm0[j]
     end
@@ -156,6 +167,7 @@ function model(; sam_table::Union{Nothing,JCGECalibrate.SAMTable} = nothing,
         invest_block,
         price_block,
         bop_block,
+        foreign_block,
         arm_block,
         trans_block,
         market_block,
@@ -163,10 +175,11 @@ function model(; sam_table::Union{Nothing,JCGECalibrate.SAMTable} = nothing,
         init_block,
         numeraire_block,
     ]
+
     ms = JCGECore.ModelSpec(blocks, sets, mappings)
     closure = JCGECore.ClosureSpec(sam_table.numeraire_factor_label)
     scenario = JCGECore.ScenarioSpec(:baseline, Dict{Symbol,Any}())
-    spec = JCGECore.RunSpec("StandardCGE", ms, closure, scenario)
+    spec = JCGECore.RunSpec("LargeCountryCGE", ms, closure, scenario)
     JCGECore.validate(spec)
     return spec
 end

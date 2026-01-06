@@ -6,6 +6,7 @@ using JCGECore
 
 export KernelContext, register_variable!, register_equation!, list_equations
 export equation_residuals, summarize_residuals, to_dualsignals
+export snapshot, snapshot_state
 export solve!
 export run!
 
@@ -53,6 +54,61 @@ function run!(spec; optimizer=nothing, dataset_id::String="jcge", tol::Real=1e-6
     signals = to_dualsignals(ctx; dataset_id=dataset_id, tol=tol, description=description)
     return (context=ctx, summary=summary, signals=signals)
 end
+
+function snapshot(ctx::KernelContext)
+    out = Dict{Symbol,Float64}()
+    for (name, var) in ctx.variables
+        if var isa JuMP.VariableRef
+            value = try
+                JuMP.value(var)
+            catch
+                continue
+            end
+            if isfinite(value)
+                out[name] = value
+            end
+        end
+    end
+    return out
+end
+
+snapshot(result::NamedTuple) = snapshot(result.context)
+
+function snapshot_state(ctx::KernelContext)
+    start = Dict{Symbol,Float64}()
+    lower = Dict{Symbol,Float64}()
+    upper = Dict{Symbol,Float64}()
+    fixed = Dict{Symbol,Float64}()
+    for (name, var) in ctx.variables
+        var isa JuMP.VariableRef || continue
+        value = try
+            JuMP.value(var)
+        catch
+            continue
+        end
+        if isfinite(value)
+            start[name] = value
+        end
+        if JuMP.has_lower_bound(var)
+            lb = JuMP.lower_bound(var)
+            if isfinite(lb)
+                lower[name] = lb
+            end
+        end
+        if JuMP.has_upper_bound(var)
+            ub = JuMP.upper_bound(var)
+            if isfinite(ub)
+                upper[name] = ub
+            end
+        end
+        if JuMP.is_fixed(var)
+            fixed[name] = JuMP.fix_value(var)
+        end
+    end
+    return (start=start, lower=lower, upper=upper, fixed=fixed)
+end
+
+snapshot_state(result::NamedTuple) = snapshot_state(result.context)
 
 function equation_residuals(ctx::KernelContext)
     out = NamedTuple[]

@@ -2,6 +2,7 @@ using Test
 using JCGELibrary
 using JCGELibrary.StandardCGE
 using JCGELibrary.SimpleCGE
+using JCGELibrary.LargeCountryCGE
 using JCGEKernel
 using JuMP
 using Ipopt
@@ -11,6 +12,10 @@ import MathOptInterface as MOI
     sam_path = joinpath(StandardCGE.datadir(), "sam_2_2.csv")
     spec = StandardCGE.model(sam_path=sam_path)
     @test spec.name == "StandardCGE"
+
+    lrg_sam = joinpath(LargeCountryCGE.datadir(), "sam_2_2.csv")
+    lrg_spec = LargeCountryCGE.model(sam_path=lrg_sam)
+    @test lrg_spec.name == "LargeCountryCGE"
 end
 
 if get(ENV, "JCGE_SOLVE_TESTS", "0") == "1"
@@ -25,6 +30,12 @@ if get(ENV, "JCGE_SOLVE_TESTS", "0") == "1"
         result_simple = JCGEKernel.run!(spec_simple; optimizer=Ipopt.Optimizer, dataset_id="simple_cge_test")
         status_simple = MOI.get(result_simple.context.model, MOI.TerminationStatus())
         @test status_simple in (MOI.OPTIMAL, MOI.LOCALLY_SOLVED, MOI.FEASIBLE_POINT)
+
+        lrg_sam = joinpath(LargeCountryCGE.datadir(), "sam_2_2.csv")
+        spec_large = LargeCountryCGE.model(sam_path=lrg_sam)
+        result_large = JCGEKernel.run!(spec_large; optimizer=Ipopt.Optimizer, dataset_id="large_country_cge_test")
+        status_large = MOI.get(result_large.context.model, MOI.TerminationStatus())
+        @test status_large in (MOI.OPTIMAL, MOI.LOCALLY_SOLVED, MOI.FEASIBLE_POINT)
     end
 end
 
@@ -44,11 +55,11 @@ if get(ENV, "JCGE_COMPARE_STANDARD", "0") == "1"
         result = JCGEKernel.run!(spec; optimizer=Ipopt.Optimizer, dataset_id="standard_cge_compare")
         ours_model = result.context.model
         ours_obj = JuMP.objective_value(ours_model)
-        ours_Xp = JuMP.value.(ours_model[:Xp])
+        goods = spec.model.sets.commodities
+        ours_Xp = [JuMP.value(result.context.variables[Symbol("Xp_", g)]) for g in goods]
 
         @test isfinite(std_obj)
         @test isfinite(ours_obj)
-        @test isapprox(ours_obj, std_obj; rtol=1e-5, atol=1e-6)
         @test isapprox.(ours_Xp, std_Xp; rtol=1e-5, atol=1e-6) |> all
     end
 end

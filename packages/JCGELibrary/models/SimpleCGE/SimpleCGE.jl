@@ -53,12 +53,32 @@ function model(; sam_path::Union{Nothing,AbstractString}=nothing)
 
     util_block = JCGEBlocks.UtilityCobbDouglasBlock(:utility, goods, (alpha = alpha,))
 
+    start_vals = Dict{Symbol,Float64}()
+    lower_vals = Dict{Symbol,Float64}()
+    for i in goods
+        start_vals[JCGEBlocks.global_var(:X, i)] = X0[i]
+        start_vals[JCGEBlocks.global_var(:Z, i)] = Z0[i]
+        start_vals[JCGEBlocks.global_var(:px, i)] = 1.0
+        start_vals[JCGEBlocks.global_var(:pz, i)] = 1.0
+    end
+    for h in factors, j in goods
+        start_vals[JCGEBlocks.global_var(:F, h, j)] = F0[(h, j)]
+    end
+    for h in factors
+        start_vals[JCGEBlocks.global_var(:pf, h)] = 1.0
+    end
+    for (name, value) in start_vals
+        lower_vals[name] = 0.001
+    end
+    init_block = JCGEBlocks.InitialValuesBlock(:init, (start = start_vals, lower = lower_vals))
+
     blocks = Any[
         prod_block,
         household_block,
         goods_market_block,
         factor_market_block,
         price_block,
+        init_block,
         numeraire_block,
         util_block,
     ]
