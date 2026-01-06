@@ -153,7 +153,7 @@ function load_sam_table(file_path::AbstractString; goods::Vector{String} = ["BRD
     end
     row_labels = Symbol.(df[:, "Column1"])
     col_labels = Symbol.(names(df)[2:end])
-    sam = LabeledMatrix(Matrix(df[:, 2:end]), row_labels, col_labels)
+    sam = LabeledMatrix(Matrix{Float64}(df[:, 2:end]), row_labels, col_labels)
     return SAMTable(
         to_symbols(goods),
         to_symbols(factors),
@@ -188,7 +188,7 @@ function load_sam_table(io::IO; goods::Vector{String} = ["BRD", "MLK"],
     end
     row_labels = Symbol.(df[:, "Column1"])
     col_labels = Symbol.(names(df)[2:end])
-    sam = LabeledMatrix(Matrix(df[:, 2:end]), row_labels, col_labels)
+    sam = LabeledMatrix(Matrix{Float64}(df[:, 2:end]), row_labels, col_labels)
     return SAMTable(
         to_symbols(goods),
         to_symbols(factors),
