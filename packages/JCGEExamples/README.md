@@ -33,6 +33,7 @@ Typical usage should look like:
 - `TwoCountryCGE`: Chapter 10.3 (TWOCGE, SEQ=278)
 - `MonopolyCGE`: Chapter 10.4 (MONCGE, SEQ=279)
 - `QuotaCGE`: Chapter 10.5 (QUOCGE, SEQ=280)
+- `ScaleEconomyCGE`: Chapter 10.6 (IRSCGE, SEQ=281)
 
 ## Optional solve tests (CI)
 Solver-based tests are gated behind `JCGE_SOLVE_TESTS=1` and are run via a manual GitHub Actions workflow:

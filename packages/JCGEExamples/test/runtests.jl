@@ -6,6 +6,7 @@ using JCGEExamples.LargeCountryCGE
 using JCGEExamples.TwoCountryCGE
 using JCGEExamples.MonopolyCGE
 using JCGEExamples.QuotaCGE
+using JCGEExamples.ScaleEconomyCGE
 using JCGEKernel
 using JuMP
 using Ipopt
@@ -30,6 +31,10 @@ import MathOptInterface as MOI
     quo_sam = joinpath(QuotaCGE.datadir(), "sam_2_2.csv")
     quo_spec = QuotaCGE.model(sam_path=quo_sam)
     @test quo_spec.name == "QuotaCGE"
+
+    irs_sam = joinpath(ScaleEconomyCGE.datadir(), "sam_2_2.csv")
+    irs_spec = ScaleEconomyCGE.model(sam_path=irs_sam)
+    @test irs_spec.name == "ScaleEconomyCGE"
 end
 
 if get(ENV, "JCGE_SOLVE_TESTS", "0") == "1"
@@ -67,6 +72,12 @@ if get(ENV, "JCGE_SOLVE_TESTS", "0") == "1"
         result_quo = JCGEKernel.run!(spec_quo; optimizer=Ipopt.Optimizer, dataset_id="quota_cge_test")
         status_quo = MOI.get(result_quo.context.model, MOI.TerminationStatus())
         @test status_quo in (MOI.OPTIMAL, MOI.LOCALLY_SOLVED, MOI.FEASIBLE_POINT)
+
+        irs_sam = joinpath(ScaleEconomyCGE.datadir(), "sam_2_2.csv")
+        spec_irs = ScaleEconomyCGE.model(sam_path=irs_sam)
+        result_irs = JCGEKernel.run!(spec_irs; optimizer=Ipopt.Optimizer, dataset_id="scale_economy_cge_test")
+        status_irs = MOI.get(result_irs.context.model, MOI.TerminationStatus())
+        @test status_irs in (MOI.OPTIMAL, MOI.LOCALLY_SOLVED, MOI.FEASIBLE_POINT)
     end
 end
 
