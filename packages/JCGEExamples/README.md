@@ -34,6 +34,7 @@ Typical usage should look like:
 - `MonopolyCGE`: Chapter 10.4 (MONCGE, SEQ=279)
 - `QuotaCGE`: Chapter 10.5 (QUOCGE, SEQ=280)
 - `ScaleEconomyCGE`: Chapter 10.6 (IRSCGE, SEQ=281)
+- `DynCGE`: Recursive-dynamic model (DYNCGE, SEQ=410, Japanese edition)
 
 ## Optional solve tests (CI)
 Solver-based tests are gated behind `JCGE_SOLVE_TESTS=1` and are run via a manual GitHub Actions workflow:

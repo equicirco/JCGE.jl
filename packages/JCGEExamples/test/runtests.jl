@@ -7,6 +7,7 @@ using JCGEExamples.TwoCountryCGE
 using JCGEExamples.MonopolyCGE
 using JCGEExamples.QuotaCGE
 using JCGEExamples.ScaleEconomyCGE
+using JCGEExamples.DynCGE
 using JCGEKernel
 using JuMP
 using Ipopt
@@ -35,49 +36,50 @@ import MathOptInterface as MOI
     irs_sam = joinpath(ScaleEconomyCGE.datadir(), "sam_2_2.csv")
     irs_spec = ScaleEconomyCGE.model(sam_path=irs_sam)
     @test irs_spec.name == "ScaleEconomyCGE"
+
+    dyn_spec = DynCGE.model()
+    @test dyn_spec.name == "DynCGE"
 end
 
 if get(ENV, "JCGE_SOLVE_TESTS", "0") == "1"
     @testset "JCGEExamples.Solve" begin
         sam_path = joinpath(StandardCGE.datadir(), "sam_2_2.csv")
-        spec = StandardCGE.model(sam_path=sam_path)
-        result = JCGEKernel.run!(spec; optimizer=Ipopt.Optimizer, dataset_id="standard_cge_test")
+        result = StandardCGE.solve(sam_path=sam_path; optimizer=Ipopt.Optimizer)
         status = MOI.get(result.context.model, MOI.TerminationStatus())
         @test status in (MOI.OPTIMAL, MOI.LOCALLY_SOLVED, MOI.FEASIBLE_POINT)
 
-        spec_simple = SimpleCGE.model()
-        result_simple = JCGEKernel.run!(spec_simple; optimizer=Ipopt.Optimizer, dataset_id="simple_cge_test")
+        result_simple = SimpleCGE.solve(; optimizer=Ipopt.Optimizer)
         status_simple = MOI.get(result_simple.context.model, MOI.TerminationStatus())
         @test status_simple in (MOI.OPTIMAL, MOI.LOCALLY_SOLVED, MOI.FEASIBLE_POINT)
 
         lrg_sam = joinpath(LargeCountryCGE.datadir(), "sam_2_2.csv")
-        spec_large = LargeCountryCGE.model(sam_path=lrg_sam)
-        result_large = JCGEKernel.run!(spec_large; optimizer=Ipopt.Optimizer, dataset_id="large_country_cge_test")
+        result_large = LargeCountryCGE.solve(sam_path=lrg_sam; optimizer=Ipopt.Optimizer)
         status_large = MOI.get(result_large.context.model, MOI.TerminationStatus())
         @test status_large in (MOI.OPTIMAL, MOI.LOCALLY_SOLVED, MOI.FEASIBLE_POINT)
 
-        spec_two = TwoCountryCGE.model()
-        result_two = JCGEKernel.run!(spec_two; optimizer=Ipopt.Optimizer, dataset_id="two_country_cge_test")
+        result_two = TwoCountryCGE.solve(; optimizer=Ipopt.Optimizer)
         status_two = MOI.get(result_two.context.model, MOI.TerminationStatus())
         @test status_two in (MOI.OPTIMAL, MOI.LOCALLY_SOLVED, MOI.FEASIBLE_POINT)
 
         mon_sam = joinpath(MonopolyCGE.datadir(), "sam_2_2.csv")
-        spec_mon = MonopolyCGE.model(sam_path=mon_sam)
-        result_mon = JCGEKernel.run!(spec_mon; optimizer=Ipopt.Optimizer, dataset_id="monopoly_cge_test")
+        result_mon = MonopolyCGE.solve(sam_path=mon_sam; optimizer=Ipopt.Optimizer)
         status_mon = MOI.get(result_mon.context.model, MOI.TerminationStatus())
         @test status_mon in (MOI.OPTIMAL, MOI.LOCALLY_SOLVED, MOI.FEASIBLE_POINT)
 
         quo_sam = joinpath(QuotaCGE.datadir(), "sam_2_2.csv")
-        spec_quo = QuotaCGE.model(sam_path=quo_sam)
-        result_quo = JCGEKernel.run!(spec_quo; optimizer=Ipopt.Optimizer, dataset_id="quota_cge_test")
+        result_quo = QuotaCGE.solve(sam_path=quo_sam; optimizer=Ipopt.Optimizer)
         status_quo = MOI.get(result_quo.context.model, MOI.TerminationStatus())
         @test status_quo in (MOI.OPTIMAL, MOI.LOCALLY_SOLVED, MOI.FEASIBLE_POINT)
 
         irs_sam = joinpath(ScaleEconomyCGE.datadir(), "sam_2_2.csv")
-        spec_irs = ScaleEconomyCGE.model(sam_path=irs_sam)
-        result_irs = JCGEKernel.run!(spec_irs; optimizer=Ipopt.Optimizer, dataset_id="scale_economy_cge_test")
+        result_irs = ScaleEconomyCGE.solve(sam_path=irs_sam; optimizer=Ipopt.Optimizer)
         status_irs = MOI.get(result_irs.context.model, MOI.TerminationStatus())
         @test status_irs in (MOI.OPTIMAL, MOI.LOCALLY_SOLVED, MOI.FEASIBLE_POINT)
+
+        result_dyn = DynCGE.solve(periods=1; optimizer=Ipopt.Optimizer)
+        result_dyn = result_dyn[1]
+        status_dyn = MOI.get(result_dyn.context.model, MOI.TerminationStatus())
+        @test status_dyn in (MOI.OPTIMAL, MOI.LOCALLY_SOLVED, MOI.FEASIBLE_POINT)
     end
 end
 

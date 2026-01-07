@@ -3,8 +3,10 @@ module QuotaCGE
 using JCGEBlocks
 using JCGECalibrate
 using JCGECore
+using JCGEKernel
+using Ipopt
 
-export model, baseline, scenario, datadir
+export model, baseline, scenario, datadir, solve
 
 """
     model(; sam_path, kwargs...) -> RunSpec
@@ -231,6 +233,10 @@ function model(; sam_path::Union{Nothing,AbstractString} = nothing,
 end
 
 baseline() = model()
+
+function solve(; optimizer=Ipopt.Optimizer, kwargs...)
+    return JCGEKernel.run!(model(; kwargs...); optimizer=optimizer)
+end
 
 function scenario(name::Symbol)
     return JCGECore.ScenarioSpec(name, Dict{Symbol,Any}())

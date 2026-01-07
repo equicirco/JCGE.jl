@@ -48,10 +48,14 @@ world = international_market(:world, goods, regions, mapping)
 
 ## Block catalog (planned)
 - Production: `ProductionCDBlock`, `ProductionCESBlock`, `ProductionLeontiefBlock` (with `ProductionBlock(form=...)`)
+- Production (sectoral factor prices): `ProductionCDLeontiefSectorPFBlock`
 - Factor supply/endowment: fixed factor availability (labor/capital) and shocks
 - Government: `GovernmentBudgetBlock` (taxes, spending, saving)
+- Government budget balance: `GovernmentBudgetBalanceBlock`
 - Investment: `InvestmentDemandBlock`, savings-investment identity
+- Investment composition/allocation: `CompositeInvestmentBlock`, `InvestmentAllocationBlock`
 - Household: `HouseholdDemandBlock`, `UtilityCDBlock`/`UtilityCESBlock`, private saving
+- Household income demand: `HouseholdDemandIncomeBlock`
 - Trade/Armington: `ArmingtonCESBlock`
 - Transformation/CET: `TransformationCETBlock`
 - Monopoly rent: `MonopolyRentBlock`
@@ -59,4 +63,6 @@ world = international_market(:world, goods, regions, mapping)
 - Prices: `WorldPriceLinkBlock`, `ExchangeRateLinkBlock`
 - External balance: balance of payments (foreign savings)
 - Market clearing: `GoodsMarketClearingBlock`, `CompositeMarketClearingBlock`, `FactorMarketClearingBlock`
+- Factor mobility/capital stock: `MobileFactorMarketBlock`, `CapitalStockReturnBlock`
+- Composite consumption/price level: `CompositeConsumptionBlock`, `PriceLevelBlock`
 - Closure: numeraire + macro closure choices

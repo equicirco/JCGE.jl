@@ -3,8 +3,10 @@ module StandardCGE
 using JCGEBlocks
 using JCGECalibrate
 using JCGECore
+using JCGEKernel
+using Ipopt
 
-export model, baseline, scenario, datadir
+export model, baseline, scenario, datadir, solve
 
 """
     model(; sam_table, sam_path, kwargs...) -> RunSpec
@@ -172,6 +174,10 @@ function model(; sam_table::Union{Nothing,JCGECalibrate.SAMTable} = nothing,
 end
 
 baseline() = model()
+
+function solve(; optimizer=Ipopt.Optimizer, kwargs...)
+    return JCGEKernel.run!(model(; kwargs...); optimizer=optimizer)
+end
 
 function scenario(name::Symbol)
     return JCGECore.ScenarioSpec(name, Dict{Symbol,Any}())
