@@ -11,6 +11,7 @@ using JCGEExamples.DynCGE
 using JCGEExamples.CamCGE
 using JCGEExamples.CamMCP
 using JCGEExamples.KorCGE
+using JCGEExamples.KorMCP
 using JCGEKernel
 using JCGEBlocks
 using JuMP
@@ -52,6 +53,9 @@ import MathOptInterface as MOI
 
     kor_spec = KorCGE.model()
     @test kor_spec.name == "KorCGE"
+
+    kormcp_spec = KorMCP.model()
+    @test kormcp_spec.name == "KorMCP"
 
 end
 
@@ -183,11 +187,12 @@ if get(ENV, "JCGE_SOLVE_TESTS", "0") == "1"
     end
 end
 
-if get(ENV, "JCGE_MCP_SOLVE", "0") == "1"
-    @testset "JCGEExamples.MCP" begin
-        result_mcp = CamMCP.solve()
-        @test result_mcp.summary.count >= 0
-    end
+@testset "JCGEExamples.MCP" begin
+    result_mcp = CamMCP.solve()
+    @test result_mcp.summary.count >= 0
+
+    result_kor_mcp = KorMCP.solve()
+    @test result_kor_mcp.summary.count >= 0
 end
 
 

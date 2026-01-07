@@ -93,7 +93,7 @@ function mcp_enabled(params)
 end
 
 function mcp_constraint(model::JuMP.Model, expr, var)
-    return @constraint(model, [expr, var] in MOI.Complements(1))
+    return @constraint(model, expr ⟂ var)
 end
 export factor_supply
 export household_demand
@@ -2529,6 +2529,7 @@ end
 function JCGECore.build!(block::PriceIndexBlock, ctx::JCGEKernel.KernelContext, spec::JCGECore.RunSpec)
     commodities = isempty(block.commodities) ? spec.model.sets.commodities : block.commodities
     model = ctx.model
+    mcp = mcp_enabled(block.params)
 
     pindex = ensure_var!(ctx, model, global_var(:pindex))
     p = Dict{Symbol,Any}()
@@ -2537,7 +2538,15 @@ function JCGECore.build!(block::PriceIndexBlock, ctx::JCGEKernel.KernelContext, 
     end
 
     weights = Dict(i => JCGECore.getparam(block.params, :pwts, i) for i in commodities)
-    constraint = model isa JuMP.Model ? @constraint(model, pindex == sum(p[i] * weights[i] for i in commodities)) : nothing
+    constraint = nothing
+    if model isa JuMP.Model
+        if mcp
+            expr = @expression(model, pindex - sum(p[i] * weights[i] for i in commodities))
+            constraint = mcp_constraint(model, expr, pindex)
+        else
+            constraint = @constraint(model, pindex == sum(p[i] * weights[i] for i in commodities))
+        end
+    end
     register_eq!(ctx, block, :pindexdef; info="pindex == sum(p[i]*pwts[i])", constraint=constraint)
     return nothing
 end
@@ -2892,7 +2901,7 @@ function JCGECore.build!(block::ProductionMultilaborCDBlock, ctx::JCGEKernel.Ker
         constraint = nothing
         if model isa JuMP.Model
             if mcp
-                expr = @NLexpression(
+                expr = @expression(
                     model,
                     xd[i] - ad_i * prod(l[(i, lc)] ^ alphl_vals[lc] for lc in active_labor) *
                               k[i] ^ (1.0 - labor_share)
@@ -2915,7 +2924,7 @@ function JCGECore.build!(block::ProductionMultilaborCDBlock, ctx::JCGEKernel.Ker
             constraint = nothing
             if model isa JuMP.Model
                 if mcp
-                    expr = @NLexpression(model, wa[lc] * wdist_i * l[(i, lc)] - xd[i] * pva[i] * alpha_i)
+                    expr = @expression(model, wa[lc] * wdist_i * l[(i, lc)] - xd[i] * pva[i] * alpha_i)
                     constraint = mcp_constraint(model, expr, l[(i, lc)])
                 else
                     constraint = @NLconstraint(
@@ -2940,12 +2949,13 @@ function JCGECore.build!(block::LaborMarketClearingBlock, ctx::JCGEKernel.Kernel
 
     for lc in labor
         ls = ensure_var!(ctx, model, global_var(:ls, lc))
+        wa = ensure_var!(ctx, model, global_var(:wa, lc))
         l = Dict(i => ensure_var!(ctx, model, global_var(:l, i, lc)) for i in activities)
         constraint = nothing
         if model isa JuMP.Model
             if mcp
                 expr = @expression(model, ls - sum(l[i] for i in activities))
-                constraint = mcp_constraint(model, expr, wa[lc])
+                constraint = mcp_constraint(model, expr, wa)
             else
                 constraint = @constraint(model, sum(l[i] for i in activities) == ls)
             end
@@ -3052,7 +3062,7 @@ function JCGECore.build!(block::TradePriceLinkBlock, ctx::JCGEKernel.KernelConte
         constraint = nothing
         if model isa JuMP.Model
             if mcp
-                expr = @NLexpression(model, pm - pwm_val * er * (1.0 + tm + pr))
+                expr = @expression(model, pm - pwm_val * er * (1.0 + tm + pr))
                 constraint = mcp_constraint(model, expr, pm)
             else
                 constraint = @NLconstraint(model, pm == pwm_val * er * (1.0 + tm + pr))
@@ -3068,8 +3078,8 @@ function JCGECore.build!(block::TradePriceLinkBlock, ctx::JCGEKernel.KernelConte
         if model isa JuMP.Model
             if mcp
                 expr = pedef_mode == :pwe ?
-                    @NLexpression(model, pe - pwe_val * (1.0 + te_i) * er) :
-                    @NLexpression(model, pe * (1.0 + te_i) - pwe_val * er)
+                    @expression(model, pe - pwe_val * (1.0 + te_i) * er) :
+                    @expression(model, pe * (1.0 + te_i) - pwe_val * er)
                 constraint = mcp_constraint(model, expr, pe)
             else
                 constraint = pedef_mode == :pwe ?
@@ -3091,6 +3101,7 @@ function JCGECore.build!(block::AbsorptionSalesBlock, ctx::JCGEKernel.KernelCont
 
     for i in commodities
         p = ensure_var!(ctx, model, global_var(:p, i))
+        px = ensure_var!(ctx, model, global_var(:px, i))
         x = ensure_var!(ctx, model, global_var(:x, i))
         pd = ensure_var!(ctx, model, global_var(:pd, i))
         xxd = ensure_var!(ctx, model, global_var(:xxd, i))
@@ -3100,8 +3111,8 @@ function JCGECore.build!(block::AbsorptionSalesBlock, ctx::JCGEKernel.KernelCont
         constraint = nothing
         if model isa JuMP.Model
             if mcp
-                expr = @NLexpression(model, p * x - pd * xxd - term_m)
-                constraint = mcp_constraint(model, expr, x)
+                expr = @expression(model, p * x - pd * xxd - term_m)
+                constraint = mcp_constraint(model, expr, p)
             else
                 constraint = @NLconstraint(model, p * x == pd * xxd + term_m)
             end
@@ -3117,7 +3128,7 @@ function JCGECore.build!(block::AbsorptionSalesBlock, ctx::JCGEKernel.KernelCont
         constraint = nothing
         if model isa JuMP.Model
             if mcp
-                expr = @NLexpression(model, px * xd - pd * xxd - term_e)
+                expr = @expression(model, px * xd - pd * xxd - term_e)
                 constraint = mcp_constraint(model, expr, xxd)
             else
                 constraint = @NLconstraint(model, px * xd == pd * xxd + term_e)
@@ -3148,7 +3159,7 @@ function JCGECore.build!(block::ArmingtonMXxdBlock, ctx::JCGEKernel.KernelContex
         constraint = nothing
         if model isa JuMP.Model
             if mcp
-                expr = @NLexpression(
+                expr = @expression(
                     model,
                     x - ac_i * (delta_i * m ^ (-rhoc_i) + (1.0 - delta_i) * xxd ^ (-rhoc_i)) ^ (-1.0 / rhoc_i)
                 )
@@ -3166,7 +3177,7 @@ function JCGECore.build!(block::ArmingtonMXxdBlock, ctx::JCGEKernel.KernelContex
         constraint = nothing
         if model isa JuMP.Model
             if mcp
-                expr = @NLexpression(
+                expr = @expression(
                     model,
                     m / xxd - (pd / pm * delta_i / (1.0 - delta_i)) ^ (1.0 / (1.0 + rhoc_i))
                 )
@@ -3192,6 +3203,7 @@ function JCGECore.build!(block::CETXXDEBlock, ctx::JCGEKernel.KernelContext, spe
 
     for i in traded
         xd = ensure_var!(ctx, model, global_var(:xd, i))
+        px = ensure_var!(ctx, model, global_var(:px, i))
         e = ensure_var!(ctx, model, global_var(:e, i))
         xxd = ensure_var!(ctx, model, global_var(:xxd, i))
         pe = ensure_var!(ctx, model, global_var(:pe, i))
@@ -3203,7 +3215,7 @@ function JCGECore.build!(block::CETXXDEBlock, ctx::JCGEKernel.KernelContext, spe
         constraint = nothing
         if model isa JuMP.Model
             if mcp
-                expr = @NLexpression(
+                expr = @expression(
                     model,
                     xd - at_i * (gamma_i * e ^ rhot_i + (1.0 - gamma_i) * xxd ^ rhot_i) ^ (1.0 / rhot_i)
                 )
@@ -3221,7 +3233,7 @@ function JCGECore.build!(block::CETXXDEBlock, ctx::JCGEKernel.KernelContext, spe
         constraint = nothing
         if model isa JuMP.Model
             if mcp
-                expr = @NLexpression(
+                expr = @expression(
                     model,
                     e / xxd - (pe / pd * (1.0 - gamma_i) / gamma_i) ^ (1.0 / (rhot_i - 1.0))
                 )
@@ -3254,7 +3266,7 @@ function JCGECore.build!(block::ExportDemandBlock, ctx::JCGEKernel.KernelContext
         constraint = nothing
         if model isa JuMP.Model
             if mcp
-                expr = @NLexpression(model, e / e0_i - (pwe0_i / pwe) ^ eta_i)
+                expr = @expression(model, e / e0_i - (pwe0_i / pwe) ^ eta_i)
                 constraint = mcp_constraint(model, expr, pwe)
             else
                 constraint = @NLconstraint(model, e / e0_i == (pwe0_i / pwe) ^ eta_i)
@@ -3269,14 +3281,34 @@ end
 function JCGECore.build!(block::NontradedSupplyBlock, ctx::JCGEKernel.KernelContext, spec::JCGECore.RunSpec)
     nontraded = hasproperty(block.params, :nontraded) ? block.params.nontraded : Symbol[]
     model = ctx.model
+    mcp = mcp_enabled(block.params)
     for i in nontraded
         xxd = ensure_var!(ctx, model, global_var(:xxd, i))
         xd = ensure_var!(ctx, model, global_var(:xd, i))
         x = ensure_var!(ctx, model, global_var(:x, i))
-        constraint = model isa JuMP.Model ? @constraint(model, xxd == xd) : nothing
+        pd = ensure_var!(ctx, model, global_var(:pd, i))
+        p = ensure_var!(ctx, model, global_var(:p, i))
+        px = ensure_var!(ctx, model, global_var(:px, i))
+        constraint = nothing
+        if model isa JuMP.Model
+            if mcp
+                expr = @expression(model, xxd - xd)
+                constraint = mcp_constraint(model, expr, pd)
+            else
+                constraint = @constraint(model, xxd == xd)
+            end
+        end
         JCGEKernel.register_equation!(ctx; tag=:xxdsn, block=block.name,
             payload=(indices=(i,), info="xxd = xd (nontraded)", constraint=constraint))
-        constraint = model isa JuMP.Model ? @constraint(model, x == xxd) : nothing
+        constraint = nothing
+        if model isa JuMP.Model
+            if mcp
+                expr = @expression(model, x - xxd)
+                constraint = mcp_constraint(model, expr, px)
+            else
+                constraint = @constraint(model, x == xxd)
+            end
+        end
         JCGEKernel.register_equation!(ctx; tag=:xsn, block=block.name,
             payload=(indices=(i,), info="x = xxd (nontraded)", constraint=constraint))
     end
@@ -3297,7 +3329,7 @@ function JCGECore.build!(block::HouseholdShareDemandBlock, ctx::JCGEKernel.Kerne
         constraint = nothing
         if model isa JuMP.Model
             if mcp
-                expr = @NLexpression(model, p * cd - cles_i * (1.0 - mps) * y)
+                expr = @expression(model, p * cd - cles_i * (1.0 - mps) * y)
                 constraint = mcp_constraint(model, expr, cd)
             else
                 constraint = @NLconstraint(model, p * cd == cles_i * (1.0 - mps) * y)
@@ -3311,7 +3343,7 @@ function JCGECore.build!(block::HouseholdShareDemandBlock, ctx::JCGEKernel.Kerne
     constraint = nothing
     if model isa JuMP.Model
         if mcp
-            expr = @NLexpression(model, hhsav - mps * y)
+            expr = @expression(model, hhsav - mps * y)
             constraint = mcp_constraint(model, expr, hhsav)
         else
             constraint = @NLconstraint(model, hhsav == mps * y)
@@ -3338,7 +3370,7 @@ function JCGECore.build!(block::HouseholdShareDemandHHBlock, ctx::JCGEKernel.Ker
         cles_vals = Dict(hh => JCGECore.getparam(block.params, :cles, i, hh) for hh in households)
         constraint = nothing
         if model isa JuMP.Model
-            expr = @NLexpression(
+            expr = @expression(
                 model,
                 p[i] * cd[i] - sum(cles_vals[hh] * (1.0 - mps[hh]) * yh[hh] * (1.0 - htax_vals[hh]) for hh in households)
             )
@@ -3355,7 +3387,7 @@ function JCGECore.build!(block::HouseholdShareDemandHHBlock, ctx::JCGEKernel.Ker
     hhsav = ensure_var!(ctx, model, global_var(:hhsav))
     constraint = nothing
     if model isa JuMP.Model
-        expr = @NLexpression(
+        expr = @expression(
             model,
             hhsav - sum(mps[hh] * yh[hh] * (1.0 - htax_vals[hh]) for hh in households)
         )
@@ -3394,7 +3426,7 @@ function JCGECore.build!(block::HouseholdIncomeLaborCapitalBlock, ctx::JCGEKerne
 
     constraint = nothing
     if model isa JuMP.Model
-        expr = @NLexpression(model, yh[labor_hh] - sum(wa[lc] * ls[lc] for lc in labor) - remit * er)
+        expr = @expression(model, yh[labor_hh] - sum(wa[lc] * ls[lc] for lc in labor) - remit * er)
         if mcp
             constraint = mcp_constraint(model, expr, yh[labor_hh])
         else
@@ -3406,7 +3438,7 @@ function JCGECore.build!(block::HouseholdIncomeLaborCapitalBlock, ctx::JCGEKerne
 
     constraint = nothing
     if model isa JuMP.Model
-        expr = @NLexpression(
+        expr = @expression(
             model,
             yh[capital_hh] - sum(pva[i] * xd[i] for i in activities) + deprecia +
                 sum(wa[lc] * ls[lc] for lc in labor) - fbor * er - ypr
@@ -3541,7 +3573,7 @@ function JCGECore.build!(block::GovernmentFinanceBlock, ctx::JCGEKernel.KernelCo
     constraint = nothing
     if model isa JuMP.Model
         if mcp
-            expr = @NLexpression(model, tariff - sum(tm_vars[i] * m_vars[i] * pwm_vars[i] for i in traded) * er)
+            expr = @expression(model, tariff - sum(tm_vars[i] * m_vars[i] * pwm_vars[i] for i in traded) * er)
             constraint = mcp_constraint(model, expr, tariff)
         else
             constraint = @NLconstraint(
@@ -3556,7 +3588,7 @@ function JCGECore.build!(block::GovernmentFinanceBlock, ctx::JCGEKernel.KernelCo
     constraint = nothing
     if model isa JuMP.Model
         if mcp
-            expr = @NLexpression(model, indtax - sum(itax_vals[i] * px_vars[i] * xd_vars[i] for i in commodities))
+            expr = @expression(model, indtax - sum(itax_vals[i] * px_vars[i] * xd_vars[i] for i in commodities))
             constraint = mcp_constraint(model, expr, indtax)
         else
             constraint = @NLconstraint(model, indtax == sum(itax_vals[i] * px_vars[i] * xd_vars[i] for i in commodities))
@@ -3568,7 +3600,7 @@ function JCGECore.build!(block::GovernmentFinanceBlock, ctx::JCGEKernel.KernelCo
     constraint = nothing
     if model isa JuMP.Model
         if mcp
-            expr = @NLexpression(model, duty - sum(te_vals[i] * e_vars[i] * pe_vars[i] for i in traded))
+            expr = @expression(model, duty - sum(te_vals[i] * e_vars[i] * pe_vars[i] for i in traded))
             constraint = mcp_constraint(model, expr, duty)
         else
             constraint = @NLconstraint(model, duty == sum(te_vals[i] * e_vars[i] * pe_vars[i] for i in traded))
@@ -3592,7 +3624,7 @@ function JCGECore.build!(block::GovernmentFinanceBlock, ctx::JCGEKernel.KernelCo
     constraint = nothing
     if model isa JuMP.Model
         if mcp
-            expr = @NLexpression(model, gr - sum(p_vars[i] * gd_vars[i] for i in commodities) - govsav)
+            expr = @expression(model, gr - sum(p_vars[i] * gd_vars[i] for i in commodities) - govsav)
             constraint = mcp_constraint(model, expr, govsav)
         else
             constraint = @NLconstraint(model, gr == sum(p_vars[i] * gd_vars[i] for i in commodities) + govsav)
@@ -3635,7 +3667,7 @@ function JCGECore.build!(block::GovernmentRevenueBlock, ctx::JCGEKernel.KernelCo
     constraint = nothing
     if model isa JuMP.Model
         if mcp
-            expr = @NLexpression(model, tariff - sum(tm_vars[i] * m_vars[i] * pwm_vars[i] for i in traded) * er)
+            expr = @expression(model, tariff - sum(tm_vars[i] * m_vars[i] * pwm_vars[i] for i in traded) * er)
             constraint = mcp_constraint(model, expr, tariff)
         else
             constraint = @NLconstraint(
@@ -3650,7 +3682,7 @@ function JCGECore.build!(block::GovernmentRevenueBlock, ctx::JCGEKernel.KernelCo
     constraint = nothing
     if model isa JuMP.Model
         if mcp
-            expr = @NLexpression(model, indtax - sum(itax_vals[i] * px_vars[i] * xd_vars[i] for i in commodities))
+            expr = @expression(model, indtax - sum(itax_vals[i] * px_vars[i] * xd_vars[i] for i in commodities))
             constraint = mcp_constraint(model, expr, indtax)
         else
             constraint = @NLconstraint(model, indtax == sum(itax_vals[i] * px_vars[i] * xd_vars[i] for i in commodities))
@@ -3662,7 +3694,7 @@ function JCGECore.build!(block::GovernmentRevenueBlock, ctx::JCGEKernel.KernelCo
     constraint = nothing
     if model isa JuMP.Model
         if mcp
-            expr = @NLexpression(model, netsub - sum(te_vals[i] * e_vars[i] * pwe_vars[i] for i in traded) * er)
+            expr = @expression(model, netsub - sum(te_vals[i] * e_vars[i] * pwe_vars[i] for i in traded) * er)
             constraint = mcp_constraint(model, expr, netsub)
         else
             constraint = @NLconstraint(model, netsub == sum(te_vals[i] * e_vars[i] * pwe_vars[i] for i in traded) * er)
@@ -3686,7 +3718,7 @@ function JCGECore.build!(block::GovernmentRevenueBlock, ctx::JCGEKernel.KernelCo
     constraint = nothing
     if model isa JuMP.Model
         if mcp
-            expr = @NLexpression(model, gr - sum(p_vars[i] * gd_vars[i] for i in commodities) - govsav)
+            expr = @expression(model, gr - sum(p_vars[i] * gd_vars[i] for i in commodities) - govsav)
             constraint = mcp_constraint(model, expr, govsav)
         else
             constraint = @NLconstraint(model, gr == sum(p_vars[i] * gd_vars[i] for i in commodities) + govsav)
@@ -3712,7 +3744,7 @@ function JCGECore.build!(block::ImportPremiumIncomeBlock, ctx::JCGEKernel.Kernel
 
     constraint = nothing
     if model isa JuMP.Model
-        expr = @NLexpression(model, ypr - sum(pwm_vars[i] * m_vars[i] for i in traded) * er * pr)
+        expr = @expression(model, ypr - sum(pwm_vars[i] * m_vars[i] for i in traded) * er * pr)
         if mcp
             constraint = mcp_constraint(model, expr, ypr)
         else
@@ -3735,7 +3767,7 @@ function JCGECore.build!(block::GDPIncomeBlock, ctx::JCGEKernel.KernelContext, s
     constraint = nothing
     if model isa JuMP.Model
         if mcp
-            expr = @NLexpression(model, y - sum(pva_vars[i] * xd_vars[i] for i in activities) + deprecia)
+            expr = @expression(model, y - sum(pva_vars[i] * xd_vars[i] for i in activities) + deprecia)
             constraint = mcp_constraint(model, expr, y)
         else
             constraint = @NLconstraint(model,
@@ -3772,7 +3804,7 @@ function JCGECore.build!(block::SavingsInvestmentBlock, ctx::JCGEKernel.KernelCo
     constraint = nothing
     if model isa JuMP.Model
         if mcp
-            expr = @NLexpression(model, deprecia - sum(depr_vals[i] * pk_vars[i] * k_vars[i] for i in activities))
+            expr = @expression(model, deprecia - sum(depr_vals[i] * pk_vars[i] * k_vars[i] for i in activities))
             constraint = mcp_constraint(model, expr, deprecia)
         else
             constraint = @NLconstraint(model,
@@ -3786,7 +3818,7 @@ function JCGECore.build!(block::SavingsInvestmentBlock, ctx::JCGEKernel.KernelCo
     constraint = nothing
     if model isa JuMP.Model
         if mcp
-            expr = @NLexpression(model, savings - (hhsav + govsav + deprecia + fsav * er))
+            expr = @expression(model, savings - (hhsav + govsav + deprecia + fsav * er))
             constraint = mcp_constraint(model, expr, savings)
         else
             constraint = @NLconstraint(model, savings == hhsav + govsav + deprecia + fsav * er)
@@ -3800,7 +3832,7 @@ function JCGECore.build!(block::SavingsInvestmentBlock, ctx::JCGEKernel.KernelCo
         constraint = nothing
         if model isa JuMP.Model
             if mcp
-                expr = @NLexpression(
+                expr = @expression(
                     model,
                     pk_vars[i] * dk_vars[i] - (kio_i * invest - kio_i * sum(dst_vars[j] * p_vars[j] for j in commodities))
                 )
@@ -3855,7 +3887,7 @@ function JCGECore.build!(block::FinalDemandClearingBlock, ctx::JCGEKernel.Kernel
         if model isa JuMP.Model
             if mcp
                 expr = @expression(model, x - int - cd - gd - id - dst)
-                constraint = mcp_constraint(model, expr, ensure_var!(ctx, model, global_var(:p, i)))
+                constraint = mcp_constraint(model, expr, x)
             else
                 constraint = @constraint(model, x == int + cd + gd + id + dst)
             end
@@ -3869,13 +3901,19 @@ end
 function JCGECore.build!(block::ConsumptionObjectiveBlock, ctx::JCGEKernel.KernelContext, spec::JCGECore.RunSpec)
     commodities = isempty(block.commodities) ? spec.model.sets.commodities : block.commodities
     model = ctx.model
+    mcp = mcp_enabled(block.params)
     omega = ensure_var!(ctx, model, global_var(:omega))
     cd = Dict(i => ensure_var!(ctx, model, global_var(:cd, i)) for i in commodities)
     if model isa JuMP.Model
         alpha_vals = Dict(i => JCGECore.getparam(block.params, :alpha, i) for i in commodities)
         active = [i for i in commodities if alpha_vals[i] > 0.0]
-        @NLconstraint(model, omega == prod(cd[i] ^ alpha_vals[i] for i in active))
-        @NLobjective(model, Max, omega)
+        if mcp
+            expr = @expression(model, omega - prod(cd[i] ^ alpha_vals[i] for i in active))
+            mcp_constraint(model, expr, omega)
+        else
+            @NLconstraint(model, omega == prod(cd[i] ^ alpha_vals[i] for i in active))
+            @NLobjective(model, Max, omega)
+        end
     end
     JCGEKernel.register_equation!(ctx; tag=:objective, block=block.name,
         payload=(indices=(), info="omega = prod(cd^alpha)", constraint=nothing))

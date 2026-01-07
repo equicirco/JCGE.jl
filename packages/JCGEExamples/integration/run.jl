@@ -10,6 +10,7 @@ specs = JCGECore.RunSpec[
     JCGEExamples.QuotaCGE.model(),
     JCGEExamples.ScaleEconomyCGE.model(),
     JCGEExamples.KorCGE.model(),
+    JCGEExamples.KorMCP.model(),
 ]
 
 for spec in specs
