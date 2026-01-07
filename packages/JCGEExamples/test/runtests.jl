@@ -4,6 +4,7 @@ using JCGEExamples.StandardCGE
 using JCGEExamples.SimpleCGE
 using JCGEExamples.LargeCountryCGE
 using JCGEExamples.TwoCountryCGE
+using JCGEExamples.MonopolyCGE
 using JCGEKernel
 using JuMP
 using Ipopt
@@ -20,6 +21,10 @@ import MathOptInterface as MOI
 
     two_spec = TwoCountryCGE.model()
     @test two_spec.name == "TwoCountryCGE"
+
+    mon_sam = joinpath(MonopolyCGE.datadir(), "sam_2_2.csv")
+    mon_spec = MonopolyCGE.model(sam_path=mon_sam)
+    @test mon_spec.name == "MonopolyCGE"
 end
 
 if get(ENV, "JCGE_SOLVE_TESTS", "0") == "1"
@@ -45,6 +50,12 @@ if get(ENV, "JCGE_SOLVE_TESTS", "0") == "1"
         result_two = JCGEKernel.run!(spec_two; optimizer=Ipopt.Optimizer, dataset_id="two_country_cge_test")
         status_two = MOI.get(result_two.context.model, MOI.TerminationStatus())
         @test status_two in (MOI.OPTIMAL, MOI.LOCALLY_SOLVED, MOI.FEASIBLE_POINT)
+
+        mon_sam = joinpath(MonopolyCGE.datadir(), "sam_2_2.csv")
+        spec_mon = MonopolyCGE.model(sam_path=mon_sam)
+        result_mon = JCGEKernel.run!(spec_mon; optimizer=Ipopt.Optimizer, dataset_id="monopoly_cge_test")
+        status_mon = MOI.get(result_mon.context.model, MOI.TerminationStatus())
+        @test status_mon in (MOI.OPTIMAL, MOI.LOCALLY_SOLVED, MOI.FEASIBLE_POINT)
     end
 end
 

@@ -54,6 +54,7 @@ world = international_market(:world, goods, regions, mapping)
 - Household: `HouseholdDemandBlock`, `UtilityCDBlock`/`UtilityCESBlock`, private saving
 - Trade/Armington: `ArmingtonCESBlock`
 - Transformation/CET: `TransformationCETBlock`
+- Monopoly rent: `MonopolyRentBlock`
 - Prices: `WorldPriceLinkBlock`, `ExchangeRateLinkBlock`
 - External balance: balance of payments (foreign savings)
 - Market clearing: `GoodsMarketClearingBlock`, `CompositeMarketClearingBlock`, `FactorMarketClearingBlock`

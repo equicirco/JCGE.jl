@@ -5,7 +5,7 @@ JCGE.jl is a modular, block-based framework for building and running computable 
 
 ## Monorepo structure
 - `packages/`: independently testable Julia packages (Core, Calibrate, Kernel, Blocks, Circular)
-- `examples/`: runnable reference models and scenarios
+- `JCGEExamples`: runnable reference models and scenarios
 - `docs/`: documentation sources (optional)
 - `scripts/`: developer utilities (optional)
 - `data/`: tiny toy datasets only (no large or proprietary files)
@@ -16,7 +16,7 @@ JCGE.jl is a modular, block-based framework for building and running computable 
 3. Implement a JuMP kernel with variable/constraint registries and diagnostics (JCGEKernel).
 4. Implement a minimal set of standard blocks (JCGEBlocks).
 5. Add first circular-economy extension blocks (JCGECircular).
-6. Provide a tiny end-to-end example in `examples/` using a toy SAM.
+6. Provide a tiny end-to-end example in `JCGEExamples` using a toy SAM.
 7. Port an existing JuMP CGE model into `JCGEExamples` as the first real model-driven development target.
 
 ## Definition of done (v0.1)

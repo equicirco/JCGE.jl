@@ -14,7 +14,6 @@ JCGE.jl is a monorepo containing multiple Julia packages for building CGE models
 - packages/JCGEBlocks
 - packages/JCGECircular
 - packages/JCGEExamples
-- examples/ (end-to-end usage and integration tests)
 - docs/ (optional documentation sources)
 - scripts/ (developer utilities)
 - data/ (tiny toy data only)
@@ -62,7 +61,7 @@ JCGEKernel provides:
 
 ## Testing requirements
 - Each package must have unit tests in packages/<Pkg>/test/runtests.jl
-- Repo must have at least one integration test under examples/integration/
+- Repo must have at least one integration test under packages/JCGEExamples/integration/
 - CI must run package tests and the integration test script(s)
 
 ## Data policy
