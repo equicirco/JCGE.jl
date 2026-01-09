@@ -1403,19 +1403,27 @@ function _render_expr(expr::EquationExpr; format::Symbol)
         return string("-", inner)
     elseif expr isa ESum
         inner = _render_expr(expr.expr; format=format)
-        domain = join(map(idx -> _render_index(idx; format=format), expr.domain), ", ")
         if format == :latex
             idx = _latex_escape(string(expr.index))
-            return string("\\sum_{", idx, " \\in \\lbrace ", domain, " \\rbrace} ", inner)
+            domain_items = map(expr.domain) do item
+                return string("\\text{", _latex_escape(string(item)), "}")
+            end
+            domain = join(domain_items, ", ")
+            return string("\\sum_{", idx, " \\in \\{ ", domain, " \\} } ", inner)
         end
+        domain = join(map(idx -> _latex_escape(string(idx)), expr.domain), ", ")
         return string("sum_", expr.index, "∈{", domain, "}(", inner, ")")
     elseif expr isa EProd
         inner = _render_expr(expr.expr; format=format)
-        domain = join(map(idx -> _render_index(idx; format=format), expr.domain), ", ")
         if format == :latex
             idx = _latex_escape(string(expr.index))
-            return string("\\prod_{", idx, " \\in \\lbrace ", domain, " \\rbrace} ", inner)
+            domain_items = map(expr.domain) do item
+                return string("\\text{", _latex_escape(string(item)), "}")
+            end
+            domain = join(domain_items, ", ")
+            return string("\\prod_{", idx, " \\in \\{ ", domain, " \\} } ", inner)
         end
+        domain = join(map(idx -> _latex_escape(string(idx)), expr.domain), ", ")
         return string("prod_", expr.index, "∈{", domain, "}(", inner, ")")
     elseif expr isa EEq
         lhs = _render_expr(expr.lhs; format=format)
@@ -1454,7 +1462,7 @@ function _render_index(idx; format::Symbol)
         return format == :latex ? _latex_escape(text) : text
     end
     text = string(idx)
-    return format == :latex ? string("\\mathrm{", _latex_escape(text), "}") : text
+    return format == :latex ? string("\\text{", _latex_escape(text), "}") : text
 end
 
 function _latex_escape(text::AbstractString)
