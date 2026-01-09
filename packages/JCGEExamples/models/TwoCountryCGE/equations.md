@@ -2,7 +2,7 @@
 `prod.eqpy[BRD_JPN]`
 
 $$
-\mathrm{Y}_{i} = \mathrm{b}_{i} \cdot \prod_{h \in \{ \text{CAP\_JPN}, \text{LAB\_JPN} \} } {\mathrm{F}_{h,i}}^{\mathrm{beta}_{h,i}}
+\mathrm{Y}_{i} = \mathrm{b}_{i} \cdot \prod_{h \in \lbrace \text{CAP\_JPN}, \text{LAB\_JPN} \rbrace } {\mathrm{F}_{h,i}}^{\mathrm{beta}_{h,i}}
 $$
 
 `prod.eqF[CAP_JPN,BRD_JPN]`
@@ -38,13 +38,13 @@ $$
 `prod.eqpzs[BRD_JPN]`
 
 $$
-\mathrm{pz}_{i} = \mathrm{ay}_{i} \cdot \mathrm{py}_{i} + \sum_{j \in \{ \text{BRD\_JPN}, \text{MLK\_JPN} \} } \mathrm{ax}_{j,i} \cdot \mathrm{pq}_{j} + 0.0
+\mathrm{pz}_{i} = \mathrm{ay}_{i} \cdot \mathrm{py}_{i} + \sum_{j \in \lbrace \text{BRD\_JPN}, \text{MLK\_JPN} \rbrace } \mathrm{ax}_{j,i} \cdot \mathrm{pq}_{j} + 0.0
 $$
 
 `prod.eqpy[MLK_JPN]`
 
 $$
-\mathrm{Y}_{i} = \mathrm{b}_{i} \cdot \prod_{h \in \{ \text{CAP\_JPN}, \text{LAB\_JPN} \} } {\mathrm{F}_{h,i}}^{\mathrm{beta}_{h,i}}
+\mathrm{Y}_{i} = \mathrm{b}_{i} \cdot \prod_{h \in \lbrace \text{CAP\_JPN}, \text{LAB\_JPN} \rbrace } {\mathrm{F}_{h,i}}^{\mathrm{beta}_{h,i}}
 $$
 
 `prod.eqF[CAP_JPN,MLK_JPN]`
@@ -80,13 +80,13 @@ $$
 `prod.eqpzs[MLK_JPN]`
 
 $$
-\mathrm{pz}_{i} = \mathrm{ay}_{i} \cdot \mathrm{py}_{i} + \sum_{j \in \{ \text{BRD\_JPN}, \text{MLK\_JPN} \} } \mathrm{ax}_{j,i} \cdot \mathrm{pq}_{j} + 0.0
+\mathrm{pz}_{i} = \mathrm{ay}_{i} \cdot \mathrm{py}_{i} + \sum_{j \in \lbrace \text{BRD\_JPN}, \text{MLK\_JPN} \rbrace } \mathrm{ax}_{j,i} \cdot \mathrm{pq}_{j} + 0.0
 $$
 
 `prod.eqpy[BRD_USA]`
 
 $$
-\mathrm{Y}_{i} = \mathrm{b}_{i} \cdot \prod_{h \in \{ \text{CAP\_USA}, \text{LAB\_USA} \} } {\mathrm{F}_{h,i}}^{\mathrm{beta}_{h,i}}
+\mathrm{Y}_{i} = \mathrm{b}_{i} \cdot \prod_{h \in \lbrace \text{CAP\_USA}, \text{LAB\_USA} \rbrace } {\mathrm{F}_{h,i}}^{\mathrm{beta}_{h,i}}
 $$
 
 `prod.eqF[CAP_USA,BRD_USA]`
@@ -122,13 +122,13 @@ $$
 `prod.eqpzs[BRD_USA]`
 
 $$
-\mathrm{pz}_{i} = \mathrm{ay}_{i} \cdot \mathrm{py}_{i} + \sum_{j \in \{ \text{BRD\_USA}, \text{MLK\_USA} \} } \mathrm{ax}_{j,i} \cdot \mathrm{pq}_{j} + 0.0
+\mathrm{pz}_{i} = \mathrm{ay}_{i} \cdot \mathrm{py}_{i} + \sum_{j \in \lbrace \text{BRD\_USA}, \text{MLK\_USA} \rbrace } \mathrm{ax}_{j,i} \cdot \mathrm{pq}_{j} + 0.0
 $$
 
 `prod.eqpy[MLK_USA]`
 
 $$
-\mathrm{Y}_{i} = \mathrm{b}_{i} \cdot \prod_{h \in \{ \text{CAP\_USA}, \text{LAB\_USA} \} } {\mathrm{F}_{h,i}}^{\mathrm{beta}_{h,i}}
+\mathrm{Y}_{i} = \mathrm{b}_{i} \cdot \prod_{h \in \lbrace \text{CAP\_USA}, \text{LAB\_USA} \rbrace } {\mathrm{F}_{h,i}}^{\mathrm{beta}_{h,i}}
 $$
 
 `prod.eqF[CAP_USA,MLK_USA]`
@@ -164,37 +164,37 @@ $$
 `prod.eqpzs[MLK_USA]`
 
 $$
-\mathrm{pz}_{i} = \mathrm{ay}_{i} \cdot \mathrm{py}_{i} + \sum_{j \in \{ \text{BRD\_USA}, \text{MLK\_USA} \} } \mathrm{ax}_{j,i} \cdot \mathrm{pq}_{j} + 0.0
+\mathrm{pz}_{i} = \mathrm{ay}_{i} \cdot \mathrm{py}_{i} + \sum_{j \in \lbrace \text{BRD\_USA}, \text{MLK\_USA} \rbrace } \mathrm{ax}_{j,i} \cdot \mathrm{pq}_{j} + 0.0
 $$
 
 `factor_market.eqF[CAP_JPN]`
 
 $$
-\sum_{j \in \{ \text{BRD\_JPN}, \text{MLK\_JPN} \} } \mathrm{F}_{h,j} = \mathrm{FF}_{h}
+\sum_{j \in \lbrace \text{BRD\_JPN}, \text{MLK\_JPN} \rbrace } \mathrm{F}_{h,j} = \mathrm{FF}_{h}
 $$
 
 `factor_market.eqF[LAB_JPN]`
 
 $$
-\sum_{j \in \{ \text{BRD\_JPN}, \text{MLK\_JPN} \} } \mathrm{F}_{h,j} = \mathrm{FF}_{h}
+\sum_{j \in \lbrace \text{BRD\_JPN}, \text{MLK\_JPN} \rbrace } \mathrm{F}_{h,j} = \mathrm{FF}_{h}
 $$
 
 `factor_market.eqF[CAP_USA]`
 
 $$
-\sum_{j \in \{ \text{BRD\_USA}, \text{MLK\_USA} \} } \mathrm{F}_{h,j} = \mathrm{FF}_{h}
+\sum_{j \in \lbrace \text{BRD\_USA}, \text{MLK\_USA} \rbrace } \mathrm{F}_{h,j} = \mathrm{FF}_{h}
 $$
 
 `factor_market.eqF[LAB_USA]`
 
 $$
-\sum_{j \in \{ \text{BRD\_USA}, \text{MLK\_USA} \} } \mathrm{F}_{h,j} = \mathrm{FF}_{h}
+\sum_{j \in \lbrace \text{BRD\_USA}, \text{MLK\_USA} \rbrace } \mathrm{F}_{h,j} = \mathrm{FF}_{h}
 $$
 
 `government.eqTd[JPN]`
 
 $$
-\mathrm{Td}_{\text{JPN}} = tau\_d \cdot \sum_{h \in \{ \text{CAP\_JPN}, \text{LAB\_JPN} \} } \mathrm{pf}_{h} \cdot \mathrm{FF}_{h}
+\mathrm{Td}_{\text{JPN}} = tau\_d \cdot \sum_{h \in \lbrace \text{CAP\_JPN}, \text{LAB\_JPN} \rbrace } \mathrm{pf}_{h} \cdot \mathrm{FF}_{h}
 $$
 
 `government.eqTz[BRD_JPN]`
@@ -212,7 +212,7 @@ $$
 `government.eqXg[BRD_JPN]`
 
 $$
-\mathrm{Xg}_{i} = \frac{\mathrm{mu}_{i} \cdot \left(\mathrm{Td}_{\text{JPN}} + \sum_{j \in \{ \text{BRD\_JPN}, \text{MLK\_JPN} \} } \mathrm{Tz}_{j} + \sum_{j \in \{ \text{BRD\_JPN}, \text{MLK\_JPN} \} } \mathrm{Tm}_{j} - \mathrm{Sg}_{\text{JPN}}\right)}{\mathrm{pq}_{i}}
+\mathrm{Xg}_{i} = \frac{\mathrm{mu}_{i} \cdot \left(\mathrm{Td}_{\text{JPN}} + \sum_{j \in \lbrace \text{BRD\_JPN}, \text{MLK\_JPN} \rbrace } \mathrm{Tz}_{j} + \sum_{j \in \lbrace \text{BRD\_JPN}, \text{MLK\_JPN} \rbrace } \mathrm{Tm}_{j} - \mathrm{Sg}_{\text{JPN}}\right)}{\mathrm{pq}_{i}}
 $$
 
 `government.eqTz[MLK_JPN]`
@@ -230,19 +230,19 @@ $$
 `government.eqXg[MLK_JPN]`
 
 $$
-\mathrm{Xg}_{i} = \frac{\mathrm{mu}_{i} \cdot \left(\mathrm{Td}_{\text{JPN}} + \sum_{j \in \{ \text{BRD\_JPN}, \text{MLK\_JPN} \} } \mathrm{Tz}_{j} + \sum_{j \in \{ \text{BRD\_JPN}, \text{MLK\_JPN} \} } \mathrm{Tm}_{j} - \mathrm{Sg}_{\text{JPN}}\right)}{\mathrm{pq}_{i}}
+\mathrm{Xg}_{i} = \frac{\mathrm{mu}_{i} \cdot \left(\mathrm{Td}_{\text{JPN}} + \sum_{j \in \lbrace \text{BRD\_JPN}, \text{MLK\_JPN} \rbrace } \mathrm{Tz}_{j} + \sum_{j \in \lbrace \text{BRD\_JPN}, \text{MLK\_JPN} \rbrace } \mathrm{Tm}_{j} - \mathrm{Sg}_{\text{JPN}}\right)}{\mathrm{pq}_{i}}
 $$
 
 `government.eqSg[JPN]`
 
 $$
-\mathrm{Sg}_{\text{JPN}} = ssg \cdot \left(\mathrm{Td}_{\text{JPN}} + \sum_{i \in \{ \text{BRD\_JPN}, \text{MLK\_JPN} \} } \mathrm{Tz}_{i} + \sum_{i \in \{ \text{BRD\_JPN}, \text{MLK\_JPN} \} } \mathrm{Tm}_{i}\right)
+\mathrm{Sg}_{\text{JPN}} = ssg \cdot \left(\mathrm{Td}_{\text{JPN}} + \sum_{i \in \lbrace \text{BRD\_JPN}, \text{MLK\_JPN} \rbrace } \mathrm{Tz}_{i} + \sum_{i \in \lbrace \text{BRD\_JPN}, \text{MLK\_JPN} \rbrace } \mathrm{Tm}_{i}\right)
 $$
 
 `government.eqTd[USA]`
 
 $$
-\mathrm{Td}_{\text{USA}} = tau\_d \cdot \sum_{h \in \{ \text{CAP\_USA}, \text{LAB\_USA} \} } \mathrm{pf}_{h} \cdot \mathrm{FF}_{h}
+\mathrm{Td}_{\text{USA}} = tau\_d \cdot \sum_{h \in \lbrace \text{CAP\_USA}, \text{LAB\_USA} \rbrace } \mathrm{pf}_{h} \cdot \mathrm{FF}_{h}
 $$
 
 `government.eqTz[BRD_USA]`
@@ -260,7 +260,7 @@ $$
 `government.eqXg[BRD_USA]`
 
 $$
-\mathrm{Xg}_{i} = \frac{\mathrm{mu}_{i} \cdot \left(\mathrm{Td}_{\text{USA}} + \sum_{j \in \{ \text{BRD\_USA}, \text{MLK\_USA} \} } \mathrm{Tz}_{j} + \sum_{j \in \{ \text{BRD\_USA}, \text{MLK\_USA} \} } \mathrm{Tm}_{j} - \mathrm{Sg}_{\text{USA}}\right)}{\mathrm{pq}_{i}}
+\mathrm{Xg}_{i} = \frac{\mathrm{mu}_{i} \cdot \left(\mathrm{Td}_{\text{USA}} + \sum_{j \in \lbrace \text{BRD\_USA}, \text{MLK\_USA} \rbrace } \mathrm{Tz}_{j} + \sum_{j \in \lbrace \text{BRD\_USA}, \text{MLK\_USA} \rbrace } \mathrm{Tm}_{j} - \mathrm{Sg}_{\text{USA}}\right)}{\mathrm{pq}_{i}}
 $$
 
 `government.eqTz[MLK_USA]`
@@ -278,19 +278,19 @@ $$
 `government.eqXg[MLK_USA]`
 
 $$
-\mathrm{Xg}_{i} = \frac{\mathrm{mu}_{i} \cdot \left(\mathrm{Td}_{\text{USA}} + \sum_{j \in \{ \text{BRD\_USA}, \text{MLK\_USA} \} } \mathrm{Tz}_{j} + \sum_{j \in \{ \text{BRD\_USA}, \text{MLK\_USA} \} } \mathrm{Tm}_{j} - \mathrm{Sg}_{\text{USA}}\right)}{\mathrm{pq}_{i}}
+\mathrm{Xg}_{i} = \frac{\mathrm{mu}_{i} \cdot \left(\mathrm{Td}_{\text{USA}} + \sum_{j \in \lbrace \text{BRD\_USA}, \text{MLK\_USA} \rbrace } \mathrm{Tz}_{j} + \sum_{j \in \lbrace \text{BRD\_USA}, \text{MLK\_USA} \rbrace } \mathrm{Tm}_{j} - \mathrm{Sg}_{\text{USA}}\right)}{\mathrm{pq}_{i}}
 $$
 
 `government.eqSg[USA]`
 
 $$
-\mathrm{Sg}_{\text{USA}} = ssg \cdot \left(\mathrm{Td}_{\text{USA}} + \sum_{i \in \{ \text{BRD\_USA}, \text{MLK\_USA} \} } \mathrm{Tz}_{i} + \sum_{i \in \{ \text{BRD\_USA}, \text{MLK\_USA} \} } \mathrm{Tm}_{i}\right)
+\mathrm{Sg}_{\text{USA}} = ssg \cdot \left(\mathrm{Td}_{\text{USA}} + \sum_{i \in \lbrace \text{BRD\_USA}, \text{MLK\_USA} \rbrace } \mathrm{Tz}_{i} + \sum_{i \in \lbrace \text{BRD\_USA}, \text{MLK\_USA} \rbrace } \mathrm{Tm}_{i}\right)
 $$
 
 `private_saving.eqSp[JPN]`
 
 $$
-\mathrm{Sp}_{\text{JPN}} = ssp \cdot \sum_{h \in \{ \text{CAP\_JPN}, \text{LAB\_JPN} \} } \mathrm{pf}_{h} \cdot \mathrm{FF}_{h}
+\mathrm{Sp}_{\text{JPN}} = ssp \cdot \sum_{h \in \lbrace \text{CAP\_JPN}, \text{LAB\_JPN} \rbrace } \mathrm{pf}_{h} \cdot \mathrm{FF}_{h}
 $$
 
 `investment.eqXv[BRD_JPN]`
@@ -308,7 +308,7 @@ $$
 `private_saving.eqSp[USA]`
 
 $$
-\mathrm{Sp}_{\text{USA}} = ssp \cdot \sum_{h \in \{ \text{CAP\_USA}, \text{LAB\_USA} \} } \mathrm{pf}_{h} \cdot \mathrm{FF}_{h}
+\mathrm{Sp}_{\text{USA}} = ssp \cdot \sum_{h \in \lbrace \text{CAP\_USA}, \text{LAB\_USA} \rbrace } \mathrm{pf}_{h} \cdot \mathrm{FF}_{h}
 $$
 
 `investment.eqXv[BRD_USA]`
@@ -326,25 +326,25 @@ $$
 `household.eqXp[BRD_JPN,JPN]`
 
 $$
-\mathrm{Xp}_{i} = \frac{\mathrm{alpha}_{i} \cdot \left(\sum_{h \in \{ \text{CAP\_JPN}, \text{LAB\_JPN} \} } \mathrm{pf}_{h} \cdot \mathrm{FF}_{h} - \mathrm{Sp}_{r} - \mathrm{Td}_{r}\right)}{\mathrm{pq}_{i}}
+\mathrm{Xp}_{i} = \frac{\mathrm{alpha}_{i} \cdot \left(\sum_{h \in \lbrace \text{CAP\_JPN}, \text{LAB\_JPN} \rbrace } \mathrm{pf}_{h} \cdot \mathrm{FF}_{h} - \mathrm{Sp}_{r} - \mathrm{Td}_{r}\right)}{\mathrm{pq}_{i}}
 $$
 
 `household.eqXp[MLK_JPN,JPN]`
 
 $$
-\mathrm{Xp}_{i} = \frac{\mathrm{alpha}_{i} \cdot \left(\sum_{h \in \{ \text{CAP\_JPN}, \text{LAB\_JPN} \} } \mathrm{pf}_{h} \cdot \mathrm{FF}_{h} - \mathrm{Sp}_{r} - \mathrm{Td}_{r}\right)}{\mathrm{pq}_{i}}
+\mathrm{Xp}_{i} = \frac{\mathrm{alpha}_{i} \cdot \left(\sum_{h \in \lbrace \text{CAP\_JPN}, \text{LAB\_JPN} \rbrace } \mathrm{pf}_{h} \cdot \mathrm{FF}_{h} - \mathrm{Sp}_{r} - \mathrm{Td}_{r}\right)}{\mathrm{pq}_{i}}
 $$
 
 `household.eqXp[BRD_USA,USA]`
 
 $$
-\mathrm{Xp}_{i} = \frac{\mathrm{alpha}_{i} \cdot \left(\sum_{h \in \{ \text{CAP\_USA}, \text{LAB\_USA} \} } \mathrm{pf}_{h} \cdot \mathrm{FF}_{h} - \mathrm{Sp}_{r} - \mathrm{Td}_{r}\right)}{\mathrm{pq}_{i}}
+\mathrm{Xp}_{i} = \frac{\mathrm{alpha}_{i} \cdot \left(\sum_{h \in \lbrace \text{CAP\_USA}, \text{LAB\_USA} \rbrace } \mathrm{pf}_{h} \cdot \mathrm{FF}_{h} - \mathrm{Sp}_{r} - \mathrm{Td}_{r}\right)}{\mathrm{pq}_{i}}
 $$
 
 `household.eqXp[MLK_USA,USA]`
 
 $$
-\mathrm{Xp}_{i} = \frac{\mathrm{alpha}_{i} \cdot \left(\sum_{h \in \{ \text{CAP\_USA}, \text{LAB\_USA} \} } \mathrm{pf}_{h} \cdot \mathrm{FF}_{h} - \mathrm{Sp}_{r} - \mathrm{Td}_{r}\right)}{\mathrm{pq}_{i}}
+\mathrm{Xp}_{i} = \frac{\mathrm{alpha}_{i} \cdot \left(\sum_{h \in \lbrace \text{CAP\_USA}, \text{LAB\_USA} \rbrace } \mathrm{pf}_{h} \cdot \mathrm{FF}_{h} - \mathrm{Sp}_{r} - \mathrm{Td}_{r}\right)}{\mathrm{pq}_{i}}
 $$
 
 `prices.eqpe[BRD_JPN,JPN]`
@@ -398,13 +398,13 @@ $$
 `bop.eqBOP`
 
 $$
-\sum_{i \in \{ \text{BRD\_JPN}, \text{MLK\_JPN} \} } \mathrm{pWe}_{i} \cdot \mathrm{E}_{i} + Sf = \sum_{i \in \{ \text{BRD\_JPN}, \text{MLK\_JPN} \} } \mathrm{pWm}_{i} \cdot \mathrm{M}_{i}
+\sum_{i \in \lbrace \text{BRD\_JPN}, \text{MLK\_JPN} \rbrace } \mathrm{pWe}_{i} \cdot \mathrm{E}_{i} + Sf = \sum_{i \in \lbrace \text{BRD\_JPN}, \text{MLK\_JPN} \rbrace } \mathrm{pWm}_{i} \cdot \mathrm{M}_{i}
 $$
 
 `bop.eqBOP`
 
 $$
-\sum_{i \in \{ \text{BRD\_USA}, \text{MLK\_USA} \} } \mathrm{pWe}_{i} \cdot \mathrm{E}_{i} + Sf = \sum_{i \in \{ \text{BRD\_USA}, \text{MLK\_USA} \} } \mathrm{pWm}_{i} \cdot \mathrm{M}_{i}
+\sum_{i \in \lbrace \text{BRD\_USA}, \text{MLK\_USA} \rbrace } \mathrm{pWe}_{i} \cdot \mathrm{E}_{i} + Sf = \sum_{i \in \lbrace \text{BRD\_USA}, \text{MLK\_USA} \rbrace } \mathrm{pWm}_{i} \cdot \mathrm{M}_{i}
 $$
 
 `world.eqpw[BRD,JPN,USA]`
@@ -602,37 +602,37 @@ $$
 `market.eqQ[BRD_JPN]`
 
 $$
-\mathrm{Q}_{i} = \mathrm{Xp}_{i} + \mathrm{Xg}_{i} + \mathrm{Xv}_{i} + \sum_{j \in \{ \text{BRD\_JPN}, \text{MLK\_JPN} \} } \mathrm{X}_{i,j}
+\mathrm{Q}_{i} = \mathrm{Xp}_{i} + \mathrm{Xg}_{i} + \mathrm{Xv}_{i} + \sum_{j \in \lbrace \text{BRD\_JPN}, \text{MLK\_JPN} \rbrace } \mathrm{X}_{i,j}
 $$
 
 `market.eqQ[MLK_JPN]`
 
 $$
-\mathrm{Q}_{i} = \mathrm{Xp}_{i} + \mathrm{Xg}_{i} + \mathrm{Xv}_{i} + \sum_{j \in \{ \text{BRD\_JPN}, \text{MLK\_JPN} \} } \mathrm{X}_{i,j}
+\mathrm{Q}_{i} = \mathrm{Xp}_{i} + \mathrm{Xg}_{i} + \mathrm{Xv}_{i} + \sum_{j \in \lbrace \text{BRD\_JPN}, \text{MLK\_JPN} \rbrace } \mathrm{X}_{i,j}
 $$
 
 `market.eqQ[BRD_USA]`
 
 $$
-\mathrm{Q}_{i} = \mathrm{Xp}_{i} + \mathrm{Xg}_{i} + \mathrm{Xv}_{i} + \sum_{j \in \{ \text{BRD\_USA}, \text{MLK\_USA} \} } \mathrm{X}_{i,j}
+\mathrm{Q}_{i} = \mathrm{Xp}_{i} + \mathrm{Xg}_{i} + \mathrm{Xv}_{i} + \sum_{j \in \lbrace \text{BRD\_USA}, \text{MLK\_USA} \rbrace } \mathrm{X}_{i,j}
 $$
 
 `market.eqQ[MLK_USA]`
 
 $$
-\mathrm{Q}_{i} = \mathrm{Xp}_{i} + \mathrm{Xg}_{i} + \mathrm{Xv}_{i} + \sum_{j \in \{ \text{BRD\_USA}, \text{MLK\_USA} \} } \mathrm{X}_{i,j}
+\mathrm{Q}_{i} = \mathrm{Xp}_{i} + \mathrm{Xg}_{i} + \mathrm{Xv}_{i} + \sum_{j \in \lbrace \text{BRD\_USA}, \text{MLK\_USA} \rbrace } \mathrm{X}_{i,j}
 $$
 
 `utility.eqUU[JPN]`
 
 $$
-\mathrm{UU}_{r} = \prod_{i \in \{ \text{BRD\_JPN}, \text{MLK\_JPN} \} } {\mathrm{Xp}_{i}}^{\mathrm{alpha}_{i}}
+\mathrm{UU}_{r} = \prod_{i \in \lbrace \text{BRD\_JPN}, \text{MLK\_JPN} \rbrace } {\mathrm{Xp}_{i}}^{\mathrm{alpha}_{i}}
 $$
 
 `utility.eqUU[USA]`
 
 $$
-\mathrm{UU}_{r} = \prod_{i \in \{ \text{BRD\_USA}, \text{MLK\_USA} \} } {\mathrm{Xp}_{i}}^{\mathrm{alpha}_{i}}
+\mathrm{UU}_{r} = \prod_{i \in \lbrace \text{BRD\_USA}, \text{MLK\_USA} \rbrace } {\mathrm{Xp}_{i}}^{\mathrm{alpha}_{i}}
 $$
 
 `utility.objective` maximize social welfare

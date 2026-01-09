@@ -1409,7 +1409,7 @@ function _render_expr(expr::EquationExpr; format::Symbol)
                 return string("\\text{", _latex_escape(string(item)), "}")
             end
             domain = join(domain_items, ", ")
-            return string("\\sum_{", idx, " \\in \\{ ", domain, " \\} } ", inner)
+            return string("\\sum_{", idx, " \\in \\lbrace ", domain, " \\rbrace } ", inner)
         end
         domain = join(map(idx -> _latex_escape(string(idx)), expr.domain), ", ")
         return string("sum_", expr.index, "∈{", domain, "}(", inner, ")")
@@ -1421,7 +1421,7 @@ function _render_expr(expr::EquationExpr; format::Symbol)
                 return string("\\text{", _latex_escape(string(item)), "}")
             end
             domain = join(domain_items, ", ")
-            return string("\\prod_{", idx, " \\in \\{ ", domain, " \\} } ", inner)
+            return string("\\prod_{", idx, " \\in \\lbrace ", domain, " \\rbrace } ", inner)
         end
         domain = join(map(idx -> _latex_escape(string(idx)), expr.domain), ", ")
         return string("prod_", expr.index, "∈{", domain, "}(", inner, ")")
