@@ -1,58 +1,266 @@
 # Equations
-- `prod.eqpy[BRD]` Y[i] = b[i] * prod_h∈{CAP, LAB}(F[h,i]^beta[h,i])
-- `prod.eqF[CAP,BRD]` F[h,i] = beta[h,i] * py[i] * Y[i] / pf[h]
-- `prod.eqF[LAB,BRD]` F[h,i] = beta[h,i] * py[i] * Y[i] / pf[h]
-- `prod.eqX[BRD,BRD]` X[j,i] = ax[j,i] * Z[i]
-- `prod.eqX[MLK,BRD]` X[j,i] = ax[j,i] * Z[i]
-- `prod.eqY[BRD]` Y[i] = ay[i] * Z[i]
-- `prod.eqpzs[BRD]` pz[i] = ay[i] * py[i] + sum_j∈{BRD, MLK}(ax[j,i] * pq[j]) + 0.0
-- `prod.eqpy[MLK]` Y[i] = b[i] * prod_h∈{CAP, LAB}(F[h,i]^beta[h,i])
-- `prod.eqF[CAP,MLK]` F[h,i] = beta[h,i] * py[i] * Y[i] / pf[h]
-- `prod.eqF[LAB,MLK]` F[h,i] = beta[h,i] * py[i] * Y[i] / pf[h]
-- `prod.eqX[BRD,MLK]` X[j,i] = ax[j,i] * Z[i]
-- `prod.eqX[MLK,MLK]` X[j,i] = ax[j,i] * Z[i]
-- `prod.eqY[MLK]` Y[i] = ay[i] * Z[i]
-- `prod.eqpzs[MLK]` pz[i] = ay[i] * py[i] + sum_j∈{BRD, MLK}(ax[j,i] * pq[j]) + 0.0
-- `factor_market.eqF[CAP]` sum_j∈{BRD, MLK}(F[h,j]) = FF[h]
-- `factor_market.eqF[LAB]` sum_j∈{BRD, MLK}(F[h,j]) = FF[h]
-- `government.eqTd` Td = tau_d * sum_h∈{CAP, LAB}(pf[h] * FF[h]) + sum_i∈{BRD, MLK}(RT[i]) + 0.0
-- `government.eqTz[BRD]` Tz[i] = tau_z[i] * pz[i] * Z[i]
-- `government.eqTm[BRD]` Tm[i] = tau_m[i] * pm[i] * M[i]
-- `government.eqXg[BRD]` Xg[i] = mu[i] * Td + sum_j∈{BRD, MLK}(Tz[j]) + sum_j∈{BRD, MLK}(Tm[j]) + -Sg / pq[i]
-- `government.eqTz[MLK]` Tz[i] = tau_z[i] * pz[i] * Z[i]
-- `government.eqTm[MLK]` Tm[i] = tau_m[i] * pm[i] * M[i]
-- `government.eqXg[MLK]` Xg[i] = mu[i] * Td + sum_j∈{BRD, MLK}(Tz[j]) + sum_j∈{BRD, MLK}(Tm[j]) + -Sg / pq[i]
-- `government.eqSg` Sg = ssg * Td + sum_i∈{BRD, MLK}(Tz[i]) + sum_i∈{BRD, MLK}(Tm[i])
-- `private_saving.eqSp` Sp = ssp * sum_h∈{CAP, LAB}(pf[h] * FF[h]) + sum_i∈{BRD, MLK}(RT[i]) + 0.0
-- `investment.eqXv[BRD]` Xv[i] = lambda[i] * Sp + Sg + epsilon * Sf / pq[i]
-- `investment.eqXv[MLK]` Xv[i] = lambda[i] * Sp + Sg + epsilon * Sf / pq[i]
-- `household.eqXp[BRD]` Xp[i] = alpha[i] * sum_h∈{CAP, LAB}(pf[h] * FF[h]) + -Sp + -Td + sum_j∈{BRD, MLK}(RT[j]) + 0.0 / pq[i]
-- `household.eqXp[MLK]` Xp[i] = alpha[i] * sum_h∈{CAP, LAB}(pf[h] * FF[h]) + -Sp + -Td + sum_j∈{BRD, MLK}(RT[j]) + 0.0 / pq[i]
-- `prices.eqpe[BRD]` pe[i] = epsilon * pWe[i]
-- `prices.eqpm[BRD]` pm[i] = epsilon * pWm[i]
-- `prices.eqpe[MLK]` pe[i] = epsilon * pWe[i]
-- `prices.eqpm[MLK]` pm[i] = epsilon * pWm[i]
-- `bop.eqBOP` sum_i∈{BRD, MLK}(pWe[i] * E[i]) + Sf = sum_i∈{BRD, MLK}(pWm[i] * M[i])
-- `armington.eqQ[BRD]` Q[i] = gamma[i] * delta_m[i] * M[i]^eta[i] + delta_d[i] * D[i]^eta[i]^1.0 / eta[i]
-- `armington.eqM[BRD]` M[i] = gamma[i]^eta[i] * delta_m[i] * pq[i] / 1.0 + chi[i] + tau_m[i] * pm[i]^1.0 / 1.0 + -eta[i] * Q[i]
-- `armington.eqD[BRD]` D[i] = gamma[i]^eta[i] * delta_d[i] * pq[i] / 1.0 * pd[i]^1.0 / 1.0 + -eta[i] * Q[i]
-- `armington.eqQ[MLK]` Q[i] = gamma[i] * delta_m[i] * M[i]^eta[i] + delta_d[i] * D[i]^eta[i]^1.0 / eta[i]
-- `armington.eqM[MLK]` M[i] = gamma[i]^eta[i] * delta_m[i] * pq[i] / 1.0 + chi[i] + tau_m[i] * pm[i]^1.0 / 1.0 + -eta[i] * Q[i]
-- `armington.eqD[MLK]` D[i] = gamma[i]^eta[i] * delta_d[i] * pq[i] / 1.0 * pd[i]^1.0 / 1.0 + -eta[i] * Q[i]
-- `transformation.eqZ[BRD]` Z[i] = theta[i] * xie[i] * E[i]^phi[i] + xid[i] * D[i]^phi[i]^1.0 / phi[i]
-- `transformation.eqE[BRD]` E[i] = theta[i]^phi[i] * xie[i] * 1.0 + tau_z[i] * pz[i] / pe[i]^1.0 / 1.0 + -phi[i] * Z[i]
-- `transformation.eqDs[BRD]` D[i] = theta[i]^phi[i] * xid[i] * 1.0 + tau_z[i] * pz[i] / pd[i]^1.0 / 1.0 + -phi[i] * Z[i]
-- `transformation.eqZ[MLK]` Z[i] = theta[i] * xie[i] * E[i]^phi[i] + xid[i] * D[i]^phi[i]^1.0 / phi[i]
-- `transformation.eqE[MLK]` E[i] = theta[i]^phi[i] * xie[i] * 1.0 + tau_z[i] * pz[i] / pe[i]^1.0 / 1.0 + -phi[i] * Z[i]
-- `transformation.eqDs[MLK]` D[i] = theta[i]^phi[i] * xid[i] * 1.0 + tau_z[i] * pz[i] / pd[i]^1.0 / 1.0 + -phi[i] * Z[i]
-- `quota.eqRT[BRD]` RT[i] = chi[i] * pm[i] * M[i]
-- `quota.eqchi1[BRD]` chi[i] * Mquota[i] + -M[i] = 0.0
+- `prod.eqpy[BRD]`
+
+$$
+Y_{i} = b_{i} \cdot \prod_{h \in \{CAP, LAB\}} F_{h,i}^{beta_{h,i}}
+$$
+- `prod.eqF[CAP,BRD]`
+
+$$
+F_{h,i} = \frac{beta_{h,i} \cdot py_{i} \cdot Y_{i}}{pf_{h}}
+$$
+- `prod.eqF[LAB,BRD]`
+
+$$
+F_{h,i} = \frac{beta_{h,i} \cdot py_{i} \cdot Y_{i}}{pf_{h}}
+$$
+- `prod.eqX[BRD,BRD]`
+
+$$
+X_{j,i} = ax_{j,i} \cdot Z_{i}
+$$
+- `prod.eqX[MLK,BRD]`
+
+$$
+X_{j,i} = ax_{j,i} \cdot Z_{i}
+$$
+- `prod.eqY[BRD]`
+
+$$
+Y_{i} = ay_{i} \cdot Z_{i}
+$$
+- `prod.eqpzs[BRD]`
+
+$$
+pz_{i} = ay_{i} \cdot py_{i} + \sum_{j \in \{BRD, MLK\}} ax_{j,i} \cdot pq_{j} + 0.0
+$$
+- `prod.eqpy[MLK]`
+
+$$
+Y_{i} = b_{i} \cdot \prod_{h \in \{CAP, LAB\}} F_{h,i}^{beta_{h,i}}
+$$
+- `prod.eqF[CAP,MLK]`
+
+$$
+F_{h,i} = \frac{beta_{h,i} \cdot py_{i} \cdot Y_{i}}{pf_{h}}
+$$
+- `prod.eqF[LAB,MLK]`
+
+$$
+F_{h,i} = \frac{beta_{h,i} \cdot py_{i} \cdot Y_{i}}{pf_{h}}
+$$
+- `prod.eqX[BRD,MLK]`
+
+$$
+X_{j,i} = ax_{j,i} \cdot Z_{i}
+$$
+- `prod.eqX[MLK,MLK]`
+
+$$
+X_{j,i} = ax_{j,i} \cdot Z_{i}
+$$
+- `prod.eqY[MLK]`
+
+$$
+Y_{i} = ay_{i} \cdot Z_{i}
+$$
+- `prod.eqpzs[MLK]`
+
+$$
+pz_{i} = ay_{i} \cdot py_{i} + \sum_{j \in \{BRD, MLK\}} ax_{j,i} \cdot pq_{j} + 0.0
+$$
+- `factor_market.eqF[CAP]`
+
+$$
+\sum_{j \in \{BRD, MLK\}} F_{h,j} = FF_{h}
+$$
+- `factor_market.eqF[LAB]`
+
+$$
+\sum_{j \in \{BRD, MLK\}} F_{h,j} = FF_{h}
+$$
+- `government.eqTd`
+
+$$
+Td = tau_d \cdot \sum_{h \in \{CAP, LAB\}} pf_{h} \cdot FF_{h} + \sum_{i \in \{BRD, MLK\}} RT_{i} + 0.0
+$$
+- `government.eqTz[BRD]`
+
+$$
+Tz_{i} = tau_z_{i} \cdot pz_{i} \cdot Z_{i}
+$$
+- `government.eqTm[BRD]`
+
+$$
+Tm_{i} = tau_m_{i} \cdot pm_{i} \cdot M_{i}
+$$
+- `government.eqXg[BRD]`
+
+$$
+Xg_{i} = \frac{mu_{i} \cdot Td + \sum_{j \in \{BRD, MLK\}} Tz_{j} + \sum_{j \in \{BRD, MLK\}} Tm_{j} + -Sg}{pq_{i}}
+$$
+- `government.eqTz[MLK]`
+
+$$
+Tz_{i} = tau_z_{i} \cdot pz_{i} \cdot Z_{i}
+$$
+- `government.eqTm[MLK]`
+
+$$
+Tm_{i} = tau_m_{i} \cdot pm_{i} \cdot M_{i}
+$$
+- `government.eqXg[MLK]`
+
+$$
+Xg_{i} = \frac{mu_{i} \cdot Td + \sum_{j \in \{BRD, MLK\}} Tz_{j} + \sum_{j \in \{BRD, MLK\}} Tm_{j} + -Sg}{pq_{i}}
+$$
+- `government.eqSg`
+
+$$
+Sg = ssg \cdot Td + \sum_{i \in \{BRD, MLK\}} Tz_{i} + \sum_{i \in \{BRD, MLK\}} Tm_{i}
+$$
+- `private_saving.eqSp`
+
+$$
+Sp = ssp \cdot \sum_{h \in \{CAP, LAB\}} pf_{h} \cdot FF_{h} + \sum_{i \in \{BRD, MLK\}} RT_{i} + 0.0
+$$
+- `investment.eqXv[BRD]`
+
+$$
+Xv_{i} = \frac{lambda_{i} \cdot Sp + Sg + epsilon \cdot Sf}{pq_{i}}
+$$
+- `investment.eqXv[MLK]`
+
+$$
+Xv_{i} = \frac{lambda_{i} \cdot Sp + Sg + epsilon \cdot Sf}{pq_{i}}
+$$
+- `household.eqXp[BRD]`
+
+$$
+Xp_{i} = \frac{alpha_{i} \cdot \sum_{h \in \{CAP, LAB\}} pf_{h} \cdot FF_{h} + -Sp + -Td + \sum_{j \in \{BRD, MLK\}} RT_{j} + 0.0}{pq_{i}}
+$$
+- `household.eqXp[MLK]`
+
+$$
+Xp_{i} = \frac{alpha_{i} \cdot \sum_{h \in \{CAP, LAB\}} pf_{h} \cdot FF_{h} + -Sp + -Td + \sum_{j \in \{BRD, MLK\}} RT_{j} + 0.0}{pq_{i}}
+$$
+- `prices.eqpe[BRD]`
+
+$$
+pe_{i} = epsilon \cdot pWe_{i}
+$$
+- `prices.eqpm[BRD]`
+
+$$
+pm_{i} = epsilon \cdot pWm_{i}
+$$
+- `prices.eqpe[MLK]`
+
+$$
+pe_{i} = epsilon \cdot pWe_{i}
+$$
+- `prices.eqpm[MLK]`
+
+$$
+pm_{i} = epsilon \cdot pWm_{i}
+$$
+- `bop.eqBOP`
+
+$$
+\sum_{i \in \{BRD, MLK\}} pWe_{i} \cdot E_{i} + Sf = \sum_{i \in \{BRD, MLK\}} pWm_{i} \cdot M_{i}
+$$
+- `armington.eqQ[BRD]`
+
+$$
+Q_{i} = gamma_{i} \cdot delta_m_{i} \cdot M_{i}^{eta_{i}} + delta_d_{i} \cdot D_{i}^{eta_{i}}^{\frac{1.0}{eta_{i}}}
+$$
+- `armington.eqM[BRD]`
+
+$$
+M_{i} = \frac{gamma_{i}^{eta_{i}} \cdot delta_m_{i} \cdot pq_{i}}{1.0 + chi_{i} + tau_m_{i} \cdot pm_{i}}^{\frac{1.0}{1.0 + -eta_{i}}} \cdot Q_{i}
+$$
+- `armington.eqD[BRD]`
+
+$$
+D_{i} = \frac{gamma_{i}^{eta_{i}} \cdot delta_d_{i} \cdot pq_{i}}{1.0 \cdot pd_{i}}^{\frac{1.0}{1.0 + -eta_{i}}} \cdot Q_{i}
+$$
+- `armington.eqQ[MLK]`
+
+$$
+Q_{i} = gamma_{i} \cdot delta_m_{i} \cdot M_{i}^{eta_{i}} + delta_d_{i} \cdot D_{i}^{eta_{i}}^{\frac{1.0}{eta_{i}}}
+$$
+- `armington.eqM[MLK]`
+
+$$
+M_{i} = \frac{gamma_{i}^{eta_{i}} \cdot delta_m_{i} \cdot pq_{i}}{1.0 + chi_{i} + tau_m_{i} \cdot pm_{i}}^{\frac{1.0}{1.0 + -eta_{i}}} \cdot Q_{i}
+$$
+- `armington.eqD[MLK]`
+
+$$
+D_{i} = \frac{gamma_{i}^{eta_{i}} \cdot delta_d_{i} \cdot pq_{i}}{1.0 \cdot pd_{i}}^{\frac{1.0}{1.0 + -eta_{i}}} \cdot Q_{i}
+$$
+- `transformation.eqZ[BRD]`
+
+$$
+Z_{i} = theta_{i} \cdot xie_{i} \cdot E_{i}^{phi_{i}} + xid_{i} \cdot D_{i}^{phi_{i}}^{\frac{1.0}{phi_{i}}}
+$$
+- `transformation.eqE[BRD]`
+
+$$
+E_{i} = \frac{theta_{i}^{phi_{i}} \cdot xie_{i} \cdot 1.0 + tau_z_{i} \cdot pz_{i}}{pe_{i}}^{\frac{1.0}{1.0 + -phi_{i}}} \cdot Z_{i}
+$$
+- `transformation.eqDs[BRD]`
+
+$$
+D_{i} = \frac{theta_{i}^{phi_{i}} \cdot xid_{i} \cdot 1.0 + tau_z_{i} \cdot pz_{i}}{pd_{i}}^{\frac{1.0}{1.0 + -phi_{i}}} \cdot Z_{i}
+$$
+- `transformation.eqZ[MLK]`
+
+$$
+Z_{i} = theta_{i} \cdot xie_{i} \cdot E_{i}^{phi_{i}} + xid_{i} \cdot D_{i}^{phi_{i}}^{\frac{1.0}{phi_{i}}}
+$$
+- `transformation.eqE[MLK]`
+
+$$
+E_{i} = \frac{theta_{i}^{phi_{i}} \cdot xie_{i} \cdot 1.0 + tau_z_{i} \cdot pz_{i}}{pe_{i}}^{\frac{1.0}{1.0 + -phi_{i}}} \cdot Z_{i}
+$$
+- `transformation.eqDs[MLK]`
+
+$$
+D_{i} = \frac{theta_{i}^{phi_{i}} \cdot xid_{i} \cdot 1.0 + tau_z_{i} \cdot pz_{i}}{pd_{i}}^{\frac{1.0}{1.0 + -phi_{i}}} \cdot Z_{i}
+$$
+- `quota.eqRT[BRD]`
+
+$$
+RT_{i} = chi_{i} \cdot pm_{i} \cdot M_{i}
+$$
+- `quota.eqchi1[BRD]`
+
+$$
+chi_{i} \cdot Mquota_{i} + -M_{i} = 0.0
+$$
 - `quota.eqchi2[BRD]` Mquota[i] - M[i] >= 0
-- `quota.eqRT[MLK]` RT[i] = chi[i] * pm[i] * M[i]
-- `quota.eqchi1[MLK]` chi[i] * Mquota[i] + -M[i] = 0.0
+- `quota.eqRT[MLK]`
+
+$$
+RT_{i} = chi_{i} \cdot pm_{i} \cdot M_{i}
+$$
+- `quota.eqchi1[MLK]`
+
+$$
+chi_{i} \cdot Mquota_{i} + -M_{i} = 0.0
+$$
 - `quota.eqchi2[MLK]` Mquota[i] - M[i] >= 0
-- `market.eqQ[BRD]` Q[i] = Xp[i] + Xg[i] + Xv[i] + sum_j∈{BRD, MLK}(X[i,j])
-- `market.eqQ[MLK]` Q[i] = Xp[i] + Xg[i] + Xv[i] + sum_j∈{BRD, MLK}(X[i,j])
+- `market.eqQ[BRD]`
+
+$$
+Q_{i} = Xp_{i} + Xg_{i} + Xv_{i} + \sum_{j \in \{BRD, MLK\}} X_{i,j}
+$$
+- `market.eqQ[MLK]`
+
+$$
+Q_{i} = Xp_{i} + Xg_{i} + Xv_{i} + \sum_{j \in \{BRD, MLK\}} X_{i,j}
+$$
 - `utility.objective` maximize Cobb-Douglas utility over Xp
 - `init.start[X_MLK_BRD]` start X_MLK_BRD = 17.0
 - `init.start[F_LAB_BRD]` start F_LAB_BRD = 15.0

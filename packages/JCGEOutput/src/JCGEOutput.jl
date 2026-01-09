@@ -1256,17 +1256,19 @@ function _render_block_section(block, eqs; format::Symbol, show_defs::Bool)
 end
 
 function _render_equation_line(eq; format::Symbol, show_defs::Bool)
-    info = _equation_info(eq; format=format)
+    info, is_math = _equation_info(eq; format=format)
     label = ""
     if show_defs
         label = _equation_label(eq)
     end
     if format == :markdown
-        if isempty(label)
-            return "- $(info)"
-        else
-            return "- `$(label)` $(info)"
+        if is_math
+            if isempty(label)
+                return "\$\$\n$(info)\n\$\$"
+            end
+            return "- `$(label)`\n\n\$\$\n$(info)\n\$\$"
         end
+        return isempty(label) ? "- $(info)" : "- `$(label)` $(info)"
     elseif format == :latex
         if isempty(label)
             return "% $(info)"
@@ -1288,20 +1290,21 @@ function _equation_info(eq; format::Symbol)
         expr = get(payload, :expr, nothing)
         if expr !== nothing
             if expr isa EquationExpr
-                return render_expr(expr; format=format)
+                is_math = !(expr isa ERaw)
+                return render_expr(expr; format=format), is_math
             end
-            return string(expr)
+            return string(expr), false
         end
         info = get(payload, :info, nothing)
         if info === nothing
             constraint = get(payload, :constraint, nothing)
-            return constraint === nothing ? "(no info)" : string(constraint)
+            return (constraint === nothing ? "(no info)" : string(constraint)), false
         end
-        return string(info)
+        return string(info), false
     elseif payload isa AbstractString
-        return payload
+        return payload, false
     else
-        return string(payload)
+        return string(payload), false
     end
 end
 
@@ -1343,6 +1346,9 @@ function render_expr(expr::EquationExpr; format::Symbol=:plain)
 end
 
 function _render_expr(expr::EquationExpr; format::Symbol)
+    if format == :markdown
+        format = :latex
+    end
     if expr isa EVar
         return _render_symbol(expr.name, expr.idxs; format=format)
     elseif expr isa EParam

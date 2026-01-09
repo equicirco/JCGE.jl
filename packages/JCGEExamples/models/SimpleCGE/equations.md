@@ -1,18 +1,74 @@
 # Equations
-- `prod.eqZ[BRD]` Z[j] = b[j] * prod_h∈{CAP, LAB}(F[h,j]^beta[h,j])
-- `prod.eqF[CAP,BRD]` F[h,j] = beta[h,j] * pz[j] * Z[j] / pf[h]
-- `prod.eqF[LAB,BRD]` F[h,j] = beta[h,j] * pz[j] * Z[j] / pf[h]
-- `prod.eqZ[MLK]` Z[j] = b[j] * prod_h∈{CAP, LAB}(F[h,j]^beta[h,j])
-- `prod.eqF[CAP,MLK]` F[h,j] = beta[h,j] * pz[j] * Z[j] / pf[h]
-- `prod.eqF[LAB,MLK]` F[h,j] = beta[h,j] * pz[j] * Z[j] / pf[h]
-- `factor_market.eqF[CAP]` sum_j∈{BRD, MLK}(F[h,j]) = FF[h]
-- `factor_market.eqF[LAB]` sum_j∈{BRD, MLK}(F[h,j]) = FF[h]
-- `household.eqX[BRD]` X[i] = alpha[i] * sum_h∈{CAP, LAB}(pf[h] * FF[h]) / px[i]
-- `household.eqX[MLK]` X[i] = alpha[i] * sum_h∈{CAP, LAB}(pf[h] * FF[h]) / px[i]
-- `price_link.eqP[BRD]` px[i] = pz[i]
-- `price_link.eqP[MLK]` px[i] = pz[i]
-- `goods_market.eqX[BRD]` X[i] = Z[i]
-- `goods_market.eqX[MLK]` X[i] = Z[i]
+- `prod.eqZ[BRD]`
+
+$$
+Z_{j} = b_{j} \cdot \prod_{h \in \{CAP, LAB\}} F_{h,j}^{beta_{h,j}}
+$$
+- `prod.eqF[CAP,BRD]`
+
+$$
+F_{h,j} = \frac{beta_{h,j} \cdot pz_{j} \cdot Z_{j}}{pf_{h}}
+$$
+- `prod.eqF[LAB,BRD]`
+
+$$
+F_{h,j} = \frac{beta_{h,j} \cdot pz_{j} \cdot Z_{j}}{pf_{h}}
+$$
+- `prod.eqZ[MLK]`
+
+$$
+Z_{j} = b_{j} \cdot \prod_{h \in \{CAP, LAB\}} F_{h,j}^{beta_{h,j}}
+$$
+- `prod.eqF[CAP,MLK]`
+
+$$
+F_{h,j} = \frac{beta_{h,j} \cdot pz_{j} \cdot Z_{j}}{pf_{h}}
+$$
+- `prod.eqF[LAB,MLK]`
+
+$$
+F_{h,j} = \frac{beta_{h,j} \cdot pz_{j} \cdot Z_{j}}{pf_{h}}
+$$
+- `factor_market.eqF[CAP]`
+
+$$
+\sum_{j \in \{BRD, MLK\}} F_{h,j} = FF_{h}
+$$
+- `factor_market.eqF[LAB]`
+
+$$
+\sum_{j \in \{BRD, MLK\}} F_{h,j} = FF_{h}
+$$
+- `household.eqX[BRD]`
+
+$$
+X_{i} = \frac{alpha_{i} \cdot \sum_{h \in \{CAP, LAB\}} pf_{h} \cdot FF_{h}}{px_{i}}
+$$
+- `household.eqX[MLK]`
+
+$$
+X_{i} = \frac{alpha_{i} \cdot \sum_{h \in \{CAP, LAB\}} pf_{h} \cdot FF_{h}}{px_{i}}
+$$
+- `price_link.eqP[BRD]`
+
+$$
+px_{i} = pz_{i}
+$$
+- `price_link.eqP[MLK]`
+
+$$
+px_{i} = pz_{i}
+$$
+- `goods_market.eqX[BRD]`
+
+$$
+X_{i} = Z_{i}
+$$
+- `goods_market.eqX[MLK]`
+
+$$
+X_{i} = Z_{i}
+$$
 - `utility.objective` maximize Cobb-Douglas utility
 - `init.start[F_LAB_MLK]` start F_LAB_MLK = 15.0
 - `init.start[F_LAB_BRD]` start F_LAB_BRD = 10.0

@@ -1,82 +1,394 @@
 # Equations
-- `production.activity[agricult]` xd[i] = ad[i] * prod_lc∈{labor1, labor2}(l[i,lc]^alphl[lc,i]) * k[i]^1.0 + -sum_lc∈{labor1, labor2, labor3}(alphl[lc,i])
-- `production.profitmax[agricult,labor1]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[agricult,labor2]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.activity[industry]` xd[i] = ad[i] * prod_lc∈{labor2}(l[i,lc]^alphl[lc,i]) * k[i]^1.0 + -sum_lc∈{labor1, labor2, labor3}(alphl[lc,i])
-- `production.profitmax[industry,labor2]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.activity[services]` xd[i] = ad[i] * prod_lc∈{labor2, labor3}(l[i,lc]^alphl[lc,i]) * k[i]^1.0 + -sum_lc∈{labor1, labor2, labor3}(alphl[lc,i])
-- `production.profitmax[services,labor2]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[services,labor3]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `labor_market.lmequil[labor1]` sum_i∈{agricult, industry, services}(l[i,lc]) = ls[lc]
-- `labor_market.lmequil[labor2]` sum_i∈{agricult, industry, services}(l[i,lc]) = ls[lc]
-- `labor_market.lmequil[labor3]` sum_i∈{agricult, industry, services}(l[i,lc]) = ls[lc]
-- `government_demand.gdeq[agricult]` gd[i] = gles[i] * gdtot
-- `government_demand.gdeq[industry]` gd[i] = gles[i] * gdtot
-- `government_demand.gdeq[services]` gd[i] = gles[i] * gdtot
-- `government_revenue.tariffdef` tariff = sum_i∈{agricult, industry, services}(tm[i] * m[i] * pwm[i]) * er
-- `government_revenue.indtaxdef` indtax = sum_i∈{agricult, industry, services}(itax[i] * px[i] * xd[i])
-- `government_revenue.netsubdef` netsub = sum_i∈{agricult, industry, services}(te[i] * e[i] * pwe[i]) * er
-- `government_revenue.greq` gr = tariff + -netsub + indtax + tothhtax
-- `government_revenue.gruse` gr = sum_i∈{agricult, industry, services}(p[i] * gd[i]) + govsav
-- `savings.depreq` deprecia = sum_i∈{agricult, industry, services}(depr[i] * pk[i] * k[i])
-- `savings.totsav` savings = hhsav + govsav + deprecia + fsav * er
-- `savings.prodinv[agricult]` pk[i] * dk[i] = kio[i] * invest + -kio[i] * sum_j∈{agricult, industry, services}(dst[j] * p[j])
-- `savings.prodinv[industry]` pk[i] * dk[i] = kio[i] * invest + -kio[i] * sum_j∈{agricult, industry, services}(dst[j] * p[j])
-- `savings.prodinv[services]` pk[i] * dk[i] = kio[i] * invest + -kio[i] * sum_j∈{agricult, industry, services}(dst[j] * p[j])
-- `savings.ieq[agricult]` id[i] = sum_j∈{agricult, industry, services}(imat[i,j] * dk[j])
-- `savings.ieq[industry]` id[i] = sum_j∈{agricult, industry, services}(imat[i,j] * dk[j])
-- `savings.ieq[services]` id[i] = sum_j∈{agricult, industry, services}(imat[i,j] * dk[j])
-- `household_demand.cdeq[agricult]` p[i] * cd[i] = sum_hh∈{lab-hh, cap-hh}(cles[i,hh] * 1.0 + -mps[hh] * yh[hh] * 1.0 + -htax[hh])
-- `household_demand.cdeq[industry]` p[i] * cd[i] = sum_hh∈{lab-hh, cap-hh}(cles[i,hh] * 1.0 + -mps[hh] * yh[hh] * 1.0 + -htax[hh])
-- `household_demand.cdeq[services]` p[i] * cd[i] = sum_hh∈{lab-hh, cap-hh}(cles[i,hh] * 1.0 + -mps[hh] * yh[hh] * 1.0 + -htax[hh])
-- `household_demand.hhsaveq` hhsav = sum_hh∈{lab-hh, cap-hh}(mps[hh] * yh[hh] * 1.0 + -htax[hh])
-- `household_income.labory[lab-hh]` yh[lab-hh] = sum_lc∈{labor1, labor2, labor3}(wa[lc] * ls[lc]) + remit * er
-- `household_income.capitaly[cap-hh]` yh[cap-hh] = sum_i∈{agricult, industry, services}(pva[i] * xd[i]) + -deprecia + -sum_lc∈{labor1, labor2, labor3}(wa[lc] * ls[lc]) + fbor * er + ypr
-- `household_tax.hhtaxdef` tothhtax = sum_hh∈{lab-hh, cap-hh}(htax[hh] * yh[hh])
-- `household_sum.gdp` y = sum_hh∈{lab-hh, cap-hh}(yh[hh])
-- `trade_price.pmdef[agricult]` pm[i] = pwm[i] * er * 1.0 + tm[i] + pr
-- `trade_price.pedef[agricult]` pe[i] = pwe[i] * 1.0 + te[i] * er
-- `trade_price.pmdef[industry]` pm[i] = pwm[i] * er * 1.0 + tm[i] + pr
-- `trade_price.pedef[industry]` pe[i] = pwe[i] * 1.0 + te[i] * er
-- `trade_price.pmdef[services]` pm[i] = pwm[i] * er * 1.0 + tm[i] + pr
-- `trade_price.pedef[services]` pe[i] = pwe[i] * 1.0 + te[i] * er
-- `absorption.absorption[agricult]` p[i] * x[i] = pd[i] * xxd[i] + pm[i] * m[i]
-- `absorption.sales[agricult]` px[i] * xd[i] = pd[i] * xxd[i] + pe[i] * e[i]
-- `absorption.absorption[industry]` p[i] * x[i] = pd[i] * xxd[i] + pm[i] * m[i]
-- `absorption.sales[industry]` px[i] * xd[i] = pd[i] * xxd[i] + pe[i] * e[i]
-- `absorption.absorption[services]` p[i] * x[i] = pd[i] * xxd[i] + pm[i] * m[i]
-- `absorption.sales[services]` px[i] * xd[i] = pd[i] * xxd[i] + pe[i] * e[i]
-- `activity_price.actp[agricult]` px[i] * 1.0 + -itax[i] = pva[i] + sum_j∈{agricult, industry, services}(io[j,i] * p[j])
-- `activity_price.inteq[agricult]` int[i] = sum_j∈{agricult, industry, services}(io[i,j] * xd[j])
-- `activity_price.actp[industry]` px[i] * 1.0 + -itax[i] = pva[i] + sum_j∈{agricult, industry, services}(io[j,i] * p[j])
-- `activity_price.inteq[industry]` int[i] = sum_j∈{agricult, industry, services}(io[i,j] * xd[j])
-- `activity_price.actp[services]` px[i] * 1.0 + -itax[i] = pva[i] + sum_j∈{agricult, industry, services}(io[j,i] * p[j])
-- `activity_price.inteq[services]` int[i] = sum_j∈{agricult, industry, services}(io[i,j] * xd[j])
-- `capital_price.pkdef[agricult]` pk[i] = sum_j∈{agricult, industry, services}(p[j] * imat[j,i])
-- `capital_price.pkdef[industry]` pk[i] = sum_j∈{agricult, industry, services}(p[j] * imat[j,i])
-- `capital_price.pkdef[services]` pk[i] = sum_j∈{agricult, industry, services}(p[j] * imat[j,i])
-- `premium_income.premium` ypr = sum_i∈{agricult, industry, services}(pwm[i] * m[i]) * er * pr
-- `price_index.pindexdef` pindex = sum_i∈{agricult, industry, services}(p[i] * pwts[i])
-- `bop.caeq` sum_i∈{agricult, industry, services}(pwm[i] * M[i]) = sum_i∈{agricult, industry, services}(pwe[i] * E[i]) + fsav + remit + fbor
-- `cet.cet[agricult]` xd[i] = at[i] * gamma[i] * e[i]^rhot[i] + 1.0 + -gamma[i] * xxd[i]^rhot[i]^1.0 / rhot[i]
-- `cet.esupply[agricult]` e[i] / xxd[i] = pe[i] * 1.0 + -gamma[i] / pd[i] * gamma[i]^1.0 / rhot[i] + -1.0
-- `cet.cet[industry]` xd[i] = at[i] * gamma[i] * e[i]^rhot[i] + 1.0 + -gamma[i] * xxd[i]^rhot[i]^1.0 / rhot[i]
-- `cet.esupply[industry]` e[i] / xxd[i] = pe[i] * 1.0 + -gamma[i] / pd[i] * gamma[i]^1.0 / rhot[i] + -1.0
-- `cet.cet[services]` xd[i] = at[i] * gamma[i] * e[i]^rhot[i] + 1.0 + -gamma[i] * xxd[i]^rhot[i]^1.0 / rhot[i]
-- `cet.esupply[services]` e[i] / xxd[i] = pe[i] * 1.0 + -gamma[i] / pd[i] * gamma[i]^1.0 / rhot[i] + -1.0
-- `armington.armington[agricult]` x[i] = ac[i] * delta[i] * m[i]^-rhoc[i] + 1.0 + -delta[i] * xxd[i]^-rhoc[i]^-1.0 / rhoc[i]
-- `armington.costmin[agricult]` m[i] / xxd[i] = pd[i] * delta[i] / pm[i] * 1.0 + -delta[i]^1.0 / 1.0 + rhoc[i]
-- `armington.armington[industry]` x[i] = ac[i] * delta[i] * m[i]^-rhoc[i] + 1.0 + -delta[i] * xxd[i]^-rhoc[i]^-1.0 / rhoc[i]
-- `armington.costmin[industry]` m[i] / xxd[i] = pd[i] * delta[i] / pm[i] * 1.0 + -delta[i]^1.0 / 1.0 + rhoc[i]
-- `armington.armington[services]` x[i] = ac[i] * delta[i] * m[i]^-rhoc[i] + 1.0 + -delta[i] * xxd[i]^-rhoc[i]^-1.0 / rhoc[i]
-- `armington.costmin[services]` m[i] / xxd[i] = pd[i] * delta[i] / pm[i] * 1.0 + -delta[i]^1.0 / 1.0 + rhoc[i]
-- `inventory.dsteq[agricult]` dst[i] = dstr[i] * xd[i]
-- `inventory.dsteq[industry]` dst[i] = dstr[i] * xd[i]
-- `inventory.dsteq[services]` dst[i] = dstr[i] * xd[i]
-- `market.equil[agricult]` x[i] = int[i] + cd[i] + gd[i] + id[i] + dst[i]
-- `market.equil[industry]` x[i] = int[i] + cd[i] + gd[i] + id[i] + dst[i]
-- `market.equil[services]` x[i] = int[i] + cd[i] + gd[i] + id[i] + dst[i]
-- `objective.objective` omega = prod_i∈{agricult, industry, services}(cd[i]^alpha[i])
+- `production.activity[agricult]`
+
+$$
+xd_{i} = ad_{i} \cdot \prod_{lc \in \{labor1, labor2\}} l_{i,lc}^{alphl_{lc,i}} \cdot k_{i}^{1.0 + -\sum_{lc \in \{labor1, labor2, labor3\}} alphl_{lc,i}}
+$$
+- `production.profitmax[agricult,labor1]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[agricult,labor2]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.activity[industry]`
+
+$$
+xd_{i} = ad_{i} \cdot \prod_{lc \in \{labor2\}} l_{i,lc}^{alphl_{lc,i}} \cdot k_{i}^{1.0 + -\sum_{lc \in \{labor1, labor2, labor3\}} alphl_{lc,i}}
+$$
+- `production.profitmax[industry,labor2]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.activity[services]`
+
+$$
+xd_{i} = ad_{i} \cdot \prod_{lc \in \{labor2, labor3\}} l_{i,lc}^{alphl_{lc,i}} \cdot k_{i}^{1.0 + -\sum_{lc \in \{labor1, labor2, labor3\}} alphl_{lc,i}}
+$$
+- `production.profitmax[services,labor2]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[services,labor3]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `labor_market.lmequil[labor1]`
+
+$$
+\sum_{i \in \{agricult, industry, services\}} l_{i,lc} = ls_{lc}
+$$
+- `labor_market.lmequil[labor2]`
+
+$$
+\sum_{i \in \{agricult, industry, services\}} l_{i,lc} = ls_{lc}
+$$
+- `labor_market.lmequil[labor3]`
+
+$$
+\sum_{i \in \{agricult, industry, services\}} l_{i,lc} = ls_{lc}
+$$
+- `government_demand.gdeq[agricult]`
+
+$$
+gd_{i} = gles_{i} \cdot gdtot
+$$
+- `government_demand.gdeq[industry]`
+
+$$
+gd_{i} = gles_{i} \cdot gdtot
+$$
+- `government_demand.gdeq[services]`
+
+$$
+gd_{i} = gles_{i} \cdot gdtot
+$$
+- `government_revenue.tariffdef`
+
+$$
+tariff = \sum_{i \in \{agricult, industry, services\}} tm_{i} \cdot m_{i} \cdot pwm_{i} \cdot er
+$$
+- `government_revenue.indtaxdef`
+
+$$
+indtax = \sum_{i \in \{agricult, industry, services\}} itax_{i} \cdot px_{i} \cdot xd_{i}
+$$
+- `government_revenue.netsubdef`
+
+$$
+netsub = \sum_{i \in \{agricult, industry, services\}} te_{i} \cdot e_{i} \cdot pwe_{i} \cdot er
+$$
+- `government_revenue.greq`
+
+$$
+gr = tariff + -netsub + indtax + tothhtax
+$$
+- `government_revenue.gruse`
+
+$$
+gr = \sum_{i \in \{agricult, industry, services\}} p_{i} \cdot gd_{i} + govsav
+$$
+- `savings.depreq`
+
+$$
+deprecia = \sum_{i \in \{agricult, industry, services\}} depr_{i} \cdot pk_{i} \cdot k_{i}
+$$
+- `savings.totsav`
+
+$$
+savings = hhsav + govsav + deprecia + fsav \cdot er
+$$
+- `savings.prodinv[agricult]`
+
+$$
+pk_{i} \cdot dk_{i} = kio_{i} \cdot invest + -kio_{i} \cdot \sum_{j \in \{agricult, industry, services\}} dst_{j} \cdot p_{j}
+$$
+- `savings.prodinv[industry]`
+
+$$
+pk_{i} \cdot dk_{i} = kio_{i} \cdot invest + -kio_{i} \cdot \sum_{j \in \{agricult, industry, services\}} dst_{j} \cdot p_{j}
+$$
+- `savings.prodinv[services]`
+
+$$
+pk_{i} \cdot dk_{i} = kio_{i} \cdot invest + -kio_{i} \cdot \sum_{j \in \{agricult, industry, services\}} dst_{j} \cdot p_{j}
+$$
+- `savings.ieq[agricult]`
+
+$$
+id_{i} = \sum_{j \in \{agricult, industry, services\}} imat_{i,j} \cdot dk_{j}
+$$
+- `savings.ieq[industry]`
+
+$$
+id_{i} = \sum_{j \in \{agricult, industry, services\}} imat_{i,j} \cdot dk_{j}
+$$
+- `savings.ieq[services]`
+
+$$
+id_{i} = \sum_{j \in \{agricult, industry, services\}} imat_{i,j} \cdot dk_{j}
+$$
+- `household_demand.cdeq[agricult]`
+
+$$
+p_{i} \cdot cd_{i} = \sum_{hh \in \{lab-hh, cap-hh\}} cles_{i,hh} \cdot 1.0 + -mps_{hh} \cdot yh_{hh} \cdot 1.0 + -htax_{hh}
+$$
+- `household_demand.cdeq[industry]`
+
+$$
+p_{i} \cdot cd_{i} = \sum_{hh \in \{lab-hh, cap-hh\}} cles_{i,hh} \cdot 1.0 + -mps_{hh} \cdot yh_{hh} \cdot 1.0 + -htax_{hh}
+$$
+- `household_demand.cdeq[services]`
+
+$$
+p_{i} \cdot cd_{i} = \sum_{hh \in \{lab-hh, cap-hh\}} cles_{i,hh} \cdot 1.0 + -mps_{hh} \cdot yh_{hh} \cdot 1.0 + -htax_{hh}
+$$
+- `household_demand.hhsaveq`
+
+$$
+hhsav = \sum_{hh \in \{lab-hh, cap-hh\}} mps_{hh} \cdot yh_{hh} \cdot 1.0 + -htax_{hh}
+$$
+- `household_income.labory[lab-hh]`
+
+$$
+yh_{lab-hh} = \sum_{lc \in \{labor1, labor2, labor3\}} wa_{lc} \cdot ls_{lc} + remit \cdot er
+$$
+- `household_income.capitaly[cap-hh]`
+
+$$
+yh_{cap-hh} = \sum_{i \in \{agricult, industry, services\}} pva_{i} \cdot xd_{i} + -deprecia + -\sum_{lc \in \{labor1, labor2, labor3\}} wa_{lc} \cdot ls_{lc} + fbor \cdot er + ypr
+$$
+- `household_tax.hhtaxdef`
+
+$$
+tothhtax = \sum_{hh \in \{lab-hh, cap-hh\}} htax_{hh} \cdot yh_{hh}
+$$
+- `household_sum.gdp`
+
+$$
+y = \sum_{hh \in \{lab-hh, cap-hh\}} yh_{hh}
+$$
+- `trade_price.pmdef[agricult]`
+
+$$
+pm_{i} = pwm_{i} \cdot er \cdot 1.0 + tm_{i} + pr
+$$
+- `trade_price.pedef[agricult]`
+
+$$
+pe_{i} = pwe_{i} \cdot 1.0 + te_{i} \cdot er
+$$
+- `trade_price.pmdef[industry]`
+
+$$
+pm_{i} = pwm_{i} \cdot er \cdot 1.0 + tm_{i} + pr
+$$
+- `trade_price.pedef[industry]`
+
+$$
+pe_{i} = pwe_{i} \cdot 1.0 + te_{i} \cdot er
+$$
+- `trade_price.pmdef[services]`
+
+$$
+pm_{i} = pwm_{i} \cdot er \cdot 1.0 + tm_{i} + pr
+$$
+- `trade_price.pedef[services]`
+
+$$
+pe_{i} = pwe_{i} \cdot 1.0 + te_{i} \cdot er
+$$
+- `absorption.absorption[agricult]`
+
+$$
+p_{i} \cdot x_{i} = pd_{i} \cdot xxd_{i} + pm_{i} \cdot m_{i}
+$$
+- `absorption.sales[agricult]`
+
+$$
+px_{i} \cdot xd_{i} = pd_{i} \cdot xxd_{i} + pe_{i} \cdot e_{i}
+$$
+- `absorption.absorption[industry]`
+
+$$
+p_{i} \cdot x_{i} = pd_{i} \cdot xxd_{i} + pm_{i} \cdot m_{i}
+$$
+- `absorption.sales[industry]`
+
+$$
+px_{i} \cdot xd_{i} = pd_{i} \cdot xxd_{i} + pe_{i} \cdot e_{i}
+$$
+- `absorption.absorption[services]`
+
+$$
+p_{i} \cdot x_{i} = pd_{i} \cdot xxd_{i} + pm_{i} \cdot m_{i}
+$$
+- `absorption.sales[services]`
+
+$$
+px_{i} \cdot xd_{i} = pd_{i} \cdot xxd_{i} + pe_{i} \cdot e_{i}
+$$
+- `activity_price.actp[agricult]`
+
+$$
+px_{i} \cdot 1.0 + -itax_{i} = pva_{i} + \sum_{j \in \{agricult, industry, services\}} io_{j,i} \cdot p_{j}
+$$
+- `activity_price.inteq[agricult]`
+
+$$
+int_{i} = \sum_{j \in \{agricult, industry, services\}} io_{i,j} \cdot xd_{j}
+$$
+- `activity_price.actp[industry]`
+
+$$
+px_{i} \cdot 1.0 + -itax_{i} = pva_{i} + \sum_{j \in \{agricult, industry, services\}} io_{j,i} \cdot p_{j}
+$$
+- `activity_price.inteq[industry]`
+
+$$
+int_{i} = \sum_{j \in \{agricult, industry, services\}} io_{i,j} \cdot xd_{j}
+$$
+- `activity_price.actp[services]`
+
+$$
+px_{i} \cdot 1.0 + -itax_{i} = pva_{i} + \sum_{j \in \{agricult, industry, services\}} io_{j,i} \cdot p_{j}
+$$
+- `activity_price.inteq[services]`
+
+$$
+int_{i} = \sum_{j \in \{agricult, industry, services\}} io_{i,j} \cdot xd_{j}
+$$
+- `capital_price.pkdef[agricult]`
+
+$$
+pk_{i} = \sum_{j \in \{agricult, industry, services\}} p_{j} \cdot imat_{j,i}
+$$
+- `capital_price.pkdef[industry]`
+
+$$
+pk_{i} = \sum_{j \in \{agricult, industry, services\}} p_{j} \cdot imat_{j,i}
+$$
+- `capital_price.pkdef[services]`
+
+$$
+pk_{i} = \sum_{j \in \{agricult, industry, services\}} p_{j} \cdot imat_{j,i}
+$$
+- `premium_income.premium`
+
+$$
+ypr = \sum_{i \in \{agricult, industry, services\}} pwm_{i} \cdot m_{i} \cdot er \cdot pr
+$$
+- `price_index.pindexdef`
+
+$$
+pindex = \sum_{i \in \{agricult, industry, services\}} p_{i} \cdot pwts_{i}
+$$
+- `bop.caeq`
+
+$$
+\sum_{i \in \{agricult, industry, services\}} pwm_{i} \cdot M_{i} = \sum_{i \in \{agricult, industry, services\}} pwe_{i} \cdot E_{i} + fsav + remit + fbor
+$$
+- `cet.cet[agricult]`
+
+$$
+xd_{i} = at_{i} \cdot gamma_{i} \cdot e_{i}^{rhot_{i}} + 1.0 + -gamma_{i} \cdot xxd_{i}^{rhot_{i}}^{\frac{1.0}{rhot_{i}}}
+$$
+- `cet.esupply[agricult]`
+
+$$
+\frac{e_{i}}{xxd_{i}} = \frac{pe_{i} \cdot 1.0 + -gamma_{i}}{pd_{i} \cdot gamma_{i}}^{\frac{1.0}{rhot_{i} + -1.0}}
+$$
+- `cet.cet[industry]`
+
+$$
+xd_{i} = at_{i} \cdot gamma_{i} \cdot e_{i}^{rhot_{i}} + 1.0 + -gamma_{i} \cdot xxd_{i}^{rhot_{i}}^{\frac{1.0}{rhot_{i}}}
+$$
+- `cet.esupply[industry]`
+
+$$
+\frac{e_{i}}{xxd_{i}} = \frac{pe_{i} \cdot 1.0 + -gamma_{i}}{pd_{i} \cdot gamma_{i}}^{\frac{1.0}{rhot_{i} + -1.0}}
+$$
+- `cet.cet[services]`
+
+$$
+xd_{i} = at_{i} \cdot gamma_{i} \cdot e_{i}^{rhot_{i}} + 1.0 + -gamma_{i} \cdot xxd_{i}^{rhot_{i}}^{\frac{1.0}{rhot_{i}}}
+$$
+- `cet.esupply[services]`
+
+$$
+\frac{e_{i}}{xxd_{i}} = \frac{pe_{i} \cdot 1.0 + -gamma_{i}}{pd_{i} \cdot gamma_{i}}^{\frac{1.0}{rhot_{i} + -1.0}}
+$$
+- `armington.armington[agricult]`
+
+$$
+x_{i} = ac_{i} \cdot delta_{i} \cdot m_{i}^{-rhoc_{i}} + 1.0 + -delta_{i} \cdot xxd_{i}^{-rhoc_{i}}^{\frac{-1.0}{rhoc_{i}}}
+$$
+- `armington.costmin[agricult]`
+
+$$
+\frac{m_{i}}{xxd_{i}} = \frac{pd_{i} \cdot delta_{i}}{pm_{i} \cdot 1.0 + -delta_{i}}^{\frac{1.0}{1.0 + rhoc_{i}}}
+$$
+- `armington.armington[industry]`
+
+$$
+x_{i} = ac_{i} \cdot delta_{i} \cdot m_{i}^{-rhoc_{i}} + 1.0 + -delta_{i} \cdot xxd_{i}^{-rhoc_{i}}^{\frac{-1.0}{rhoc_{i}}}
+$$
+- `armington.costmin[industry]`
+
+$$
+\frac{m_{i}}{xxd_{i}} = \frac{pd_{i} \cdot delta_{i}}{pm_{i} \cdot 1.0 + -delta_{i}}^{\frac{1.0}{1.0 + rhoc_{i}}}
+$$
+- `armington.armington[services]`
+
+$$
+x_{i} = ac_{i} \cdot delta_{i} \cdot m_{i}^{-rhoc_{i}} + 1.0 + -delta_{i} \cdot xxd_{i}^{-rhoc_{i}}^{\frac{-1.0}{rhoc_{i}}}
+$$
+- `armington.costmin[services]`
+
+$$
+\frac{m_{i}}{xxd_{i}} = \frac{pd_{i} \cdot delta_{i}}{pm_{i} \cdot 1.0 + -delta_{i}}^{\frac{1.0}{1.0 + rhoc_{i}}}
+$$
+- `inventory.dsteq[agricult]`
+
+$$
+dst_{i} = dstr_{i} \cdot xd_{i}
+$$
+- `inventory.dsteq[industry]`
+
+$$
+dst_{i} = dstr_{i} \cdot xd_{i}
+$$
+- `inventory.dsteq[services]`
+
+$$
+dst_{i} = dstr_{i} \cdot xd_{i}
+$$
+- `market.equil[agricult]`
+
+$$
+x_{i} = int_{i} + cd_{i} + gd_{i} + id_{i} + dst_{i}
+$$
+- `market.equil[industry]`
+
+$$
+x_{i} = int_{i} + cd_{i} + gd_{i} + id_{i} + dst_{i}
+$$
+- `market.equil[services]`
+
+$$
+x_{i} = int_{i} + cd_{i} + gd_{i} + id_{i} + dst_{i}
+$$
+- `objective.objective`
+
+$$
+omega = \prod_{i \in \{agricult, industry, services\}} cd_{i}^{alpha_{i}}
+$$
 - `init.start[er]` start er = 1.0
 - `init.start[x_industry]` start x_industry = 930.3509
 - `init.start[gr]` start gr = 194.0449

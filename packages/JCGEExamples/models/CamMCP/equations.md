@@ -1,247 +1,1219 @@
 # Equations
-- `production.activity[ag-subsist]` xd[i] = ad[i] * prod_lc∈{rural, urban-unsk}(l[i,lc]^alphl[lc,i]) * k[i]^1.0 + -sum_lc∈{rural, urban-unsk, urban-skil}(alphl[lc,i])
-- `production.profitmax[ag-subsist,rural]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[ag-subsist,urban-unsk]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.activity[ag-exp+ind]` xd[i] = ad[i] * prod_lc∈{rural, urban-unsk, urban-skil}(l[i,lc]^alphl[lc,i]) * k[i]^1.0 + -sum_lc∈{rural, urban-unsk, urban-skil}(alphl[lc,i])
-- `production.profitmax[ag-exp+ind,rural]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[ag-exp+ind,urban-unsk]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[ag-exp+ind,urban-skil]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.activity[sylvicult]` xd[i] = ad[i] * prod_lc∈{rural, urban-unsk, urban-skil}(l[i,lc]^alphl[lc,i]) * k[i]^1.0 + -sum_lc∈{rural, urban-unsk, urban-skil}(alphl[lc,i])
-- `production.profitmax[sylvicult,rural]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[sylvicult,urban-unsk]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[sylvicult,urban-skil]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.activity[ind-alim]` xd[i] = ad[i] * prod_lc∈{rural, urban-unsk, urban-skil}(l[i,lc]^alphl[lc,i]) * k[i]^1.0 + -sum_lc∈{rural, urban-unsk, urban-skil}(alphl[lc,i])
-- `production.profitmax[ind-alim,rural]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[ind-alim,urban-unsk]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[ind-alim,urban-skil]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.activity[biens-cons]` xd[i] = ad[i] * prod_lc∈{rural, urban-unsk, urban-skil}(l[i,lc]^alphl[lc,i]) * k[i]^1.0 + -sum_lc∈{rural, urban-unsk, urban-skil}(alphl[lc,i])
-- `production.profitmax[biens-cons,rural]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[biens-cons,urban-unsk]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[biens-cons,urban-skil]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.activity[biens-int]` xd[i] = ad[i] * prod_lc∈{rural, urban-unsk, urban-skil}(l[i,lc]^alphl[lc,i]) * k[i]^1.0 + -sum_lc∈{rural, urban-unsk, urban-skil}(alphl[lc,i])
-- `production.profitmax[biens-int,rural]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[biens-int,urban-unsk]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[biens-int,urban-skil]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.activity[cim-int]` xd[i] = ad[i] * prod_lc∈{rural, urban-unsk, urban-skil}(l[i,lc]^alphl[lc,i]) * k[i]^1.0 + -sum_lc∈{rural, urban-unsk, urban-skil}(alphl[lc,i])
-- `production.profitmax[cim-int,rural]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[cim-int,urban-unsk]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[cim-int,urban-skil]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.activity[biens-cap]` xd[i] = ad[i] * prod_lc∈{rural, urban-unsk, urban-skil}(l[i,lc]^alphl[lc,i]) * k[i]^1.0 + -sum_lc∈{rural, urban-unsk, urban-skil}(alphl[lc,i])
-- `production.profitmax[biens-cap,rural]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[biens-cap,urban-unsk]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[biens-cap,urban-skil]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.activity[construct]` xd[i] = ad[i] * prod_lc∈{rural, urban-unsk, urban-skil}(l[i,lc]^alphl[lc,i]) * k[i]^1.0 + -sum_lc∈{rural, urban-unsk, urban-skil}(alphl[lc,i])
-- `production.profitmax[construct,rural]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[construct,urban-unsk]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[construct,urban-skil]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.activity[services]` xd[i] = ad[i] * prod_lc∈{rural, urban-unsk, urban-skil}(l[i,lc]^alphl[lc,i]) * k[i]^1.0 + -sum_lc∈{rural, urban-unsk, urban-skil}(alphl[lc,i])
-- `production.profitmax[services,rural]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[services,urban-unsk]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[services,urban-skil]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.activity[publiques]` xd[i] = ad[i] * prod_lc∈{urban-unsk, urban-skil}(l[i,lc]^alphl[lc,i]) * k[i]^1.0 + -sum_lc∈{rural, urban-unsk, urban-skil}(alphl[lc,i])
-- `production.profitmax[publiques,urban-unsk]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `production.profitmax[publiques,urban-skil]` wa[lc] * wdist[i,lc] * l[i,lc] = xd[i] * pva[i] * alphl[lc,i]
-- `labor_market.lmequil[rural]` sum_i∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(l[i,lc]) = ls[lc]
-- `labor_market.lmequil[urban-unsk]` sum_i∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(l[i,lc]) = ls[lc]
-- `labor_market.lmequil[urban-skil]` sum_i∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(l[i,lc]) = ls[lc]
-- `government_demand.gdeq[ag-subsist]` gd[i] = gles[i] * gdtot
-- `government_demand.gdeq[ag-exp+ind]` gd[i] = gles[i] * gdtot
-- `government_demand.gdeq[sylvicult]` gd[i] = gles[i] * gdtot
-- `government_demand.gdeq[ind-alim]` gd[i] = gles[i] * gdtot
-- `government_demand.gdeq[biens-cons]` gd[i] = gles[i] * gdtot
-- `government_demand.gdeq[biens-int]` gd[i] = gles[i] * gdtot
-- `government_demand.gdeq[cim-int]` gd[i] = gles[i] * gdtot
-- `government_demand.gdeq[biens-cap]` gd[i] = gles[i] * gdtot
-- `government_demand.gdeq[construct]` gd[i] = gles[i] * gdtot
-- `government_demand.gdeq[services]` gd[i] = gles[i] * gdtot
-- `government_demand.gdeq[publiques]` gd[i] = gles[i] * gdtot
-- `government_finance.tariffdef` tariff = sum_i∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, services}(tm[i] * m[i] * pwm[i]) * er
-- `government_finance.indtaxdef` indtax = sum_i∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(itax[i] * px[i] * xd[i])
-- `government_finance.dutydef` duty = sum_i∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, services}(te[i] * e[i] * pe[i])
-- `government_finance.greq` gr = tariff + duty + indtax
-- `government_finance.gruse` gr = sum_i∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(p[i] * gd[i]) + govsav
-- `savings.depreq` deprecia = sum_i∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(depr[i] * pk[i] * k[i])
-- `savings.totsav` savings = hhsav + govsav + deprecia + fsav * er
-- `savings.prodinv[ag-subsist]` pk[i] * dk[i] = kio[i] * savings + -kio[i] * sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(dst[j] * p[j])
-- `savings.prodinv[ag-exp+ind]` pk[i] * dk[i] = kio[i] * savings + -kio[i] * sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(dst[j] * p[j])
-- `savings.prodinv[sylvicult]` pk[i] * dk[i] = kio[i] * savings + -kio[i] * sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(dst[j] * p[j])
-- `savings.prodinv[ind-alim]` pk[i] * dk[i] = kio[i] * savings + -kio[i] * sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(dst[j] * p[j])
-- `savings.prodinv[biens-cons]` pk[i] * dk[i] = kio[i] * savings + -kio[i] * sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(dst[j] * p[j])
-- `savings.prodinv[biens-int]` pk[i] * dk[i] = kio[i] * savings + -kio[i] * sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(dst[j] * p[j])
-- `savings.prodinv[cim-int]` pk[i] * dk[i] = kio[i] * savings + -kio[i] * sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(dst[j] * p[j])
-- `savings.prodinv[biens-cap]` pk[i] * dk[i] = kio[i] * savings + -kio[i] * sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(dst[j] * p[j])
-- `savings.prodinv[construct]` pk[i] * dk[i] = kio[i] * savings + -kio[i] * sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(dst[j] * p[j])
-- `savings.prodinv[services]` pk[i] * dk[i] = kio[i] * savings + -kio[i] * sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(dst[j] * p[j])
-- `savings.prodinv[publiques]` pk[i] * dk[i] = kio[i] * savings + -kio[i] * sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(dst[j] * p[j])
-- `savings.ieq[ag-subsist]` id[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(imat[i,j] * dk[j])
-- `savings.ieq[ag-exp+ind]` id[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(imat[i,j] * dk[j])
-- `savings.ieq[sylvicult]` id[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(imat[i,j] * dk[j])
-- `savings.ieq[ind-alim]` id[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(imat[i,j] * dk[j])
-- `savings.ieq[biens-cons]` id[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(imat[i,j] * dk[j])
-- `savings.ieq[biens-int]` id[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(imat[i,j] * dk[j])
-- `savings.ieq[cim-int]` id[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(imat[i,j] * dk[j])
-- `savings.ieq[biens-cap]` id[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(imat[i,j] * dk[j])
-- `savings.ieq[construct]` id[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(imat[i,j] * dk[j])
-- `savings.ieq[services]` id[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(imat[i,j] * dk[j])
-- `savings.ieq[publiques]` id[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(imat[i,j] * dk[j])
-- `household.cdeq[ag-subsist]` p[i] * cd[i] = cles[i] * 1.0 + -mps * y
-- `household.cdeq[ag-exp+ind]` p[i] * cd[i] = cles[i] * 1.0 + -mps * y
-- `household.cdeq[sylvicult]` p[i] * cd[i] = cles[i] * 1.0 + -mps * y
-- `household.cdeq[ind-alim]` p[i] * cd[i] = cles[i] * 1.0 + -mps * y
-- `household.cdeq[biens-cons]` p[i] * cd[i] = cles[i] * 1.0 + -mps * y
-- `household.cdeq[biens-int]` p[i] * cd[i] = cles[i] * 1.0 + -mps * y
-- `household.cdeq[cim-int]` p[i] * cd[i] = cles[i] * 1.0 + -mps * y
-- `household.cdeq[biens-cap]` p[i] * cd[i] = cles[i] * 1.0 + -mps * y
-- `household.cdeq[construct]` p[i] * cd[i] = cles[i] * 1.0 + -mps * y
-- `household.cdeq[services]` p[i] * cd[i] = cles[i] * 1.0 + -mps * y
-- `household.cdeq[publiques]` p[i] * cd[i] = cles[i] * 1.0 + -mps * y
-- `household.hhsaveq` hhsav = mps * y
-- `trade_prices.pmdef[ag-subsist]` pm[i] = pwm[i] * er * 1.0 + tm[i] + 0.0
-- `trade_prices.pedef[ag-subsist]` pe[i] * 1.0 + te[i] = pwe[i] * er
-- `trade_prices.pmdef[ag-exp+ind]` pm[i] = pwm[i] * er * 1.0 + tm[i] + 0.0
-- `trade_prices.pedef[ag-exp+ind]` pe[i] * 1.0 + te[i] = pwe[i] * er
-- `trade_prices.pmdef[sylvicult]` pm[i] = pwm[i] * er * 1.0 + tm[i] + 0.0
-- `trade_prices.pedef[sylvicult]` pe[i] * 1.0 + te[i] = pwe[i] * er
-- `trade_prices.pmdef[ind-alim]` pm[i] = pwm[i] * er * 1.0 + tm[i] + 0.0
-- `trade_prices.pedef[ind-alim]` pe[i] * 1.0 + te[i] = pwe[i] * er
-- `trade_prices.pmdef[biens-cons]` pm[i] = pwm[i] * er * 1.0 + tm[i] + 0.0
-- `trade_prices.pedef[biens-cons]` pe[i] * 1.0 + te[i] = pwe[i] * er
-- `trade_prices.pmdef[biens-int]` pm[i] = pwm[i] * er * 1.0 + tm[i] + 0.0
-- `trade_prices.pedef[biens-int]` pe[i] * 1.0 + te[i] = pwe[i] * er
-- `trade_prices.pmdef[cim-int]` pm[i] = pwm[i] * er * 1.0 + tm[i] + 0.0
-- `trade_prices.pedef[cim-int]` pe[i] * 1.0 + te[i] = pwe[i] * er
-- `trade_prices.pmdef[biens-cap]` pm[i] = pwm[i] * er * 1.0 + tm[i] + 0.0
-- `trade_prices.pedef[biens-cap]` pe[i] * 1.0 + te[i] = pwe[i] * er
-- `trade_prices.pmdef[services]` pm[i] = pwm[i] * er * 1.0 + tm[i] + 0.0
-- `trade_prices.pedef[services]` pe[i] * 1.0 + te[i] = pwe[i] * er
-- `absorption.absorption[ag-subsist]` p[i] * x[i] = pd[i] * xxd[i] + pm[i] * m[i]
-- `absorption.sales[ag-subsist]` px[i] * xd[i] = pd[i] * xxd[i] + pe[i] * e[i]
-- `absorption.absorption[ag-exp+ind]` p[i] * x[i] = pd[i] * xxd[i] + pm[i] * m[i]
-- `absorption.sales[ag-exp+ind]` px[i] * xd[i] = pd[i] * xxd[i] + pe[i] * e[i]
-- `absorption.absorption[sylvicult]` p[i] * x[i] = pd[i] * xxd[i] + pm[i] * m[i]
-- `absorption.sales[sylvicult]` px[i] * xd[i] = pd[i] * xxd[i] + pe[i] * e[i]
-- `absorption.absorption[ind-alim]` p[i] * x[i] = pd[i] * xxd[i] + pm[i] * m[i]
-- `absorption.sales[ind-alim]` px[i] * xd[i] = pd[i] * xxd[i] + pe[i] * e[i]
-- `absorption.absorption[biens-cons]` p[i] * x[i] = pd[i] * xxd[i] + pm[i] * m[i]
-- `absorption.sales[biens-cons]` px[i] * xd[i] = pd[i] * xxd[i] + pe[i] * e[i]
-- `absorption.absorption[biens-int]` p[i] * x[i] = pd[i] * xxd[i] + pm[i] * m[i]
-- `absorption.sales[biens-int]` px[i] * xd[i] = pd[i] * xxd[i] + pe[i] * e[i]
-- `absorption.absorption[cim-int]` p[i] * x[i] = pd[i] * xxd[i] + pm[i] * m[i]
-- `absorption.sales[cim-int]` px[i] * xd[i] = pd[i] * xxd[i] + pe[i] * e[i]
-- `absorption.absorption[biens-cap]` p[i] * x[i] = pd[i] * xxd[i] + pm[i] * m[i]
-- `absorption.sales[biens-cap]` px[i] * xd[i] = pd[i] * xxd[i] + pe[i] * e[i]
-- `absorption.absorption[construct]` p[i] * x[i] = pd[i] * xxd[i] + 0.0
-- `absorption.sales[construct]` px[i] * xd[i] = pd[i] * xxd[i] + 0.0
-- `absorption.absorption[services]` p[i] * x[i] = pd[i] * xxd[i] + pm[i] * m[i]
-- `absorption.sales[services]` px[i] * xd[i] = pd[i] * xxd[i] + pe[i] * e[i]
-- `absorption.absorption[publiques]` p[i] * x[i] = pd[i] * xxd[i] + 0.0
-- `absorption.sales[publiques]` px[i] * xd[i] = pd[i] * xxd[i] + 0.0
-- `activity_price.actp[ag-subsist]` px[i] * 1.0 + -itax[i] = pva[i] + sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[j,i] * p[j])
-- `activity_price.inteq[ag-subsist]` int[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[i,j] * xd[j])
-- `activity_price.actp[ag-exp+ind]` px[i] * 1.0 + -itax[i] = pva[i] + sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[j,i] * p[j])
-- `activity_price.inteq[ag-exp+ind]` int[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[i,j] * xd[j])
-- `activity_price.actp[sylvicult]` px[i] * 1.0 + -itax[i] = pva[i] + sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[j,i] * p[j])
-- `activity_price.inteq[sylvicult]` int[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[i,j] * xd[j])
-- `activity_price.actp[ind-alim]` px[i] * 1.0 + -itax[i] = pva[i] + sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[j,i] * p[j])
-- `activity_price.inteq[ind-alim]` int[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[i,j] * xd[j])
-- `activity_price.actp[biens-cons]` px[i] * 1.0 + -itax[i] = pva[i] + sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[j,i] * p[j])
-- `activity_price.inteq[biens-cons]` int[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[i,j] * xd[j])
-- `activity_price.actp[biens-int]` px[i] * 1.0 + -itax[i] = pva[i] + sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[j,i] * p[j])
-- `activity_price.inteq[biens-int]` int[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[i,j] * xd[j])
-- `activity_price.actp[cim-int]` px[i] * 1.0 + -itax[i] = pva[i] + sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[j,i] * p[j])
-- `activity_price.inteq[cim-int]` int[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[i,j] * xd[j])
-- `activity_price.actp[biens-cap]` px[i] * 1.0 + -itax[i] = pva[i] + sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[j,i] * p[j])
-- `activity_price.inteq[biens-cap]` int[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[i,j] * xd[j])
-- `activity_price.actp[construct]` px[i] * 1.0 + -itax[i] = pva[i] + sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[j,i] * p[j])
-- `activity_price.inteq[construct]` int[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[i,j] * xd[j])
-- `activity_price.actp[services]` px[i] * 1.0 + -itax[i] = pva[i] + sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[j,i] * p[j])
-- `activity_price.inteq[services]` int[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[i,j] * xd[j])
-- `activity_price.actp[publiques]` px[i] * 1.0 + -itax[i] = pva[i] + sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[j,i] * p[j])
-- `activity_price.inteq[publiques]` int[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(io[i,j] * xd[j])
-- `capital_price.pkdef[ag-subsist]` pk[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(p[j] * imat[j,i])
-- `capital_price.pkdef[ag-exp+ind]` pk[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(p[j] * imat[j,i])
-- `capital_price.pkdef[sylvicult]` pk[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(p[j] * imat[j,i])
-- `capital_price.pkdef[ind-alim]` pk[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(p[j] * imat[j,i])
-- `capital_price.pkdef[biens-cons]` pk[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(p[j] * imat[j,i])
-- `capital_price.pkdef[biens-int]` pk[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(p[j] * imat[j,i])
-- `capital_price.pkdef[cim-int]` pk[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(p[j] * imat[j,i])
-- `capital_price.pkdef[biens-cap]` pk[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(p[j] * imat[j,i])
-- `capital_price.pkdef[construct]` pk[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(p[j] * imat[j,i])
-- `capital_price.pkdef[services]` pk[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(p[j] * imat[j,i])
-- `capital_price.pkdef[publiques]` pk[i] = sum_j∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(p[j] * imat[j,i])
-- `bop.eqBOP` sum_i∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(pWe[i] * E[i]) + Sf = sum_i∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(pWm[i] * M[i])
-- `cet.cet[ag-subsist]` xd[i] = at[i] * gamma[i] * e[i]^rhot[i] + 1.0 + -gamma[i] * xxd[i]^rhot[i]^1.0 / rhot[i]
-- `cet.esupply[ag-subsist]` e[i] / xxd[i] = pe[i] * 1.0 + -gamma[i] / pd[i] * gamma[i]^1.0 / rhot[i] + -1.0
-- `cet.cet[ag-exp+ind]` xd[i] = at[i] * gamma[i] * e[i]^rhot[i] + 1.0 + -gamma[i] * xxd[i]^rhot[i]^1.0 / rhot[i]
-- `cet.esupply[ag-exp+ind]` e[i] / xxd[i] = pe[i] * 1.0 + -gamma[i] / pd[i] * gamma[i]^1.0 / rhot[i] + -1.0
-- `cet.cet[sylvicult]` xd[i] = at[i] * gamma[i] * e[i]^rhot[i] + 1.0 + -gamma[i] * xxd[i]^rhot[i]^1.0 / rhot[i]
-- `cet.esupply[sylvicult]` e[i] / xxd[i] = pe[i] * 1.0 + -gamma[i] / pd[i] * gamma[i]^1.0 / rhot[i] + -1.0
-- `cet.cet[ind-alim]` xd[i] = at[i] * gamma[i] * e[i]^rhot[i] + 1.0 + -gamma[i] * xxd[i]^rhot[i]^1.0 / rhot[i]
-- `cet.esupply[ind-alim]` e[i] / xxd[i] = pe[i] * 1.0 + -gamma[i] / pd[i] * gamma[i]^1.0 / rhot[i] + -1.0
-- `cet.cet[biens-cons]` xd[i] = at[i] * gamma[i] * e[i]^rhot[i] + 1.0 + -gamma[i] * xxd[i]^rhot[i]^1.0 / rhot[i]
-- `cet.esupply[biens-cons]` e[i] / xxd[i] = pe[i] * 1.0 + -gamma[i] / pd[i] * gamma[i]^1.0 / rhot[i] + -1.0
-- `cet.cet[biens-int]` xd[i] = at[i] * gamma[i] * e[i]^rhot[i] + 1.0 + -gamma[i] * xxd[i]^rhot[i]^1.0 / rhot[i]
-- `cet.esupply[biens-int]` e[i] / xxd[i] = pe[i] * 1.0 + -gamma[i] / pd[i] * gamma[i]^1.0 / rhot[i] + -1.0
-- `cet.cet[cim-int]` xd[i] = at[i] * gamma[i] * e[i]^rhot[i] + 1.0 + -gamma[i] * xxd[i]^rhot[i]^1.0 / rhot[i]
-- `cet.esupply[cim-int]` e[i] / xxd[i] = pe[i] * 1.0 + -gamma[i] / pd[i] * gamma[i]^1.0 / rhot[i] + -1.0
-- `cet.cet[biens-cap]` xd[i] = at[i] * gamma[i] * e[i]^rhot[i] + 1.0 + -gamma[i] * xxd[i]^rhot[i]^1.0 / rhot[i]
-- `cet.esupply[biens-cap]` e[i] / xxd[i] = pe[i] * 1.0 + -gamma[i] / pd[i] * gamma[i]^1.0 / rhot[i] + -1.0
-- `cet.cet[services]` xd[i] = at[i] * gamma[i] * e[i]^rhot[i] + 1.0 + -gamma[i] * xxd[i]^rhot[i]^1.0 / rhot[i]
-- `cet.esupply[services]` e[i] / xxd[i] = pe[i] * 1.0 + -gamma[i] / pd[i] * gamma[i]^1.0 / rhot[i] + -1.0
-- `export.edemand[ag-subsist]` e[i] / e0[i] = pwe0[i] / pwe[i]^eta[i]
-- `export.edemand[ag-exp+ind]` e[i] / e0[i] = pwe0[i] / pwe[i]^eta[i]
-- `export.edemand[sylvicult]` e[i] / e0[i] = pwe0[i] / pwe[i]^eta[i]
-- `export.edemand[ind-alim]` e[i] / e0[i] = pwe0[i] / pwe[i]^eta[i]
-- `export.edemand[biens-cons]` e[i] / e0[i] = pwe0[i] / pwe[i]^eta[i]
-- `export.edemand[biens-int]` e[i] / e0[i] = pwe0[i] / pwe[i]^eta[i]
-- `export.edemand[cim-int]` e[i] / e0[i] = pwe0[i] / pwe[i]^eta[i]
-- `export.edemand[biens-cap]` e[i] / e0[i] = pwe0[i] / pwe[i]^eta[i]
-- `export.edemand[services]` e[i] / e0[i] = pwe0[i] / pwe[i]^eta[i]
-- `armington.armington[ag-subsist]` x[i] = ac[i] * delta[i] * m[i]^-rhoc[i] + 1.0 + -delta[i] * xxd[i]^-rhoc[i]^-1.0 / rhoc[i]
-- `armington.costmin[ag-subsist]` m[i] / xxd[i] = pd[i] * delta[i] / pm[i] * 1.0 + -delta[i]^1.0 / 1.0 + rhoc[i]
-- `armington.armington[ag-exp+ind]` x[i] = ac[i] * delta[i] * m[i]^-rhoc[i] + 1.0 + -delta[i] * xxd[i]^-rhoc[i]^-1.0 / rhoc[i]
-- `armington.costmin[ag-exp+ind]` m[i] / xxd[i] = pd[i] * delta[i] / pm[i] * 1.0 + -delta[i]^1.0 / 1.0 + rhoc[i]
-- `armington.armington[sylvicult]` x[i] = ac[i] * delta[i] * m[i]^-rhoc[i] + 1.0 + -delta[i] * xxd[i]^-rhoc[i]^-1.0 / rhoc[i]
-- `armington.costmin[sylvicult]` m[i] / xxd[i] = pd[i] * delta[i] / pm[i] * 1.0 + -delta[i]^1.0 / 1.0 + rhoc[i]
-- `armington.armington[ind-alim]` x[i] = ac[i] * delta[i] * m[i]^-rhoc[i] + 1.0 + -delta[i] * xxd[i]^-rhoc[i]^-1.0 / rhoc[i]
-- `armington.costmin[ind-alim]` m[i] / xxd[i] = pd[i] * delta[i] / pm[i] * 1.0 + -delta[i]^1.0 / 1.0 + rhoc[i]
-- `armington.armington[biens-cons]` x[i] = ac[i] * delta[i] * m[i]^-rhoc[i] + 1.0 + -delta[i] * xxd[i]^-rhoc[i]^-1.0 / rhoc[i]
-- `armington.costmin[biens-cons]` m[i] / xxd[i] = pd[i] * delta[i] / pm[i] * 1.0 + -delta[i]^1.0 / 1.0 + rhoc[i]
-- `armington.armington[biens-int]` x[i] = ac[i] * delta[i] * m[i]^-rhoc[i] + 1.0 + -delta[i] * xxd[i]^-rhoc[i]^-1.0 / rhoc[i]
-- `armington.costmin[biens-int]` m[i] / xxd[i] = pd[i] * delta[i] / pm[i] * 1.0 + -delta[i]^1.0 / 1.0 + rhoc[i]
-- `armington.armington[cim-int]` x[i] = ac[i] * delta[i] * m[i]^-rhoc[i] + 1.0 + -delta[i] * xxd[i]^-rhoc[i]^-1.0 / rhoc[i]
-- `armington.costmin[cim-int]` m[i] / xxd[i] = pd[i] * delta[i] / pm[i] * 1.0 + -delta[i]^1.0 / 1.0 + rhoc[i]
-- `armington.armington[biens-cap]` x[i] = ac[i] * delta[i] * m[i]^-rhoc[i] + 1.0 + -delta[i] * xxd[i]^-rhoc[i]^-1.0 / rhoc[i]
-- `armington.costmin[biens-cap]` m[i] / xxd[i] = pd[i] * delta[i] / pm[i] * 1.0 + -delta[i]^1.0 / 1.0 + rhoc[i]
-- `armington.armington[services]` x[i] = ac[i] * delta[i] * m[i]^-rhoc[i] + 1.0 + -delta[i] * xxd[i]^-rhoc[i]^-1.0 / rhoc[i]
-- `armington.costmin[services]` m[i] / xxd[i] = pd[i] * delta[i] / pm[i] * 1.0 + -delta[i]^1.0 / 1.0 + rhoc[i]
-- `nontraded.xxdsn[construct]` xxd[i] = xd[i]
-- `nontraded.xsn[construct]` x[i] = xxd[i]
-- `nontraded.xxdsn[publiques]` xxd[i] = xd[i]
-- `nontraded.xsn[publiques]` x[i] = xxd[i]
-- `inventory.dsteq[ag-subsist]` dst[i] = dstr[i] * xd[i]
-- `inventory.dsteq[ag-exp+ind]` dst[i] = dstr[i] * xd[i]
-- `inventory.dsteq[sylvicult]` dst[i] = dstr[i] * xd[i]
-- `inventory.dsteq[ind-alim]` dst[i] = dstr[i] * xd[i]
-- `inventory.dsteq[biens-cons]` dst[i] = dstr[i] * xd[i]
-- `inventory.dsteq[biens-int]` dst[i] = dstr[i] * xd[i]
-- `inventory.dsteq[cim-int]` dst[i] = dstr[i] * xd[i]
-- `inventory.dsteq[biens-cap]` dst[i] = dstr[i] * xd[i]
-- `inventory.dsteq[construct]` dst[i] = dstr[i] * xd[i]
-- `inventory.dsteq[services]` dst[i] = dstr[i] * xd[i]
-- `inventory.dsteq[publiques]` dst[i] = dstr[i] * xd[i]
-- `gdp.gdp` y = sum_i∈{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques}(pva[i] * xd[i]) + -deprecia
-- `market.equil[ag-subsist]` x[i] = int[i] + cd[i] + gd[i] + id[i] + dst[i]
-- `market.equil[ag-exp+ind]` x[i] = int[i] + cd[i] + gd[i] + id[i] + dst[i]
-- `market.equil[sylvicult]` x[i] = int[i] + cd[i] + gd[i] + id[i] + dst[i]
-- `market.equil[ind-alim]` x[i] = int[i] + cd[i] + gd[i] + id[i] + dst[i]
-- `market.equil[biens-cons]` x[i] = int[i] + cd[i] + gd[i] + id[i] + dst[i]
-- `market.equil[biens-int]` x[i] = int[i] + cd[i] + gd[i] + id[i] + dst[i]
-- `market.equil[cim-int]` x[i] = int[i] + cd[i] + gd[i] + id[i] + dst[i]
-- `market.equil[biens-cap]` x[i] = int[i] + cd[i] + gd[i] + id[i] + dst[i]
-- `market.equil[construct]` x[i] = int[i] + cd[i] + gd[i] + id[i] + dst[i]
-- `market.equil[services]` x[i] = int[i] + cd[i] + gd[i] + id[i] + dst[i]
-- `market.equil[publiques]` x[i] = int[i] + cd[i] + gd[i] + id[i] + dst[i]
+- `production.activity[ag-subsist]`
+
+$$
+xd_{i} = ad_{i} \cdot \prod_{lc \in \{rural, urban-unsk\}} l_{i,lc}^{alphl_{lc,i}} \cdot k_{i}^{1.0 + -\sum_{lc \in \{rural, urban-unsk, urban-skil\}} alphl_{lc,i}}
+$$
+- `production.profitmax[ag-subsist,rural]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[ag-subsist,urban-unsk]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.activity[ag-exp+ind]`
+
+$$
+xd_{i} = ad_{i} \cdot \prod_{lc \in \{rural, urban-unsk, urban-skil\}} l_{i,lc}^{alphl_{lc,i}} \cdot k_{i}^{1.0 + -\sum_{lc \in \{rural, urban-unsk, urban-skil\}} alphl_{lc,i}}
+$$
+- `production.profitmax[ag-exp+ind,rural]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[ag-exp+ind,urban-unsk]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[ag-exp+ind,urban-skil]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.activity[sylvicult]`
+
+$$
+xd_{i} = ad_{i} \cdot \prod_{lc \in \{rural, urban-unsk, urban-skil\}} l_{i,lc}^{alphl_{lc,i}} \cdot k_{i}^{1.0 + -\sum_{lc \in \{rural, urban-unsk, urban-skil\}} alphl_{lc,i}}
+$$
+- `production.profitmax[sylvicult,rural]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[sylvicult,urban-unsk]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[sylvicult,urban-skil]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.activity[ind-alim]`
+
+$$
+xd_{i} = ad_{i} \cdot \prod_{lc \in \{rural, urban-unsk, urban-skil\}} l_{i,lc}^{alphl_{lc,i}} \cdot k_{i}^{1.0 + -\sum_{lc \in \{rural, urban-unsk, urban-skil\}} alphl_{lc,i}}
+$$
+- `production.profitmax[ind-alim,rural]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[ind-alim,urban-unsk]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[ind-alim,urban-skil]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.activity[biens-cons]`
+
+$$
+xd_{i} = ad_{i} \cdot \prod_{lc \in \{rural, urban-unsk, urban-skil\}} l_{i,lc}^{alphl_{lc,i}} \cdot k_{i}^{1.0 + -\sum_{lc \in \{rural, urban-unsk, urban-skil\}} alphl_{lc,i}}
+$$
+- `production.profitmax[biens-cons,rural]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[biens-cons,urban-unsk]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[biens-cons,urban-skil]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.activity[biens-int]`
+
+$$
+xd_{i} = ad_{i} \cdot \prod_{lc \in \{rural, urban-unsk, urban-skil\}} l_{i,lc}^{alphl_{lc,i}} \cdot k_{i}^{1.0 + -\sum_{lc \in \{rural, urban-unsk, urban-skil\}} alphl_{lc,i}}
+$$
+- `production.profitmax[biens-int,rural]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[biens-int,urban-unsk]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[biens-int,urban-skil]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.activity[cim-int]`
+
+$$
+xd_{i} = ad_{i} \cdot \prod_{lc \in \{rural, urban-unsk, urban-skil\}} l_{i,lc}^{alphl_{lc,i}} \cdot k_{i}^{1.0 + -\sum_{lc \in \{rural, urban-unsk, urban-skil\}} alphl_{lc,i}}
+$$
+- `production.profitmax[cim-int,rural]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[cim-int,urban-unsk]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[cim-int,urban-skil]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.activity[biens-cap]`
+
+$$
+xd_{i} = ad_{i} \cdot \prod_{lc \in \{rural, urban-unsk, urban-skil\}} l_{i,lc}^{alphl_{lc,i}} \cdot k_{i}^{1.0 + -\sum_{lc \in \{rural, urban-unsk, urban-skil\}} alphl_{lc,i}}
+$$
+- `production.profitmax[biens-cap,rural]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[biens-cap,urban-unsk]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[biens-cap,urban-skil]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.activity[construct]`
+
+$$
+xd_{i} = ad_{i} \cdot \prod_{lc \in \{rural, urban-unsk, urban-skil\}} l_{i,lc}^{alphl_{lc,i}} \cdot k_{i}^{1.0 + -\sum_{lc \in \{rural, urban-unsk, urban-skil\}} alphl_{lc,i}}
+$$
+- `production.profitmax[construct,rural]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[construct,urban-unsk]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[construct,urban-skil]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.activity[services]`
+
+$$
+xd_{i} = ad_{i} \cdot \prod_{lc \in \{rural, urban-unsk, urban-skil\}} l_{i,lc}^{alphl_{lc,i}} \cdot k_{i}^{1.0 + -\sum_{lc \in \{rural, urban-unsk, urban-skil\}} alphl_{lc,i}}
+$$
+- `production.profitmax[services,rural]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[services,urban-unsk]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[services,urban-skil]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.activity[publiques]`
+
+$$
+xd_{i} = ad_{i} \cdot \prod_{lc \in \{urban-unsk, urban-skil\}} l_{i,lc}^{alphl_{lc,i}} \cdot k_{i}^{1.0 + -\sum_{lc \in \{rural, urban-unsk, urban-skil\}} alphl_{lc,i}}
+$$
+- `production.profitmax[publiques,urban-unsk]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `production.profitmax[publiques,urban-skil]`
+
+$$
+wa_{lc} \cdot wdist_{i,lc} \cdot l_{i,lc} = xd_{i} \cdot pva_{i} \cdot alphl_{lc,i}
+$$
+- `labor_market.lmequil[rural]`
+
+$$
+\sum_{i \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} l_{i,lc} = ls_{lc}
+$$
+- `labor_market.lmequil[urban-unsk]`
+
+$$
+\sum_{i \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} l_{i,lc} = ls_{lc}
+$$
+- `labor_market.lmequil[urban-skil]`
+
+$$
+\sum_{i \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} l_{i,lc} = ls_{lc}
+$$
+- `government_demand.gdeq[ag-subsist]`
+
+$$
+gd_{i} = gles_{i} \cdot gdtot
+$$
+- `government_demand.gdeq[ag-exp+ind]`
+
+$$
+gd_{i} = gles_{i} \cdot gdtot
+$$
+- `government_demand.gdeq[sylvicult]`
+
+$$
+gd_{i} = gles_{i} \cdot gdtot
+$$
+- `government_demand.gdeq[ind-alim]`
+
+$$
+gd_{i} = gles_{i} \cdot gdtot
+$$
+- `government_demand.gdeq[biens-cons]`
+
+$$
+gd_{i} = gles_{i} \cdot gdtot
+$$
+- `government_demand.gdeq[biens-int]`
+
+$$
+gd_{i} = gles_{i} \cdot gdtot
+$$
+- `government_demand.gdeq[cim-int]`
+
+$$
+gd_{i} = gles_{i} \cdot gdtot
+$$
+- `government_demand.gdeq[biens-cap]`
+
+$$
+gd_{i} = gles_{i} \cdot gdtot
+$$
+- `government_demand.gdeq[construct]`
+
+$$
+gd_{i} = gles_{i} \cdot gdtot
+$$
+- `government_demand.gdeq[services]`
+
+$$
+gd_{i} = gles_{i} \cdot gdtot
+$$
+- `government_demand.gdeq[publiques]`
+
+$$
+gd_{i} = gles_{i} \cdot gdtot
+$$
+- `government_finance.tariffdef`
+
+$$
+tariff = \sum_{i \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, services\}} tm_{i} \cdot m_{i} \cdot pwm_{i} \cdot er
+$$
+- `government_finance.indtaxdef`
+
+$$
+indtax = \sum_{i \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} itax_{i} \cdot px_{i} \cdot xd_{i}
+$$
+- `government_finance.dutydef`
+
+$$
+duty = \sum_{i \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, services\}} te_{i} \cdot e_{i} \cdot pe_{i}
+$$
+- `government_finance.greq`
+
+$$
+gr = tariff + duty + indtax
+$$
+- `government_finance.gruse`
+
+$$
+gr = \sum_{i \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} p_{i} \cdot gd_{i} + govsav
+$$
+- `savings.depreq`
+
+$$
+deprecia = \sum_{i \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} depr_{i} \cdot pk_{i} \cdot k_{i}
+$$
+- `savings.totsav`
+
+$$
+savings = hhsav + govsav + deprecia + fsav \cdot er
+$$
+- `savings.prodinv[ag-subsist]`
+
+$$
+pk_{i} \cdot dk_{i} = kio_{i} \cdot savings + -kio_{i} \cdot \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} dst_{j} \cdot p_{j}
+$$
+- `savings.prodinv[ag-exp+ind]`
+
+$$
+pk_{i} \cdot dk_{i} = kio_{i} \cdot savings + -kio_{i} \cdot \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} dst_{j} \cdot p_{j}
+$$
+- `savings.prodinv[sylvicult]`
+
+$$
+pk_{i} \cdot dk_{i} = kio_{i} \cdot savings + -kio_{i} \cdot \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} dst_{j} \cdot p_{j}
+$$
+- `savings.prodinv[ind-alim]`
+
+$$
+pk_{i} \cdot dk_{i} = kio_{i} \cdot savings + -kio_{i} \cdot \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} dst_{j} \cdot p_{j}
+$$
+- `savings.prodinv[biens-cons]`
+
+$$
+pk_{i} \cdot dk_{i} = kio_{i} \cdot savings + -kio_{i} \cdot \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} dst_{j} \cdot p_{j}
+$$
+- `savings.prodinv[biens-int]`
+
+$$
+pk_{i} \cdot dk_{i} = kio_{i} \cdot savings + -kio_{i} \cdot \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} dst_{j} \cdot p_{j}
+$$
+- `savings.prodinv[cim-int]`
+
+$$
+pk_{i} \cdot dk_{i} = kio_{i} \cdot savings + -kio_{i} \cdot \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} dst_{j} \cdot p_{j}
+$$
+- `savings.prodinv[biens-cap]`
+
+$$
+pk_{i} \cdot dk_{i} = kio_{i} \cdot savings + -kio_{i} \cdot \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} dst_{j} \cdot p_{j}
+$$
+- `savings.prodinv[construct]`
+
+$$
+pk_{i} \cdot dk_{i} = kio_{i} \cdot savings + -kio_{i} \cdot \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} dst_{j} \cdot p_{j}
+$$
+- `savings.prodinv[services]`
+
+$$
+pk_{i} \cdot dk_{i} = kio_{i} \cdot savings + -kio_{i} \cdot \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} dst_{j} \cdot p_{j}
+$$
+- `savings.prodinv[publiques]`
+
+$$
+pk_{i} \cdot dk_{i} = kio_{i} \cdot savings + -kio_{i} \cdot \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} dst_{j} \cdot p_{j}
+$$
+- `savings.ieq[ag-subsist]`
+
+$$
+id_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} imat_{i,j} \cdot dk_{j}
+$$
+- `savings.ieq[ag-exp+ind]`
+
+$$
+id_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} imat_{i,j} \cdot dk_{j}
+$$
+- `savings.ieq[sylvicult]`
+
+$$
+id_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} imat_{i,j} \cdot dk_{j}
+$$
+- `savings.ieq[ind-alim]`
+
+$$
+id_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} imat_{i,j} \cdot dk_{j}
+$$
+- `savings.ieq[biens-cons]`
+
+$$
+id_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} imat_{i,j} \cdot dk_{j}
+$$
+- `savings.ieq[biens-int]`
+
+$$
+id_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} imat_{i,j} \cdot dk_{j}
+$$
+- `savings.ieq[cim-int]`
+
+$$
+id_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} imat_{i,j} \cdot dk_{j}
+$$
+- `savings.ieq[biens-cap]`
+
+$$
+id_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} imat_{i,j} \cdot dk_{j}
+$$
+- `savings.ieq[construct]`
+
+$$
+id_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} imat_{i,j} \cdot dk_{j}
+$$
+- `savings.ieq[services]`
+
+$$
+id_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} imat_{i,j} \cdot dk_{j}
+$$
+- `savings.ieq[publiques]`
+
+$$
+id_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} imat_{i,j} \cdot dk_{j}
+$$
+- `household.cdeq[ag-subsist]`
+
+$$
+p_{i} \cdot cd_{i} = cles_{i} \cdot 1.0 + -mps \cdot y
+$$
+- `household.cdeq[ag-exp+ind]`
+
+$$
+p_{i} \cdot cd_{i} = cles_{i} \cdot 1.0 + -mps \cdot y
+$$
+- `household.cdeq[sylvicult]`
+
+$$
+p_{i} \cdot cd_{i} = cles_{i} \cdot 1.0 + -mps \cdot y
+$$
+- `household.cdeq[ind-alim]`
+
+$$
+p_{i} \cdot cd_{i} = cles_{i} \cdot 1.0 + -mps \cdot y
+$$
+- `household.cdeq[biens-cons]`
+
+$$
+p_{i} \cdot cd_{i} = cles_{i} \cdot 1.0 + -mps \cdot y
+$$
+- `household.cdeq[biens-int]`
+
+$$
+p_{i} \cdot cd_{i} = cles_{i} \cdot 1.0 + -mps \cdot y
+$$
+- `household.cdeq[cim-int]`
+
+$$
+p_{i} \cdot cd_{i} = cles_{i} \cdot 1.0 + -mps \cdot y
+$$
+- `household.cdeq[biens-cap]`
+
+$$
+p_{i} \cdot cd_{i} = cles_{i} \cdot 1.0 + -mps \cdot y
+$$
+- `household.cdeq[construct]`
+
+$$
+p_{i} \cdot cd_{i} = cles_{i} \cdot 1.0 + -mps \cdot y
+$$
+- `household.cdeq[services]`
+
+$$
+p_{i} \cdot cd_{i} = cles_{i} \cdot 1.0 + -mps \cdot y
+$$
+- `household.cdeq[publiques]`
+
+$$
+p_{i} \cdot cd_{i} = cles_{i} \cdot 1.0 + -mps \cdot y
+$$
+- `household.hhsaveq`
+
+$$
+hhsav = mps \cdot y
+$$
+- `trade_prices.pmdef[ag-subsist]`
+
+$$
+pm_{i} = pwm_{i} \cdot er \cdot 1.0 + tm_{i} + 0.0
+$$
+- `trade_prices.pedef[ag-subsist]`
+
+$$
+pe_{i} \cdot 1.0 + te_{i} = pwe_{i} \cdot er
+$$
+- `trade_prices.pmdef[ag-exp+ind]`
+
+$$
+pm_{i} = pwm_{i} \cdot er \cdot 1.0 + tm_{i} + 0.0
+$$
+- `trade_prices.pedef[ag-exp+ind]`
+
+$$
+pe_{i} \cdot 1.0 + te_{i} = pwe_{i} \cdot er
+$$
+- `trade_prices.pmdef[sylvicult]`
+
+$$
+pm_{i} = pwm_{i} \cdot er \cdot 1.0 + tm_{i} + 0.0
+$$
+- `trade_prices.pedef[sylvicult]`
+
+$$
+pe_{i} \cdot 1.0 + te_{i} = pwe_{i} \cdot er
+$$
+- `trade_prices.pmdef[ind-alim]`
+
+$$
+pm_{i} = pwm_{i} \cdot er \cdot 1.0 + tm_{i} + 0.0
+$$
+- `trade_prices.pedef[ind-alim]`
+
+$$
+pe_{i} \cdot 1.0 + te_{i} = pwe_{i} \cdot er
+$$
+- `trade_prices.pmdef[biens-cons]`
+
+$$
+pm_{i} = pwm_{i} \cdot er \cdot 1.0 + tm_{i} + 0.0
+$$
+- `trade_prices.pedef[biens-cons]`
+
+$$
+pe_{i} \cdot 1.0 + te_{i} = pwe_{i} \cdot er
+$$
+- `trade_prices.pmdef[biens-int]`
+
+$$
+pm_{i} = pwm_{i} \cdot er \cdot 1.0 + tm_{i} + 0.0
+$$
+- `trade_prices.pedef[biens-int]`
+
+$$
+pe_{i} \cdot 1.0 + te_{i} = pwe_{i} \cdot er
+$$
+- `trade_prices.pmdef[cim-int]`
+
+$$
+pm_{i} = pwm_{i} \cdot er \cdot 1.0 + tm_{i} + 0.0
+$$
+- `trade_prices.pedef[cim-int]`
+
+$$
+pe_{i} \cdot 1.0 + te_{i} = pwe_{i} \cdot er
+$$
+- `trade_prices.pmdef[biens-cap]`
+
+$$
+pm_{i} = pwm_{i} \cdot er \cdot 1.0 + tm_{i} + 0.0
+$$
+- `trade_prices.pedef[biens-cap]`
+
+$$
+pe_{i} \cdot 1.0 + te_{i} = pwe_{i} \cdot er
+$$
+- `trade_prices.pmdef[services]`
+
+$$
+pm_{i} = pwm_{i} \cdot er \cdot 1.0 + tm_{i} + 0.0
+$$
+- `trade_prices.pedef[services]`
+
+$$
+pe_{i} \cdot 1.0 + te_{i} = pwe_{i} \cdot er
+$$
+- `absorption.absorption[ag-subsist]`
+
+$$
+p_{i} \cdot x_{i} = pd_{i} \cdot xxd_{i} + pm_{i} \cdot m_{i}
+$$
+- `absorption.sales[ag-subsist]`
+
+$$
+px_{i} \cdot xd_{i} = pd_{i} \cdot xxd_{i} + pe_{i} \cdot e_{i}
+$$
+- `absorption.absorption[ag-exp+ind]`
+
+$$
+p_{i} \cdot x_{i} = pd_{i} \cdot xxd_{i} + pm_{i} \cdot m_{i}
+$$
+- `absorption.sales[ag-exp+ind]`
+
+$$
+px_{i} \cdot xd_{i} = pd_{i} \cdot xxd_{i} + pe_{i} \cdot e_{i}
+$$
+- `absorption.absorption[sylvicult]`
+
+$$
+p_{i} \cdot x_{i} = pd_{i} \cdot xxd_{i} + pm_{i} \cdot m_{i}
+$$
+- `absorption.sales[sylvicult]`
+
+$$
+px_{i} \cdot xd_{i} = pd_{i} \cdot xxd_{i} + pe_{i} \cdot e_{i}
+$$
+- `absorption.absorption[ind-alim]`
+
+$$
+p_{i} \cdot x_{i} = pd_{i} \cdot xxd_{i} + pm_{i} \cdot m_{i}
+$$
+- `absorption.sales[ind-alim]`
+
+$$
+px_{i} \cdot xd_{i} = pd_{i} \cdot xxd_{i} + pe_{i} \cdot e_{i}
+$$
+- `absorption.absorption[biens-cons]`
+
+$$
+p_{i} \cdot x_{i} = pd_{i} \cdot xxd_{i} + pm_{i} \cdot m_{i}
+$$
+- `absorption.sales[biens-cons]`
+
+$$
+px_{i} \cdot xd_{i} = pd_{i} \cdot xxd_{i} + pe_{i} \cdot e_{i}
+$$
+- `absorption.absorption[biens-int]`
+
+$$
+p_{i} \cdot x_{i} = pd_{i} \cdot xxd_{i} + pm_{i} \cdot m_{i}
+$$
+- `absorption.sales[biens-int]`
+
+$$
+px_{i} \cdot xd_{i} = pd_{i} \cdot xxd_{i} + pe_{i} \cdot e_{i}
+$$
+- `absorption.absorption[cim-int]`
+
+$$
+p_{i} \cdot x_{i} = pd_{i} \cdot xxd_{i} + pm_{i} \cdot m_{i}
+$$
+- `absorption.sales[cim-int]`
+
+$$
+px_{i} \cdot xd_{i} = pd_{i} \cdot xxd_{i} + pe_{i} \cdot e_{i}
+$$
+- `absorption.absorption[biens-cap]`
+
+$$
+p_{i} \cdot x_{i} = pd_{i} \cdot xxd_{i} + pm_{i} \cdot m_{i}
+$$
+- `absorption.sales[biens-cap]`
+
+$$
+px_{i} \cdot xd_{i} = pd_{i} \cdot xxd_{i} + pe_{i} \cdot e_{i}
+$$
+- `absorption.absorption[construct]`
+
+$$
+p_{i} \cdot x_{i} = pd_{i} \cdot xxd_{i} + 0.0
+$$
+- `absorption.sales[construct]`
+
+$$
+px_{i} \cdot xd_{i} = pd_{i} \cdot xxd_{i} + 0.0
+$$
+- `absorption.absorption[services]`
+
+$$
+p_{i} \cdot x_{i} = pd_{i} \cdot xxd_{i} + pm_{i} \cdot m_{i}
+$$
+- `absorption.sales[services]`
+
+$$
+px_{i} \cdot xd_{i} = pd_{i} \cdot xxd_{i} + pe_{i} \cdot e_{i}
+$$
+- `absorption.absorption[publiques]`
+
+$$
+p_{i} \cdot x_{i} = pd_{i} \cdot xxd_{i} + 0.0
+$$
+- `absorption.sales[publiques]`
+
+$$
+px_{i} \cdot xd_{i} = pd_{i} \cdot xxd_{i} + 0.0
+$$
+- `activity_price.actp[ag-subsist]`
+
+$$
+px_{i} \cdot 1.0 + -itax_{i} = pva_{i} + \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{j,i} \cdot p_{j}
+$$
+- `activity_price.inteq[ag-subsist]`
+
+$$
+int_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{i,j} \cdot xd_{j}
+$$
+- `activity_price.actp[ag-exp+ind]`
+
+$$
+px_{i} \cdot 1.0 + -itax_{i} = pva_{i} + \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{j,i} \cdot p_{j}
+$$
+- `activity_price.inteq[ag-exp+ind]`
+
+$$
+int_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{i,j} \cdot xd_{j}
+$$
+- `activity_price.actp[sylvicult]`
+
+$$
+px_{i} \cdot 1.0 + -itax_{i} = pva_{i} + \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{j,i} \cdot p_{j}
+$$
+- `activity_price.inteq[sylvicult]`
+
+$$
+int_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{i,j} \cdot xd_{j}
+$$
+- `activity_price.actp[ind-alim]`
+
+$$
+px_{i} \cdot 1.0 + -itax_{i} = pva_{i} + \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{j,i} \cdot p_{j}
+$$
+- `activity_price.inteq[ind-alim]`
+
+$$
+int_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{i,j} \cdot xd_{j}
+$$
+- `activity_price.actp[biens-cons]`
+
+$$
+px_{i} \cdot 1.0 + -itax_{i} = pva_{i} + \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{j,i} \cdot p_{j}
+$$
+- `activity_price.inteq[biens-cons]`
+
+$$
+int_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{i,j} \cdot xd_{j}
+$$
+- `activity_price.actp[biens-int]`
+
+$$
+px_{i} \cdot 1.0 + -itax_{i} = pva_{i} + \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{j,i} \cdot p_{j}
+$$
+- `activity_price.inteq[biens-int]`
+
+$$
+int_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{i,j} \cdot xd_{j}
+$$
+- `activity_price.actp[cim-int]`
+
+$$
+px_{i} \cdot 1.0 + -itax_{i} = pva_{i} + \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{j,i} \cdot p_{j}
+$$
+- `activity_price.inteq[cim-int]`
+
+$$
+int_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{i,j} \cdot xd_{j}
+$$
+- `activity_price.actp[biens-cap]`
+
+$$
+px_{i} \cdot 1.0 + -itax_{i} = pva_{i} + \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{j,i} \cdot p_{j}
+$$
+- `activity_price.inteq[biens-cap]`
+
+$$
+int_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{i,j} \cdot xd_{j}
+$$
+- `activity_price.actp[construct]`
+
+$$
+px_{i} \cdot 1.0 + -itax_{i} = pva_{i} + \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{j,i} \cdot p_{j}
+$$
+- `activity_price.inteq[construct]`
+
+$$
+int_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{i,j} \cdot xd_{j}
+$$
+- `activity_price.actp[services]`
+
+$$
+px_{i} \cdot 1.0 + -itax_{i} = pva_{i} + \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{j,i} \cdot p_{j}
+$$
+- `activity_price.inteq[services]`
+
+$$
+int_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{i,j} \cdot xd_{j}
+$$
+- `activity_price.actp[publiques]`
+
+$$
+px_{i} \cdot 1.0 + -itax_{i} = pva_{i} + \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{j,i} \cdot p_{j}
+$$
+- `activity_price.inteq[publiques]`
+
+$$
+int_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} io_{i,j} \cdot xd_{j}
+$$
+- `capital_price.pkdef[ag-subsist]`
+
+$$
+pk_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} p_{j} \cdot imat_{j,i}
+$$
+- `capital_price.pkdef[ag-exp+ind]`
+
+$$
+pk_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} p_{j} \cdot imat_{j,i}
+$$
+- `capital_price.pkdef[sylvicult]`
+
+$$
+pk_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} p_{j} \cdot imat_{j,i}
+$$
+- `capital_price.pkdef[ind-alim]`
+
+$$
+pk_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} p_{j} \cdot imat_{j,i}
+$$
+- `capital_price.pkdef[biens-cons]`
+
+$$
+pk_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} p_{j} \cdot imat_{j,i}
+$$
+- `capital_price.pkdef[biens-int]`
+
+$$
+pk_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} p_{j} \cdot imat_{j,i}
+$$
+- `capital_price.pkdef[cim-int]`
+
+$$
+pk_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} p_{j} \cdot imat_{j,i}
+$$
+- `capital_price.pkdef[biens-cap]`
+
+$$
+pk_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} p_{j} \cdot imat_{j,i}
+$$
+- `capital_price.pkdef[construct]`
+
+$$
+pk_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} p_{j} \cdot imat_{j,i}
+$$
+- `capital_price.pkdef[services]`
+
+$$
+pk_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} p_{j} \cdot imat_{j,i}
+$$
+- `capital_price.pkdef[publiques]`
+
+$$
+pk_{i} = \sum_{j \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} p_{j} \cdot imat_{j,i}
+$$
+- `bop.eqBOP`
+
+$$
+\sum_{i \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} pWe_{i} \cdot E_{i} + Sf = \sum_{i \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} pWm_{i} \cdot M_{i}
+$$
+- `cet.cet[ag-subsist]`
+
+$$
+xd_{i} = at_{i} \cdot gamma_{i} \cdot e_{i}^{rhot_{i}} + 1.0 + -gamma_{i} \cdot xxd_{i}^{rhot_{i}}^{\frac{1.0}{rhot_{i}}}
+$$
+- `cet.esupply[ag-subsist]`
+
+$$
+\frac{e_{i}}{xxd_{i}} = \frac{pe_{i} \cdot 1.0 + -gamma_{i}}{pd_{i} \cdot gamma_{i}}^{\frac{1.0}{rhot_{i} + -1.0}}
+$$
+- `cet.cet[ag-exp+ind]`
+
+$$
+xd_{i} = at_{i} \cdot gamma_{i} \cdot e_{i}^{rhot_{i}} + 1.0 + -gamma_{i} \cdot xxd_{i}^{rhot_{i}}^{\frac{1.0}{rhot_{i}}}
+$$
+- `cet.esupply[ag-exp+ind]`
+
+$$
+\frac{e_{i}}{xxd_{i}} = \frac{pe_{i} \cdot 1.0 + -gamma_{i}}{pd_{i} \cdot gamma_{i}}^{\frac{1.0}{rhot_{i} + -1.0}}
+$$
+- `cet.cet[sylvicult]`
+
+$$
+xd_{i} = at_{i} \cdot gamma_{i} \cdot e_{i}^{rhot_{i}} + 1.0 + -gamma_{i} \cdot xxd_{i}^{rhot_{i}}^{\frac{1.0}{rhot_{i}}}
+$$
+- `cet.esupply[sylvicult]`
+
+$$
+\frac{e_{i}}{xxd_{i}} = \frac{pe_{i} \cdot 1.0 + -gamma_{i}}{pd_{i} \cdot gamma_{i}}^{\frac{1.0}{rhot_{i} + -1.0}}
+$$
+- `cet.cet[ind-alim]`
+
+$$
+xd_{i} = at_{i} \cdot gamma_{i} \cdot e_{i}^{rhot_{i}} + 1.0 + -gamma_{i} \cdot xxd_{i}^{rhot_{i}}^{\frac{1.0}{rhot_{i}}}
+$$
+- `cet.esupply[ind-alim]`
+
+$$
+\frac{e_{i}}{xxd_{i}} = \frac{pe_{i} \cdot 1.0 + -gamma_{i}}{pd_{i} \cdot gamma_{i}}^{\frac{1.0}{rhot_{i} + -1.0}}
+$$
+- `cet.cet[biens-cons]`
+
+$$
+xd_{i} = at_{i} \cdot gamma_{i} \cdot e_{i}^{rhot_{i}} + 1.0 + -gamma_{i} \cdot xxd_{i}^{rhot_{i}}^{\frac{1.0}{rhot_{i}}}
+$$
+- `cet.esupply[biens-cons]`
+
+$$
+\frac{e_{i}}{xxd_{i}} = \frac{pe_{i} \cdot 1.0 + -gamma_{i}}{pd_{i} \cdot gamma_{i}}^{\frac{1.0}{rhot_{i} + -1.0}}
+$$
+- `cet.cet[biens-int]`
+
+$$
+xd_{i} = at_{i} \cdot gamma_{i} \cdot e_{i}^{rhot_{i}} + 1.0 + -gamma_{i} \cdot xxd_{i}^{rhot_{i}}^{\frac{1.0}{rhot_{i}}}
+$$
+- `cet.esupply[biens-int]`
+
+$$
+\frac{e_{i}}{xxd_{i}} = \frac{pe_{i} \cdot 1.0 + -gamma_{i}}{pd_{i} \cdot gamma_{i}}^{\frac{1.0}{rhot_{i} + -1.0}}
+$$
+- `cet.cet[cim-int]`
+
+$$
+xd_{i} = at_{i} \cdot gamma_{i} \cdot e_{i}^{rhot_{i}} + 1.0 + -gamma_{i} \cdot xxd_{i}^{rhot_{i}}^{\frac{1.0}{rhot_{i}}}
+$$
+- `cet.esupply[cim-int]`
+
+$$
+\frac{e_{i}}{xxd_{i}} = \frac{pe_{i} \cdot 1.0 + -gamma_{i}}{pd_{i} \cdot gamma_{i}}^{\frac{1.0}{rhot_{i} + -1.0}}
+$$
+- `cet.cet[biens-cap]`
+
+$$
+xd_{i} = at_{i} \cdot gamma_{i} \cdot e_{i}^{rhot_{i}} + 1.0 + -gamma_{i} \cdot xxd_{i}^{rhot_{i}}^{\frac{1.0}{rhot_{i}}}
+$$
+- `cet.esupply[biens-cap]`
+
+$$
+\frac{e_{i}}{xxd_{i}} = \frac{pe_{i} \cdot 1.0 + -gamma_{i}}{pd_{i} \cdot gamma_{i}}^{\frac{1.0}{rhot_{i} + -1.0}}
+$$
+- `cet.cet[services]`
+
+$$
+xd_{i} = at_{i} \cdot gamma_{i} \cdot e_{i}^{rhot_{i}} + 1.0 + -gamma_{i} \cdot xxd_{i}^{rhot_{i}}^{\frac{1.0}{rhot_{i}}}
+$$
+- `cet.esupply[services]`
+
+$$
+\frac{e_{i}}{xxd_{i}} = \frac{pe_{i} \cdot 1.0 + -gamma_{i}}{pd_{i} \cdot gamma_{i}}^{\frac{1.0}{rhot_{i} + -1.0}}
+$$
+- `export.edemand[ag-subsist]`
+
+$$
+\frac{e_{i}}{e0_{i}} = \frac{pwe0_{i}}{pwe_{i}}^{eta_{i}}
+$$
+- `export.edemand[ag-exp+ind]`
+
+$$
+\frac{e_{i}}{e0_{i}} = \frac{pwe0_{i}}{pwe_{i}}^{eta_{i}}
+$$
+- `export.edemand[sylvicult]`
+
+$$
+\frac{e_{i}}{e0_{i}} = \frac{pwe0_{i}}{pwe_{i}}^{eta_{i}}
+$$
+- `export.edemand[ind-alim]`
+
+$$
+\frac{e_{i}}{e0_{i}} = \frac{pwe0_{i}}{pwe_{i}}^{eta_{i}}
+$$
+- `export.edemand[biens-cons]`
+
+$$
+\frac{e_{i}}{e0_{i}} = \frac{pwe0_{i}}{pwe_{i}}^{eta_{i}}
+$$
+- `export.edemand[biens-int]`
+
+$$
+\frac{e_{i}}{e0_{i}} = \frac{pwe0_{i}}{pwe_{i}}^{eta_{i}}
+$$
+- `export.edemand[cim-int]`
+
+$$
+\frac{e_{i}}{e0_{i}} = \frac{pwe0_{i}}{pwe_{i}}^{eta_{i}}
+$$
+- `export.edemand[biens-cap]`
+
+$$
+\frac{e_{i}}{e0_{i}} = \frac{pwe0_{i}}{pwe_{i}}^{eta_{i}}
+$$
+- `export.edemand[services]`
+
+$$
+\frac{e_{i}}{e0_{i}} = \frac{pwe0_{i}}{pwe_{i}}^{eta_{i}}
+$$
+- `armington.armington[ag-subsist]`
+
+$$
+x_{i} = ac_{i} \cdot delta_{i} \cdot m_{i}^{-rhoc_{i}} + 1.0 + -delta_{i} \cdot xxd_{i}^{-rhoc_{i}}^{\frac{-1.0}{rhoc_{i}}}
+$$
+- `armington.costmin[ag-subsist]`
+
+$$
+\frac{m_{i}}{xxd_{i}} = \frac{pd_{i} \cdot delta_{i}}{pm_{i} \cdot 1.0 + -delta_{i}}^{\frac{1.0}{1.0 + rhoc_{i}}}
+$$
+- `armington.armington[ag-exp+ind]`
+
+$$
+x_{i} = ac_{i} \cdot delta_{i} \cdot m_{i}^{-rhoc_{i}} + 1.0 + -delta_{i} \cdot xxd_{i}^{-rhoc_{i}}^{\frac{-1.0}{rhoc_{i}}}
+$$
+- `armington.costmin[ag-exp+ind]`
+
+$$
+\frac{m_{i}}{xxd_{i}} = \frac{pd_{i} \cdot delta_{i}}{pm_{i} \cdot 1.0 + -delta_{i}}^{\frac{1.0}{1.0 + rhoc_{i}}}
+$$
+- `armington.armington[sylvicult]`
+
+$$
+x_{i} = ac_{i} \cdot delta_{i} \cdot m_{i}^{-rhoc_{i}} + 1.0 + -delta_{i} \cdot xxd_{i}^{-rhoc_{i}}^{\frac{-1.0}{rhoc_{i}}}
+$$
+- `armington.costmin[sylvicult]`
+
+$$
+\frac{m_{i}}{xxd_{i}} = \frac{pd_{i} \cdot delta_{i}}{pm_{i} \cdot 1.0 + -delta_{i}}^{\frac{1.0}{1.0 + rhoc_{i}}}
+$$
+- `armington.armington[ind-alim]`
+
+$$
+x_{i} = ac_{i} \cdot delta_{i} \cdot m_{i}^{-rhoc_{i}} + 1.0 + -delta_{i} \cdot xxd_{i}^{-rhoc_{i}}^{\frac{-1.0}{rhoc_{i}}}
+$$
+- `armington.costmin[ind-alim]`
+
+$$
+\frac{m_{i}}{xxd_{i}} = \frac{pd_{i} \cdot delta_{i}}{pm_{i} \cdot 1.0 + -delta_{i}}^{\frac{1.0}{1.0 + rhoc_{i}}}
+$$
+- `armington.armington[biens-cons]`
+
+$$
+x_{i} = ac_{i} \cdot delta_{i} \cdot m_{i}^{-rhoc_{i}} + 1.0 + -delta_{i} \cdot xxd_{i}^{-rhoc_{i}}^{\frac{-1.0}{rhoc_{i}}}
+$$
+- `armington.costmin[biens-cons]`
+
+$$
+\frac{m_{i}}{xxd_{i}} = \frac{pd_{i} \cdot delta_{i}}{pm_{i} \cdot 1.0 + -delta_{i}}^{\frac{1.0}{1.0 + rhoc_{i}}}
+$$
+- `armington.armington[biens-int]`
+
+$$
+x_{i} = ac_{i} \cdot delta_{i} \cdot m_{i}^{-rhoc_{i}} + 1.0 + -delta_{i} \cdot xxd_{i}^{-rhoc_{i}}^{\frac{-1.0}{rhoc_{i}}}
+$$
+- `armington.costmin[biens-int]`
+
+$$
+\frac{m_{i}}{xxd_{i}} = \frac{pd_{i} \cdot delta_{i}}{pm_{i} \cdot 1.0 + -delta_{i}}^{\frac{1.0}{1.0 + rhoc_{i}}}
+$$
+- `armington.armington[cim-int]`
+
+$$
+x_{i} = ac_{i} \cdot delta_{i} \cdot m_{i}^{-rhoc_{i}} + 1.0 + -delta_{i} \cdot xxd_{i}^{-rhoc_{i}}^{\frac{-1.0}{rhoc_{i}}}
+$$
+- `armington.costmin[cim-int]`
+
+$$
+\frac{m_{i}}{xxd_{i}} = \frac{pd_{i} \cdot delta_{i}}{pm_{i} \cdot 1.0 + -delta_{i}}^{\frac{1.0}{1.0 + rhoc_{i}}}
+$$
+- `armington.armington[biens-cap]`
+
+$$
+x_{i} = ac_{i} \cdot delta_{i} \cdot m_{i}^{-rhoc_{i}} + 1.0 + -delta_{i} \cdot xxd_{i}^{-rhoc_{i}}^{\frac{-1.0}{rhoc_{i}}}
+$$
+- `armington.costmin[biens-cap]`
+
+$$
+\frac{m_{i}}{xxd_{i}} = \frac{pd_{i} \cdot delta_{i}}{pm_{i} \cdot 1.0 + -delta_{i}}^{\frac{1.0}{1.0 + rhoc_{i}}}
+$$
+- `armington.armington[services]`
+
+$$
+x_{i} = ac_{i} \cdot delta_{i} \cdot m_{i}^{-rhoc_{i}} + 1.0 + -delta_{i} \cdot xxd_{i}^{-rhoc_{i}}^{\frac{-1.0}{rhoc_{i}}}
+$$
+- `armington.costmin[services]`
+
+$$
+\frac{m_{i}}{xxd_{i}} = \frac{pd_{i} \cdot delta_{i}}{pm_{i} \cdot 1.0 + -delta_{i}}^{\frac{1.0}{1.0 + rhoc_{i}}}
+$$
+- `nontraded.xxdsn[construct]`
+
+$$
+xxd_{i} = xd_{i}
+$$
+- `nontraded.xsn[construct]`
+
+$$
+x_{i} = xxd_{i}
+$$
+- `nontraded.xxdsn[publiques]`
+
+$$
+xxd_{i} = xd_{i}
+$$
+- `nontraded.xsn[publiques]`
+
+$$
+x_{i} = xxd_{i}
+$$
+- `inventory.dsteq[ag-subsist]`
+
+$$
+dst_{i} = dstr_{i} \cdot xd_{i}
+$$
+- `inventory.dsteq[ag-exp+ind]`
+
+$$
+dst_{i} = dstr_{i} \cdot xd_{i}
+$$
+- `inventory.dsteq[sylvicult]`
+
+$$
+dst_{i} = dstr_{i} \cdot xd_{i}
+$$
+- `inventory.dsteq[ind-alim]`
+
+$$
+dst_{i} = dstr_{i} \cdot xd_{i}
+$$
+- `inventory.dsteq[biens-cons]`
+
+$$
+dst_{i} = dstr_{i} \cdot xd_{i}
+$$
+- `inventory.dsteq[biens-int]`
+
+$$
+dst_{i} = dstr_{i} \cdot xd_{i}
+$$
+- `inventory.dsteq[cim-int]`
+
+$$
+dst_{i} = dstr_{i} \cdot xd_{i}
+$$
+- `inventory.dsteq[biens-cap]`
+
+$$
+dst_{i} = dstr_{i} \cdot xd_{i}
+$$
+- `inventory.dsteq[construct]`
+
+$$
+dst_{i} = dstr_{i} \cdot xd_{i}
+$$
+- `inventory.dsteq[services]`
+
+$$
+dst_{i} = dstr_{i} \cdot xd_{i}
+$$
+- `inventory.dsteq[publiques]`
+
+$$
+dst_{i} = dstr_{i} \cdot xd_{i}
+$$
+- `gdp.gdp`
+
+$$
+y = \sum_{i \in \{ag-subsist, ag-exp+ind, sylvicult, ind-alim, biens-cons, biens-int, cim-int, biens-cap, construct, services, publiques\}} pva_{i} \cdot xd_{i} + -deprecia
+$$
+- `market.equil[ag-subsist]`
+
+$$
+x_{i} = int_{i} + cd_{i} + gd_{i} + id_{i} + dst_{i}
+$$
+- `market.equil[ag-exp+ind]`
+
+$$
+x_{i} = int_{i} + cd_{i} + gd_{i} + id_{i} + dst_{i}
+$$
+- `market.equil[sylvicult]`
+
+$$
+x_{i} = int_{i} + cd_{i} + gd_{i} + id_{i} + dst_{i}
+$$
+- `market.equil[ind-alim]`
+
+$$
+x_{i} = int_{i} + cd_{i} + gd_{i} + id_{i} + dst_{i}
+$$
+- `market.equil[biens-cons]`
+
+$$
+x_{i} = int_{i} + cd_{i} + gd_{i} + id_{i} + dst_{i}
+$$
+- `market.equil[biens-int]`
+
+$$
+x_{i} = int_{i} + cd_{i} + gd_{i} + id_{i} + dst_{i}
+$$
+- `market.equil[cim-int]`
+
+$$
+x_{i} = int_{i} + cd_{i} + gd_{i} + id_{i} + dst_{i}
+$$
+- `market.equil[biens-cap]`
+
+$$
+x_{i} = int_{i} + cd_{i} + gd_{i} + id_{i} + dst_{i}
+$$
+- `market.equil[construct]`
+
+$$
+x_{i} = int_{i} + cd_{i} + gd_{i} + id_{i} + dst_{i}
+$$
+- `market.equil[services]`
+
+$$
+x_{i} = int_{i} + cd_{i} + gd_{i} + id_{i} + dst_{i}
+$$
+- `market.equil[publiques]`
+
+$$
+x_{i} = int_{i} + cd_{i} + gd_{i} + id_{i} + dst_{i}
+$$
 - `init.start[pwm_biens-cap]` start pwm_biens-cap = 3.7554453958239447
 - `init.start[l_biens-cap_urban-skil]` start l_biens-cap_urban-skil = 1.208
 - `init.start[dst_biens-cons]` start dst_biens-cons = 7.101
