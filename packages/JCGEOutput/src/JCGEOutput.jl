@@ -1460,7 +1460,7 @@ function _render_expr(expr::EquationExpr; format::Symbol)
                 den = expr.exponent.denominator
                 if num isa EConst && num.value == 1
                     den_render = _wrap_if_needed(den, _render_expr(den; format=format); format=format)
-                    return string(base, "^{", den_render, "^{-1}}")
+                    return string(base, "^{1/", den_render, "}")
                 end
             end
             return string(base, "^{", exp, "}")
