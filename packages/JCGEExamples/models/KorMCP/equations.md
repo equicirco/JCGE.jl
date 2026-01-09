@@ -2,7 +2,7 @@
 - `production.activity[agricult]`
 
 $$
-\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \{labor1, labor2\}} \mathrm{l}_{i,lc}^{\mathrm{alphl}_{lc,i}} \cdot \mathrm{k}_{i}^{1.0 + -\sum_{lc \in \{labor1, labor2, labor3\}} \mathrm{alphl}_{lc,i}}
+\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \{labor1, labor2\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \{labor1, labor2, labor3\}} \mathrm{alphl}_{lc,i}}
 $$
 - `production.profitmax[agricult,labor1]`
 
@@ -17,7 +17,7 @@ $$
 - `production.activity[industry]`
 
 $$
-\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \{labor2\}} \mathrm{l}_{i,lc}^{\mathrm{alphl}_{lc,i}} \cdot \mathrm{k}_{i}^{1.0 + -\sum_{lc \in \{labor1, labor2, labor3\}} \mathrm{alphl}_{lc,i}}
+\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \{labor2\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \{labor1, labor2, labor3\}} \mathrm{alphl}_{lc,i}}
 $$
 - `production.profitmax[industry,labor2]`
 
@@ -27,7 +27,7 @@ $$
 - `production.activity[services]`
 
 $$
-\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \{labor2, labor3\}} \mathrm{l}_{i,lc}^{\mathrm{alphl}_{lc,i}} \cdot \mathrm{k}_{i}^{1.0 + -\sum_{lc \in \{labor1, labor2, labor3\}} \mathrm{alphl}_{lc,i}}
+\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \{labor2, labor3\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \{labor1, labor2, labor3\}} \mathrm{alphl}_{lc,i}}
 $$
 - `production.profitmax[services,labor2]`
 
@@ -87,7 +87,7 @@ $$
 - `government_revenue.greq`
 
 $$
-gr = tariff + -netsub + indtax + tothhtax
+gr = tariff - netsub + indtax + tothhtax
 $$
 - `government_revenue.gruse`
 
@@ -107,17 +107,17 @@ $$
 - `savings.prodinv[agricult]`
 
 $$
-\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot invest + -\mathrm{kio}_{i} \cdot \sum_{j \in \{agricult, industry, services\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
+\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot invest - \mathrm{kio}_{i} \cdot \sum_{j \in \{agricult, industry, services\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
 $$
 - `savings.prodinv[industry]`
 
 $$
-\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot invest + -\mathrm{kio}_{i} \cdot \sum_{j \in \{agricult, industry, services\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
+\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot invest - \mathrm{kio}_{i} \cdot \sum_{j \in \{agricult, industry, services\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
 $$
 - `savings.prodinv[services]`
 
 $$
-\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot invest + -\mathrm{kio}_{i} \cdot \sum_{j \in \{agricult, industry, services\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
+\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot invest - \mathrm{kio}_{i} \cdot \sum_{j \in \{agricult, industry, services\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
 $$
 - `savings.ieq[agricult]`
 
@@ -137,22 +137,22 @@ $$
 - `household_demand.cdeq[agricult]`
 
 $$
-\mathrm{p}_{i} \cdot \mathrm{cd}_{i} = \sum_{hh \in \{lab-hh, cap-hh\}} \mathrm{cles}_{i,hh} \cdot 1.0 + -\mathrm{mps}_{hh} \cdot \mathrm{yh}_{hh} \cdot 1.0 + -\mathrm{htax}_{hh}
+\mathrm{p}_{i} \cdot \mathrm{cd}_{i} = \sum_{hh \in \{lab-hh, cap-hh\}} \mathrm{cles}_{i,hh} \cdot \left(1.0 - \mathrm{mps}_{hh}\right) \cdot \mathrm{yh}_{hh} \cdot \left(1.0 - \mathrm{htax}_{hh}\right)
 $$
 - `household_demand.cdeq[industry]`
 
 $$
-\mathrm{p}_{i} \cdot \mathrm{cd}_{i} = \sum_{hh \in \{lab-hh, cap-hh\}} \mathrm{cles}_{i,hh} \cdot 1.0 + -\mathrm{mps}_{hh} \cdot \mathrm{yh}_{hh} \cdot 1.0 + -\mathrm{htax}_{hh}
+\mathrm{p}_{i} \cdot \mathrm{cd}_{i} = \sum_{hh \in \{lab-hh, cap-hh\}} \mathrm{cles}_{i,hh} \cdot \left(1.0 - \mathrm{mps}_{hh}\right) \cdot \mathrm{yh}_{hh} \cdot \left(1.0 - \mathrm{htax}_{hh}\right)
 $$
 - `household_demand.cdeq[services]`
 
 $$
-\mathrm{p}_{i} \cdot \mathrm{cd}_{i} = \sum_{hh \in \{lab-hh, cap-hh\}} \mathrm{cles}_{i,hh} \cdot 1.0 + -\mathrm{mps}_{hh} \cdot \mathrm{yh}_{hh} \cdot 1.0 + -\mathrm{htax}_{hh}
+\mathrm{p}_{i} \cdot \mathrm{cd}_{i} = \sum_{hh \in \{lab-hh, cap-hh\}} \mathrm{cles}_{i,hh} \cdot \left(1.0 - \mathrm{mps}_{hh}\right) \cdot \mathrm{yh}_{hh} \cdot \left(1.0 - \mathrm{htax}_{hh}\right)
 $$
 - `household_demand.hhsaveq`
 
 $$
-hhsav = \sum_{hh \in \{lab-hh, cap-hh\}} \mathrm{mps}_{hh} \cdot \mathrm{yh}_{hh} \cdot 1.0 + -\mathrm{htax}_{hh}
+hhsav = \sum_{hh \in \{lab-hh, cap-hh\}} \mathrm{mps}_{hh} \cdot \mathrm{yh}_{hh} \cdot \left(1.0 - \mathrm{htax}_{hh}\right)
 $$
 - `household_income.labory[lab-hh]`
 
@@ -162,7 +162,7 @@ $$
 - `household_income.capitaly[cap-hh]`
 
 $$
-\mathrm{yh}_{cap-hh} = \sum_{i \in \{agricult, industry, services\}} \mathrm{pva}_{i} \cdot \mathrm{xd}_{i} + -deprecia + -\sum_{lc \in \{labor1, labor2, labor3\}} \mathrm{wa}_{lc} \cdot \mathrm{ls}_{lc} + fbor \cdot er + ypr
+\mathrm{yh}_{cap-hh} = \sum_{i \in \{agricult, industry, services\}} \mathrm{pva}_{i} \cdot \mathrm{xd}_{i} - deprecia - \sum_{lc \in \{labor1, labor2, labor3\}} \mathrm{wa}_{lc} \cdot \mathrm{ls}_{lc} + fbor \cdot er + ypr
 $$
 - `household_tax.hhtaxdef`
 
@@ -177,32 +177,32 @@ $$
 - `trade_price.pmdef[agricult]`
 
 $$
-\mathrm{pm}_{i} = \mathrm{pwm}_{i} \cdot er \cdot 1.0 + \mathrm{tm}_{i} + pr
+\mathrm{pm}_{i} = \mathrm{pwm}_{i} \cdot er \cdot \left(1.0 + \mathrm{tm}_{i} + pr\right)
 $$
 - `trade_price.pedef[agricult]`
 
 $$
-\mathrm{pe}_{i} = \mathrm{pwe}_{i} \cdot 1.0 + \mathrm{te}_{i} \cdot er
+\mathrm{pe}_{i} = \mathrm{pwe}_{i} \cdot \left(1.0 + \mathrm{te}_{i}\right) \cdot er
 $$
 - `trade_price.pmdef[industry]`
 
 $$
-\mathrm{pm}_{i} = \mathrm{pwm}_{i} \cdot er \cdot 1.0 + \mathrm{tm}_{i} + pr
+\mathrm{pm}_{i} = \mathrm{pwm}_{i} \cdot er \cdot \left(1.0 + \mathrm{tm}_{i} + pr\right)
 $$
 - `trade_price.pedef[industry]`
 
 $$
-\mathrm{pe}_{i} = \mathrm{pwe}_{i} \cdot 1.0 + \mathrm{te}_{i} \cdot er
+\mathrm{pe}_{i} = \mathrm{pwe}_{i} \cdot \left(1.0 + \mathrm{te}_{i}\right) \cdot er
 $$
 - `trade_price.pmdef[services]`
 
 $$
-\mathrm{pm}_{i} = \mathrm{pwm}_{i} \cdot er \cdot 1.0 + \mathrm{tm}_{i} + pr
+\mathrm{pm}_{i} = \mathrm{pwm}_{i} \cdot er \cdot \left(1.0 + \mathrm{tm}_{i} + pr\right)
 $$
 - `trade_price.pedef[services]`
 
 $$
-\mathrm{pe}_{i} = \mathrm{pwe}_{i} \cdot 1.0 + \mathrm{te}_{i} \cdot er
+\mathrm{pe}_{i} = \mathrm{pwe}_{i} \cdot \left(1.0 + \mathrm{te}_{i}\right) \cdot er
 $$
 - `absorption.absorption[agricult]`
 
@@ -237,7 +237,7 @@ $$
 - `activity_price.actp[agricult]`
 
 $$
-\mathrm{px}_{i} \cdot 1.0 + -\mathrm{itax}_{i} = \mathrm{pva}_{i} + \sum_{j \in \{agricult, industry, services\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
+\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \{agricult, industry, services\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
 $$
 - `activity_price.inteq[agricult]`
 
@@ -247,7 +247,7 @@ $$
 - `activity_price.actp[industry]`
 
 $$
-\mathrm{px}_{i} \cdot 1.0 + -\mathrm{itax}_{i} = \mathrm{pva}_{i} + \sum_{j \in \{agricult, industry, services\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
+\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \{agricult, industry, services\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
 $$
 - `activity_price.inteq[industry]`
 
@@ -257,7 +257,7 @@ $$
 - `activity_price.actp[services]`
 
 $$
-\mathrm{px}_{i} \cdot 1.0 + -\mathrm{itax}_{i} = \mathrm{pva}_{i} + \sum_{j \in \{agricult, industry, services\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
+\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \{agricult, industry, services\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
 $$
 - `activity_price.inteq[services]`
 
@@ -297,62 +297,62 @@ $$
 - `cet.cet[agricult]`
 
 $$
-\mathrm{xd}_{i} = \mathrm{at}_{i} \cdot \mathrm{gamma}_{i} \cdot \mathrm{e}_{i}^{\mathrm{rhot}_{i}} + 1.0 + -\mathrm{gamma}_{i} \cdot \mathrm{xxd}_{i}^{\mathrm{rhot}_{i}}^{\frac{1.0}{\mathrm{rhot}_{i}}}
+\mathrm{xd}_{i} = \mathrm{at}_{i} \cdot {\left(\mathrm{gamma}_{i} \cdot {\mathrm{e}_{i}}^{\mathrm{rhot}_{i}} + \left(1.0 - \mathrm{gamma}_{i}\right) \cdot {\mathrm{xxd}_{i}}^{\mathrm{rhot}_{i}}\right)}^{\frac{1.0}{\mathrm{rhot}_{i}}}
 $$
 - `cet.esupply[agricult]`
 
 $$
-\frac{\mathrm{e}_{i}}{\mathrm{xxd}_{i}} = \frac{\mathrm{pe}_{i} \cdot 1.0 + -\mathrm{gamma}_{i}}{\mathrm{pd}_{i} \cdot \mathrm{gamma}_{i}}^{\frac{1.0}{\mathrm{rhot}_{i} + -1.0}}
+\frac{\mathrm{e}_{i}}{\mathrm{xxd}_{i}} = {\left(\frac{\mathrm{pe}_{i} \cdot \left(1.0 - \mathrm{gamma}_{i}\right)}{\mathrm{pd}_{i} \cdot \mathrm{gamma}_{i}}\right)}^{\frac{1.0}{\mathrm{rhot}_{i} - 1.0}}
 $$
 - `cet.cet[industry]`
 
 $$
-\mathrm{xd}_{i} = \mathrm{at}_{i} \cdot \mathrm{gamma}_{i} \cdot \mathrm{e}_{i}^{\mathrm{rhot}_{i}} + 1.0 + -\mathrm{gamma}_{i} \cdot \mathrm{xxd}_{i}^{\mathrm{rhot}_{i}}^{\frac{1.0}{\mathrm{rhot}_{i}}}
+\mathrm{xd}_{i} = \mathrm{at}_{i} \cdot {\left(\mathrm{gamma}_{i} \cdot {\mathrm{e}_{i}}^{\mathrm{rhot}_{i}} + \left(1.0 - \mathrm{gamma}_{i}\right) \cdot {\mathrm{xxd}_{i}}^{\mathrm{rhot}_{i}}\right)}^{\frac{1.0}{\mathrm{rhot}_{i}}}
 $$
 - `cet.esupply[industry]`
 
 $$
-\frac{\mathrm{e}_{i}}{\mathrm{xxd}_{i}} = \frac{\mathrm{pe}_{i} \cdot 1.0 + -\mathrm{gamma}_{i}}{\mathrm{pd}_{i} \cdot \mathrm{gamma}_{i}}^{\frac{1.0}{\mathrm{rhot}_{i} + -1.0}}
+\frac{\mathrm{e}_{i}}{\mathrm{xxd}_{i}} = {\left(\frac{\mathrm{pe}_{i} \cdot \left(1.0 - \mathrm{gamma}_{i}\right)}{\mathrm{pd}_{i} \cdot \mathrm{gamma}_{i}}\right)}^{\frac{1.0}{\mathrm{rhot}_{i} - 1.0}}
 $$
 - `cet.cet[services]`
 
 $$
-\mathrm{xd}_{i} = \mathrm{at}_{i} \cdot \mathrm{gamma}_{i} \cdot \mathrm{e}_{i}^{\mathrm{rhot}_{i}} + 1.0 + -\mathrm{gamma}_{i} \cdot \mathrm{xxd}_{i}^{\mathrm{rhot}_{i}}^{\frac{1.0}{\mathrm{rhot}_{i}}}
+\mathrm{xd}_{i} = \mathrm{at}_{i} \cdot {\left(\mathrm{gamma}_{i} \cdot {\mathrm{e}_{i}}^{\mathrm{rhot}_{i}} + \left(1.0 - \mathrm{gamma}_{i}\right) \cdot {\mathrm{xxd}_{i}}^{\mathrm{rhot}_{i}}\right)}^{\frac{1.0}{\mathrm{rhot}_{i}}}
 $$
 - `cet.esupply[services]`
 
 $$
-\frac{\mathrm{e}_{i}}{\mathrm{xxd}_{i}} = \frac{\mathrm{pe}_{i} \cdot 1.0 + -\mathrm{gamma}_{i}}{\mathrm{pd}_{i} \cdot \mathrm{gamma}_{i}}^{\frac{1.0}{\mathrm{rhot}_{i} + -1.0}}
+\frac{\mathrm{e}_{i}}{\mathrm{xxd}_{i}} = {\left(\frac{\mathrm{pe}_{i} \cdot \left(1.0 - \mathrm{gamma}_{i}\right)}{\mathrm{pd}_{i} \cdot \mathrm{gamma}_{i}}\right)}^{\frac{1.0}{\mathrm{rhot}_{i} - 1.0}}
 $$
 - `armington.armington[agricult]`
 
 $$
-\mathrm{x}_{i} = \mathrm{ac}_{i} \cdot \mathrm{delta}_{i} \cdot \mathrm{m}_{i}^{-\mathrm{rhoc}_{i}} + 1.0 + -\mathrm{delta}_{i} \cdot \mathrm{xxd}_{i}^{-\mathrm{rhoc}_{i}}^{\frac{-1.0}{\mathrm{rhoc}_{i}}}
+\mathrm{x}_{i} = \mathrm{ac}_{i} \cdot {\left(\mathrm{delta}_{i} \cdot {\mathrm{m}_{i}}^{-\mathrm{rhoc}_{i}} + \left(1.0 - \mathrm{delta}_{i}\right) \cdot {\mathrm{xxd}_{i}}^{-\mathrm{rhoc}_{i}}\right)}^{\frac{-1.0}{\mathrm{rhoc}_{i}}}
 $$
 - `armington.costmin[agricult]`
 
 $$
-\frac{\mathrm{m}_{i}}{\mathrm{xxd}_{i}} = \frac{\mathrm{pd}_{i} \cdot \mathrm{delta}_{i}}{\mathrm{pm}_{i} \cdot 1.0 + -\mathrm{delta}_{i}}^{\frac{1.0}{1.0 + \mathrm{rhoc}_{i}}}
+\frac{\mathrm{m}_{i}}{\mathrm{xxd}_{i}} = {\left(\frac{\mathrm{pd}_{i} \cdot \mathrm{delta}_{i}}{\mathrm{pm}_{i} \cdot \left(1.0 - \mathrm{delta}_{i}\right)}\right)}^{\frac{1.0}{1.0 + \mathrm{rhoc}_{i}}}
 $$
 - `armington.armington[industry]`
 
 $$
-\mathrm{x}_{i} = \mathrm{ac}_{i} \cdot \mathrm{delta}_{i} \cdot \mathrm{m}_{i}^{-\mathrm{rhoc}_{i}} + 1.0 + -\mathrm{delta}_{i} \cdot \mathrm{xxd}_{i}^{-\mathrm{rhoc}_{i}}^{\frac{-1.0}{\mathrm{rhoc}_{i}}}
+\mathrm{x}_{i} = \mathrm{ac}_{i} \cdot {\left(\mathrm{delta}_{i} \cdot {\mathrm{m}_{i}}^{-\mathrm{rhoc}_{i}} + \left(1.0 - \mathrm{delta}_{i}\right) \cdot {\mathrm{xxd}_{i}}^{-\mathrm{rhoc}_{i}}\right)}^{\frac{-1.0}{\mathrm{rhoc}_{i}}}
 $$
 - `armington.costmin[industry]`
 
 $$
-\frac{\mathrm{m}_{i}}{\mathrm{xxd}_{i}} = \frac{\mathrm{pd}_{i} \cdot \mathrm{delta}_{i}}{\mathrm{pm}_{i} \cdot 1.0 + -\mathrm{delta}_{i}}^{\frac{1.0}{1.0 + \mathrm{rhoc}_{i}}}
+\frac{\mathrm{m}_{i}}{\mathrm{xxd}_{i}} = {\left(\frac{\mathrm{pd}_{i} \cdot \mathrm{delta}_{i}}{\mathrm{pm}_{i} \cdot \left(1.0 - \mathrm{delta}_{i}\right)}\right)}^{\frac{1.0}{1.0 + \mathrm{rhoc}_{i}}}
 $$
 - `armington.armington[services]`
 
 $$
-\mathrm{x}_{i} = \mathrm{ac}_{i} \cdot \mathrm{delta}_{i} \cdot \mathrm{m}_{i}^{-\mathrm{rhoc}_{i}} + 1.0 + -\mathrm{delta}_{i} \cdot \mathrm{xxd}_{i}^{-\mathrm{rhoc}_{i}}^{\frac{-1.0}{\mathrm{rhoc}_{i}}}
+\mathrm{x}_{i} = \mathrm{ac}_{i} \cdot {\left(\mathrm{delta}_{i} \cdot {\mathrm{m}_{i}}^{-\mathrm{rhoc}_{i}} + \left(1.0 - \mathrm{delta}_{i}\right) \cdot {\mathrm{xxd}_{i}}^{-\mathrm{rhoc}_{i}}\right)}^{\frac{-1.0}{\mathrm{rhoc}_{i}}}
 $$
 - `armington.costmin[services]`
 
 $$
-\frac{\mathrm{m}_{i}}{\mathrm{xxd}_{i}} = \frac{\mathrm{pd}_{i} \cdot \mathrm{delta}_{i}}{\mathrm{pm}_{i} \cdot 1.0 + -\mathrm{delta}_{i}}^{\frac{1.0}{1.0 + \mathrm{rhoc}_{i}}}
+\frac{\mathrm{m}_{i}}{\mathrm{xxd}_{i}} = {\left(\frac{\mathrm{pd}_{i} \cdot \mathrm{delta}_{i}}{\mathrm{pm}_{i} \cdot \left(1.0 - \mathrm{delta}_{i}\right)}\right)}^{\frac{1.0}{1.0 + \mathrm{rhoc}_{i}}}
 $$
 - `inventory.dsteq[agricult]`
 
@@ -387,7 +387,7 @@ $$
 - `objective.objective`
 
 $$
-omega = \prod_{i \in \{agricult, industry, services\}} \mathrm{cd}_{i}^{\mathrm{alpha}_{i}}
+omega = \prod_{i \in \{agricult, industry, services\}} {\mathrm{cd}_{i}}^{\mathrm{alpha}_{i}}
 $$
 - `init.start[er]` start er = 1.0
 - `init.start[x_industry]` start x_industry = 930.3509

@@ -1360,17 +1360,35 @@ function _render_expr(expr::EquationExpr; format::Symbol)
     elseif expr isa EIndex
         return string(expr.name)
     elseif expr isa EAdd
-        parts = map(t -> _render_expr(t; format=format), expr.terms)
-        return join(parts, " + ")
+        parts = String[]
+        for (i, term) in enumerate(expr.terms)
+            sign = "+"
+            render_term = term
+            if term isa ENeg
+                sign = "-"
+                render_term = term.expr
+            elseif term isa EConst && term.value < 0
+                sign = "-"
+                render_term = EConst(-term.value)
+            end
+            rendered = _render_expr(render_term; format=format)
+            if i == 1
+                push!(parts, sign == "-" ? string("-", rendered) : rendered)
+            else
+                push!(parts, sign == "-" ? " - " : " + ")
+                push!(parts, rendered)
+            end
+        end
+        return join(parts, "")
     elseif expr isa EMul
-        parts = map(t -> _render_expr(t; format=format), expr.factors)
+        parts = map(t -> _wrap_if_needed(t, _render_expr(t; format=format); format=format), expr.factors)
         op = format == :latex ? " \\cdot " : " * "
         return join(parts, op)
     elseif expr isa EPow
-        base = _render_expr(expr.base; format=format)
+        base = _wrap_if_needed(expr.base, _render_expr(expr.base; format=format); format=format)
         exp = _render_expr(expr.exponent; format=format)
         if format == :latex
-            return string(base, "^{", exp, "}")
+            return string("{", base, "}^{", exp, "}")
         end
         return string(base, "^", exp)
     elseif expr isa EDiv
@@ -1381,7 +1399,7 @@ function _render_expr(expr::EquationExpr; format::Symbol)
         end
         return string(num, " / ", den)
     elseif expr isa ENeg
-        inner = _render_expr(expr.expr; format=format)
+        inner = _wrap_if_needed(expr.expr, _render_expr(expr.expr; format=format); format=format)
         return string("-", inner)
     elseif expr isa ESum
         inner = _render_expr(expr.expr; format=format)
@@ -1404,6 +1422,15 @@ function _render_expr(expr::EquationExpr; format::Symbol)
     else
         return string(expr)
     end
+end
+
+function _wrap_if_needed(expr::EquationExpr, rendered::AbstractString; format::Symbol)
+    if expr isa EAdd
+        return format == :latex ? string("\\left(", rendered, "\\right)") : string("(", rendered, ")")
+    elseif expr isa EDiv
+        return format == :latex ? string("\\left(", rendered, "\\right)") : string("(", rendered, ")")
+    end
+    return rendered
 end
 
 function _render_symbol(name::Symbol, idxs::Union{Nothing,Vector{Any}}; format::Symbol)

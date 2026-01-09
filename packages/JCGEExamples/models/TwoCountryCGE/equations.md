@@ -2,7 +2,7 @@
 - `prod.eqpy[BRD_JPN]`
 
 $$
-\mathrm{Y}_{i} = \mathrm{b}_{i} \cdot \prod_{h \in \{CAP_JPN, LAB_JPN\}} \mathrm{F}_{h,i}^{\mathrm{beta}_{h,i}}
+\mathrm{Y}_{i} = \mathrm{b}_{i} \cdot \prod_{h \in \{CAP_JPN, LAB_JPN\}} {\mathrm{F}_{h,i}}^{\mathrm{beta}_{h,i}}
 $$
 - `prod.eqF[CAP_JPN,BRD_JPN]`
 
@@ -37,7 +37,7 @@ $$
 - `prod.eqpy[MLK_JPN]`
 
 $$
-\mathrm{Y}_{i} = \mathrm{b}_{i} \cdot \prod_{h \in \{CAP_JPN, LAB_JPN\}} \mathrm{F}_{h,i}^{\mathrm{beta}_{h,i}}
+\mathrm{Y}_{i} = \mathrm{b}_{i} \cdot \prod_{h \in \{CAP_JPN, LAB_JPN\}} {\mathrm{F}_{h,i}}^{\mathrm{beta}_{h,i}}
 $$
 - `prod.eqF[CAP_JPN,MLK_JPN]`
 
@@ -72,7 +72,7 @@ $$
 - `prod.eqpy[BRD_USA]`
 
 $$
-\mathrm{Y}_{i} = \mathrm{b}_{i} \cdot \prod_{h \in \{CAP_USA, LAB_USA\}} \mathrm{F}_{h,i}^{\mathrm{beta}_{h,i}}
+\mathrm{Y}_{i} = \mathrm{b}_{i} \cdot \prod_{h \in \{CAP_USA, LAB_USA\}} {\mathrm{F}_{h,i}}^{\mathrm{beta}_{h,i}}
 $$
 - `prod.eqF[CAP_USA,BRD_USA]`
 
@@ -107,7 +107,7 @@ $$
 - `prod.eqpy[MLK_USA]`
 
 $$
-\mathrm{Y}_{i} = \mathrm{b}_{i} \cdot \prod_{h \in \{CAP_USA, LAB_USA\}} \mathrm{F}_{h,i}^{\mathrm{beta}_{h,i}}
+\mathrm{Y}_{i} = \mathrm{b}_{i} \cdot \prod_{h \in \{CAP_USA, LAB_USA\}} {\mathrm{F}_{h,i}}^{\mathrm{beta}_{h,i}}
 $$
 - `prod.eqF[CAP_USA,MLK_USA]`
 
@@ -177,7 +177,7 @@ $$
 - `government.eqXg[BRD_JPN]`
 
 $$
-\mathrm{Xg}_{i} = \frac{\mathrm{mu}_{i} \cdot \mathrm{Td}_{JPN} + \sum_{j \in \{BRD_JPN, MLK_JPN\}} \mathrm{Tz}_{j} + \sum_{j \in \{BRD_JPN, MLK_JPN\}} \mathrm{Tm}_{j} + -\mathrm{Sg}_{JPN}}{\mathrm{pq}_{i}}
+\mathrm{Xg}_{i} = \frac{\mathrm{mu}_{i} \cdot \left(\mathrm{Td}_{JPN} + \sum_{j \in \{BRD_JPN, MLK_JPN\}} \mathrm{Tz}_{j} + \sum_{j \in \{BRD_JPN, MLK_JPN\}} \mathrm{Tm}_{j} - \mathrm{Sg}_{JPN}\right)}{\mathrm{pq}_{i}}
 $$
 - `government.eqTz[MLK_JPN]`
 
@@ -192,12 +192,12 @@ $$
 - `government.eqXg[MLK_JPN]`
 
 $$
-\mathrm{Xg}_{i} = \frac{\mathrm{mu}_{i} \cdot \mathrm{Td}_{JPN} + \sum_{j \in \{BRD_JPN, MLK_JPN\}} \mathrm{Tz}_{j} + \sum_{j \in \{BRD_JPN, MLK_JPN\}} \mathrm{Tm}_{j} + -\mathrm{Sg}_{JPN}}{\mathrm{pq}_{i}}
+\mathrm{Xg}_{i} = \frac{\mathrm{mu}_{i} \cdot \left(\mathrm{Td}_{JPN} + \sum_{j \in \{BRD_JPN, MLK_JPN\}} \mathrm{Tz}_{j} + \sum_{j \in \{BRD_JPN, MLK_JPN\}} \mathrm{Tm}_{j} - \mathrm{Sg}_{JPN}\right)}{\mathrm{pq}_{i}}
 $$
 - `government.eqSg[JPN]`
 
 $$
-\mathrm{Sg}_{JPN} = ssg \cdot \mathrm{Td}_{JPN} + \sum_{i \in \{BRD_JPN, MLK_JPN\}} \mathrm{Tz}_{i} + \sum_{i \in \{BRD_JPN, MLK_JPN\}} \mathrm{Tm}_{i}
+\mathrm{Sg}_{JPN} = ssg \cdot \left(\mathrm{Td}_{JPN} + \sum_{i \in \{BRD_JPN, MLK_JPN\}} \mathrm{Tz}_{i} + \sum_{i \in \{BRD_JPN, MLK_JPN\}} \mathrm{Tm}_{i}\right)
 $$
 - `government.eqTd[USA]`
 
@@ -217,7 +217,7 @@ $$
 - `government.eqXg[BRD_USA]`
 
 $$
-\mathrm{Xg}_{i} = \frac{\mathrm{mu}_{i} \cdot \mathrm{Td}_{USA} + \sum_{j \in \{BRD_USA, MLK_USA\}} \mathrm{Tz}_{j} + \sum_{j \in \{BRD_USA, MLK_USA\}} \mathrm{Tm}_{j} + -\mathrm{Sg}_{USA}}{\mathrm{pq}_{i}}
+\mathrm{Xg}_{i} = \frac{\mathrm{mu}_{i} \cdot \left(\mathrm{Td}_{USA} + \sum_{j \in \{BRD_USA, MLK_USA\}} \mathrm{Tz}_{j} + \sum_{j \in \{BRD_USA, MLK_USA\}} \mathrm{Tm}_{j} - \mathrm{Sg}_{USA}\right)}{\mathrm{pq}_{i}}
 $$
 - `government.eqTz[MLK_USA]`
 
@@ -232,12 +232,12 @@ $$
 - `government.eqXg[MLK_USA]`
 
 $$
-\mathrm{Xg}_{i} = \frac{\mathrm{mu}_{i} \cdot \mathrm{Td}_{USA} + \sum_{j \in \{BRD_USA, MLK_USA\}} \mathrm{Tz}_{j} + \sum_{j \in \{BRD_USA, MLK_USA\}} \mathrm{Tm}_{j} + -\mathrm{Sg}_{USA}}{\mathrm{pq}_{i}}
+\mathrm{Xg}_{i} = \frac{\mathrm{mu}_{i} \cdot \left(\mathrm{Td}_{USA} + \sum_{j \in \{BRD_USA, MLK_USA\}} \mathrm{Tz}_{j} + \sum_{j \in \{BRD_USA, MLK_USA\}} \mathrm{Tm}_{j} - \mathrm{Sg}_{USA}\right)}{\mathrm{pq}_{i}}
 $$
 - `government.eqSg[USA]`
 
 $$
-\mathrm{Sg}_{USA} = ssg \cdot \mathrm{Td}_{USA} + \sum_{i \in \{BRD_USA, MLK_USA\}} \mathrm{Tz}_{i} + \sum_{i \in \{BRD_USA, MLK_USA\}} \mathrm{Tm}_{i}
+\mathrm{Sg}_{USA} = ssg \cdot \left(\mathrm{Td}_{USA} + \sum_{i \in \{BRD_USA, MLK_USA\}} \mathrm{Tz}_{i} + \sum_{i \in \{BRD_USA, MLK_USA\}} \mathrm{Tm}_{i}\right)
 $$
 - `private_saving.eqSp[JPN]`
 
@@ -247,12 +247,12 @@ $$
 - `investment.eqXv[BRD_JPN]`
 
 $$
-\mathrm{Xv}_{i} = \frac{\mathrm{lambda}_{i} \cdot \mathrm{Sp}_{JPN} + \mathrm{Sg}_{JPN} + \mathrm{epsilon}_{JPN} \cdot Sf}{\mathrm{pq}_{i}}
+\mathrm{Xv}_{i} = \frac{\mathrm{lambda}_{i} \cdot \left(\mathrm{Sp}_{JPN} + \mathrm{Sg}_{JPN} + \mathrm{epsilon}_{JPN} \cdot Sf\right)}{\mathrm{pq}_{i}}
 $$
 - `investment.eqXv[MLK_JPN]`
 
 $$
-\mathrm{Xv}_{i} = \frac{\mathrm{lambda}_{i} \cdot \mathrm{Sp}_{JPN} + \mathrm{Sg}_{JPN} + \mathrm{epsilon}_{JPN} \cdot Sf}{\mathrm{pq}_{i}}
+\mathrm{Xv}_{i} = \frac{\mathrm{lambda}_{i} \cdot \left(\mathrm{Sp}_{JPN} + \mathrm{Sg}_{JPN} + \mathrm{epsilon}_{JPN} \cdot Sf\right)}{\mathrm{pq}_{i}}
 $$
 - `private_saving.eqSp[USA]`
 
@@ -262,32 +262,32 @@ $$
 - `investment.eqXv[BRD_USA]`
 
 $$
-\mathrm{Xv}_{i} = \frac{\mathrm{lambda}_{i} \cdot \mathrm{Sp}_{USA} + \mathrm{Sg}_{USA} + \mathrm{epsilon}_{USA} \cdot Sf}{\mathrm{pq}_{i}}
+\mathrm{Xv}_{i} = \frac{\mathrm{lambda}_{i} \cdot \left(\mathrm{Sp}_{USA} + \mathrm{Sg}_{USA} + \mathrm{epsilon}_{USA} \cdot Sf\right)}{\mathrm{pq}_{i}}
 $$
 - `investment.eqXv[MLK_USA]`
 
 $$
-\mathrm{Xv}_{i} = \frac{\mathrm{lambda}_{i} \cdot \mathrm{Sp}_{USA} + \mathrm{Sg}_{USA} + \mathrm{epsilon}_{USA} \cdot Sf}{\mathrm{pq}_{i}}
+\mathrm{Xv}_{i} = \frac{\mathrm{lambda}_{i} \cdot \left(\mathrm{Sp}_{USA} + \mathrm{Sg}_{USA} + \mathrm{epsilon}_{USA} \cdot Sf\right)}{\mathrm{pq}_{i}}
 $$
 - `household.eqXp[BRD_JPN,JPN]`
 
 $$
-\mathrm{Xp}_{i} = \frac{\mathrm{alpha}_{i} \cdot \sum_{h \in \{CAP_JPN, LAB_JPN\}} \mathrm{pf}_{h} \cdot \mathrm{FF}_{h} + -\mathrm{Sp}_{r} + -\mathrm{Td}_{r}}{\mathrm{pq}_{i}}
+\mathrm{Xp}_{i} = \frac{\mathrm{alpha}_{i} \cdot \left(\sum_{h \in \{CAP_JPN, LAB_JPN\}} \mathrm{pf}_{h} \cdot \mathrm{FF}_{h} - \mathrm{Sp}_{r} - \mathrm{Td}_{r}\right)}{\mathrm{pq}_{i}}
 $$
 - `household.eqXp[MLK_JPN,JPN]`
 
 $$
-\mathrm{Xp}_{i} = \frac{\mathrm{alpha}_{i} \cdot \sum_{h \in \{CAP_JPN, LAB_JPN\}} \mathrm{pf}_{h} \cdot \mathrm{FF}_{h} + -\mathrm{Sp}_{r} + -\mathrm{Td}_{r}}{\mathrm{pq}_{i}}
+\mathrm{Xp}_{i} = \frac{\mathrm{alpha}_{i} \cdot \left(\sum_{h \in \{CAP_JPN, LAB_JPN\}} \mathrm{pf}_{h} \cdot \mathrm{FF}_{h} - \mathrm{Sp}_{r} - \mathrm{Td}_{r}\right)}{\mathrm{pq}_{i}}
 $$
 - `household.eqXp[BRD_USA,USA]`
 
 $$
-\mathrm{Xp}_{i} = \frac{\mathrm{alpha}_{i} \cdot \sum_{h \in \{CAP_USA, LAB_USA\}} \mathrm{pf}_{h} \cdot \mathrm{FF}_{h} + -\mathrm{Sp}_{r} + -\mathrm{Td}_{r}}{\mathrm{pq}_{i}}
+\mathrm{Xp}_{i} = \frac{\mathrm{alpha}_{i} \cdot \left(\sum_{h \in \{CAP_USA, LAB_USA\}} \mathrm{pf}_{h} \cdot \mathrm{FF}_{h} - \mathrm{Sp}_{r} - \mathrm{Td}_{r}\right)}{\mathrm{pq}_{i}}
 $$
 - `household.eqXp[MLK_USA,USA]`
 
 $$
-\mathrm{Xp}_{i} = \frac{\mathrm{alpha}_{i} \cdot \sum_{h \in \{CAP_USA, LAB_USA\}} \mathrm{pf}_{h} \cdot \mathrm{FF}_{h} + -\mathrm{Sp}_{r} + -\mathrm{Td}_{r}}{\mathrm{pq}_{i}}
+\mathrm{Xp}_{i} = \frac{\mathrm{alpha}_{i} \cdot \left(\sum_{h \in \{CAP_USA, LAB_USA\}} \mathrm{pf}_{h} \cdot \mathrm{FF}_{h} - \mathrm{Sp}_{r} - \mathrm{Td}_{r}\right)}{\mathrm{pq}_{i}}
 $$
 - `prices.eqpe[BRD_JPN,JPN]`
 
@@ -382,122 +382,122 @@ $$
 - `armington.eqQ[BRD_JPN]`
 
 $$
-\mathrm{Q}_{i} = \mathrm{gamma}_{i} \cdot \mathrm{delta\_m}_{i} \cdot \mathrm{M}_{i}^{\mathrm{eta}_{i}} + \mathrm{delta\_d}_{i} \cdot \mathrm{D}_{i}^{\mathrm{eta}_{i}}^{\frac{1.0}{\mathrm{eta}_{i}}}
+\mathrm{Q}_{i} = \mathrm{gamma}_{i} \cdot {\left(\mathrm{delta\_m}_{i} \cdot {\mathrm{M}_{i}}^{\mathrm{eta}_{i}} + \mathrm{delta\_d}_{i} \cdot {\mathrm{D}_{i}}^{\mathrm{eta}_{i}}\right)}^{\frac{1.0}{\mathrm{eta}_{i}}}
 $$
 - `armington.eqM[BRD_JPN]`
 
 $$
-\mathrm{M}_{i} = \frac{\mathrm{gamma}_{i}^{\mathrm{eta}_{i}} \cdot \mathrm{delta\_m}_{i} \cdot \mathrm{pq}_{i}}{1.0 + 0.0 + \mathrm{tau\_m}_{i} \cdot \mathrm{pm}_{i}}^{\frac{1.0}{1.0 + -\mathrm{eta}_{i}}} \cdot \mathrm{Q}_{i}
+\mathrm{M}_{i} = {\left(\frac{{\mathrm{gamma}_{i}}^{\mathrm{eta}_{i}} \cdot \mathrm{delta\_m}_{i} \cdot \mathrm{pq}_{i}}{\left(1.0 + 0.0 + \mathrm{tau\_m}_{i}\right) \cdot \mathrm{pm}_{i}}\right)}^{\frac{1.0}{1.0 - \mathrm{eta}_{i}}} \cdot \mathrm{Q}_{i}
 $$
 - `armington.eqD[BRD_JPN]`
 
 $$
-\mathrm{D}_{i} = \frac{\mathrm{gamma}_{i}^{\mathrm{eta}_{i}} \cdot \mathrm{delta\_d}_{i} \cdot \mathrm{pq}_{i}}{1.0 \cdot \mathrm{pd}_{i}}^{\frac{1.0}{1.0 + -\mathrm{eta}_{i}}} \cdot \mathrm{Q}_{i}
+\mathrm{D}_{i} = {\left(\frac{{\mathrm{gamma}_{i}}^{\mathrm{eta}_{i}} \cdot \mathrm{delta\_d}_{i} \cdot \mathrm{pq}_{i}}{1.0 \cdot \mathrm{pd}_{i}}\right)}^{\frac{1.0}{1.0 - \mathrm{eta}_{i}}} \cdot \mathrm{Q}_{i}
 $$
 - `armington.eqQ[MLK_JPN]`
 
 $$
-\mathrm{Q}_{i} = \mathrm{gamma}_{i} \cdot \mathrm{delta\_m}_{i} \cdot \mathrm{M}_{i}^{\mathrm{eta}_{i}} + \mathrm{delta\_d}_{i} \cdot \mathrm{D}_{i}^{\mathrm{eta}_{i}}^{\frac{1.0}{\mathrm{eta}_{i}}}
+\mathrm{Q}_{i} = \mathrm{gamma}_{i} \cdot {\left(\mathrm{delta\_m}_{i} \cdot {\mathrm{M}_{i}}^{\mathrm{eta}_{i}} + \mathrm{delta\_d}_{i} \cdot {\mathrm{D}_{i}}^{\mathrm{eta}_{i}}\right)}^{\frac{1.0}{\mathrm{eta}_{i}}}
 $$
 - `armington.eqM[MLK_JPN]`
 
 $$
-\mathrm{M}_{i} = \frac{\mathrm{gamma}_{i}^{\mathrm{eta}_{i}} \cdot \mathrm{delta\_m}_{i} \cdot \mathrm{pq}_{i}}{1.0 + 0.0 + \mathrm{tau\_m}_{i} \cdot \mathrm{pm}_{i}}^{\frac{1.0}{1.0 + -\mathrm{eta}_{i}}} \cdot \mathrm{Q}_{i}
+\mathrm{M}_{i} = {\left(\frac{{\mathrm{gamma}_{i}}^{\mathrm{eta}_{i}} \cdot \mathrm{delta\_m}_{i} \cdot \mathrm{pq}_{i}}{\left(1.0 + 0.0 + \mathrm{tau\_m}_{i}\right) \cdot \mathrm{pm}_{i}}\right)}^{\frac{1.0}{1.0 - \mathrm{eta}_{i}}} \cdot \mathrm{Q}_{i}
 $$
 - `armington.eqD[MLK_JPN]`
 
 $$
-\mathrm{D}_{i} = \frac{\mathrm{gamma}_{i}^{\mathrm{eta}_{i}} \cdot \mathrm{delta\_d}_{i} \cdot \mathrm{pq}_{i}}{1.0 \cdot \mathrm{pd}_{i}}^{\frac{1.0}{1.0 + -\mathrm{eta}_{i}}} \cdot \mathrm{Q}_{i}
+\mathrm{D}_{i} = {\left(\frac{{\mathrm{gamma}_{i}}^{\mathrm{eta}_{i}} \cdot \mathrm{delta\_d}_{i} \cdot \mathrm{pq}_{i}}{1.0 \cdot \mathrm{pd}_{i}}\right)}^{\frac{1.0}{1.0 - \mathrm{eta}_{i}}} \cdot \mathrm{Q}_{i}
 $$
 - `transformation.eqZ[BRD_JPN]`
 
 $$
-\mathrm{Z}_{i} = \mathrm{theta}_{i} \cdot \mathrm{xie}_{i} \cdot \mathrm{E}_{i}^{\mathrm{phi}_{i}} + \mathrm{xid}_{i} \cdot \mathrm{D}_{i}^{\mathrm{phi}_{i}}^{\frac{1.0}{\mathrm{phi}_{i}}}
+\mathrm{Z}_{i} = \mathrm{theta}_{i} \cdot {\left(\mathrm{xie}_{i} \cdot {\mathrm{E}_{i}}^{\mathrm{phi}_{i}} + \mathrm{xid}_{i} \cdot {\mathrm{D}_{i}}^{\mathrm{phi}_{i}}\right)}^{\frac{1.0}{\mathrm{phi}_{i}}}
 $$
 - `transformation.eqE[BRD_JPN]`
 
 $$
-\mathrm{E}_{i} = \frac{\mathrm{theta}_{i}^{\mathrm{phi}_{i}} \cdot \mathrm{xie}_{i} \cdot 1.0 + \mathrm{tau\_z}_{i} \cdot \mathrm{pz}_{i}}{\mathrm{pe}_{i}}^{\frac{1.0}{1.0 + -\mathrm{phi}_{i}}} \cdot \mathrm{Z}_{i}
+\mathrm{E}_{i} = {\left(\frac{{\mathrm{theta}_{i}}^{\mathrm{phi}_{i}} \cdot \mathrm{xie}_{i} \cdot \left(1.0 + \mathrm{tau\_z}_{i}\right) \cdot \mathrm{pz}_{i}}{\mathrm{pe}_{i}}\right)}^{\frac{1.0}{1.0 - \mathrm{phi}_{i}}} \cdot \mathrm{Z}_{i}
 $$
 - `transformation.eqDs[BRD_JPN]`
 
 $$
-\mathrm{D}_{i} = \frac{\mathrm{theta}_{i}^{\mathrm{phi}_{i}} \cdot \mathrm{xid}_{i} \cdot 1.0 + \mathrm{tau\_z}_{i} \cdot \mathrm{pz}_{i}}{\mathrm{pd}_{i}}^{\frac{1.0}{1.0 + -\mathrm{phi}_{i}}} \cdot \mathrm{Z}_{i}
+\mathrm{D}_{i} = {\left(\frac{{\mathrm{theta}_{i}}^{\mathrm{phi}_{i}} \cdot \mathrm{xid}_{i} \cdot \left(1.0 + \mathrm{tau\_z}_{i}\right) \cdot \mathrm{pz}_{i}}{\mathrm{pd}_{i}}\right)}^{\frac{1.0}{1.0 - \mathrm{phi}_{i}}} \cdot \mathrm{Z}_{i}
 $$
 - `transformation.eqZ[MLK_JPN]`
 
 $$
-\mathrm{Z}_{i} = \mathrm{theta}_{i} \cdot \mathrm{xie}_{i} \cdot \mathrm{E}_{i}^{\mathrm{phi}_{i}} + \mathrm{xid}_{i} \cdot \mathrm{D}_{i}^{\mathrm{phi}_{i}}^{\frac{1.0}{\mathrm{phi}_{i}}}
+\mathrm{Z}_{i} = \mathrm{theta}_{i} \cdot {\left(\mathrm{xie}_{i} \cdot {\mathrm{E}_{i}}^{\mathrm{phi}_{i}} + \mathrm{xid}_{i} \cdot {\mathrm{D}_{i}}^{\mathrm{phi}_{i}}\right)}^{\frac{1.0}{\mathrm{phi}_{i}}}
 $$
 - `transformation.eqE[MLK_JPN]`
 
 $$
-\mathrm{E}_{i} = \frac{\mathrm{theta}_{i}^{\mathrm{phi}_{i}} \cdot \mathrm{xie}_{i} \cdot 1.0 + \mathrm{tau\_z}_{i} \cdot \mathrm{pz}_{i}}{\mathrm{pe}_{i}}^{\frac{1.0}{1.0 + -\mathrm{phi}_{i}}} \cdot \mathrm{Z}_{i}
+\mathrm{E}_{i} = {\left(\frac{{\mathrm{theta}_{i}}^{\mathrm{phi}_{i}} \cdot \mathrm{xie}_{i} \cdot \left(1.0 + \mathrm{tau\_z}_{i}\right) \cdot \mathrm{pz}_{i}}{\mathrm{pe}_{i}}\right)}^{\frac{1.0}{1.0 - \mathrm{phi}_{i}}} \cdot \mathrm{Z}_{i}
 $$
 - `transformation.eqDs[MLK_JPN]`
 
 $$
-\mathrm{D}_{i} = \frac{\mathrm{theta}_{i}^{\mathrm{phi}_{i}} \cdot \mathrm{xid}_{i} \cdot 1.0 + \mathrm{tau\_z}_{i} \cdot \mathrm{pz}_{i}}{\mathrm{pd}_{i}}^{\frac{1.0}{1.0 + -\mathrm{phi}_{i}}} \cdot \mathrm{Z}_{i}
+\mathrm{D}_{i} = {\left(\frac{{\mathrm{theta}_{i}}^{\mathrm{phi}_{i}} \cdot \mathrm{xid}_{i} \cdot \left(1.0 + \mathrm{tau\_z}_{i}\right) \cdot \mathrm{pz}_{i}}{\mathrm{pd}_{i}}\right)}^{\frac{1.0}{1.0 - \mathrm{phi}_{i}}} \cdot \mathrm{Z}_{i}
 $$
 - `armington.eqQ[BRD_USA]`
 
 $$
-\mathrm{Q}_{i} = \mathrm{gamma}_{i} \cdot \mathrm{delta\_m}_{i} \cdot \mathrm{M}_{i}^{\mathrm{eta}_{i}} + \mathrm{delta\_d}_{i} \cdot \mathrm{D}_{i}^{\mathrm{eta}_{i}}^{\frac{1.0}{\mathrm{eta}_{i}}}
+\mathrm{Q}_{i} = \mathrm{gamma}_{i} \cdot {\left(\mathrm{delta\_m}_{i} \cdot {\mathrm{M}_{i}}^{\mathrm{eta}_{i}} + \mathrm{delta\_d}_{i} \cdot {\mathrm{D}_{i}}^{\mathrm{eta}_{i}}\right)}^{\frac{1.0}{\mathrm{eta}_{i}}}
 $$
 - `armington.eqM[BRD_USA]`
 
 $$
-\mathrm{M}_{i} = \frac{\mathrm{gamma}_{i}^{\mathrm{eta}_{i}} \cdot \mathrm{delta\_m}_{i} \cdot \mathrm{pq}_{i}}{1.0 + 0.0 + \mathrm{tau\_m}_{i} \cdot \mathrm{pm}_{i}}^{\frac{1.0}{1.0 + -\mathrm{eta}_{i}}} \cdot \mathrm{Q}_{i}
+\mathrm{M}_{i} = {\left(\frac{{\mathrm{gamma}_{i}}^{\mathrm{eta}_{i}} \cdot \mathrm{delta\_m}_{i} \cdot \mathrm{pq}_{i}}{\left(1.0 + 0.0 + \mathrm{tau\_m}_{i}\right) \cdot \mathrm{pm}_{i}}\right)}^{\frac{1.0}{1.0 - \mathrm{eta}_{i}}} \cdot \mathrm{Q}_{i}
 $$
 - `armington.eqD[BRD_USA]`
 
 $$
-\mathrm{D}_{i} = \frac{\mathrm{gamma}_{i}^{\mathrm{eta}_{i}} \cdot \mathrm{delta\_d}_{i} \cdot \mathrm{pq}_{i}}{1.0 \cdot \mathrm{pd}_{i}}^{\frac{1.0}{1.0 + -\mathrm{eta}_{i}}} \cdot \mathrm{Q}_{i}
+\mathrm{D}_{i} = {\left(\frac{{\mathrm{gamma}_{i}}^{\mathrm{eta}_{i}} \cdot \mathrm{delta\_d}_{i} \cdot \mathrm{pq}_{i}}{1.0 \cdot \mathrm{pd}_{i}}\right)}^{\frac{1.0}{1.0 - \mathrm{eta}_{i}}} \cdot \mathrm{Q}_{i}
 $$
 - `armington.eqQ[MLK_USA]`
 
 $$
-\mathrm{Q}_{i} = \mathrm{gamma}_{i} \cdot \mathrm{delta\_m}_{i} \cdot \mathrm{M}_{i}^{\mathrm{eta}_{i}} + \mathrm{delta\_d}_{i} \cdot \mathrm{D}_{i}^{\mathrm{eta}_{i}}^{\frac{1.0}{\mathrm{eta}_{i}}}
+\mathrm{Q}_{i} = \mathrm{gamma}_{i} \cdot {\left(\mathrm{delta\_m}_{i} \cdot {\mathrm{M}_{i}}^{\mathrm{eta}_{i}} + \mathrm{delta\_d}_{i} \cdot {\mathrm{D}_{i}}^{\mathrm{eta}_{i}}\right)}^{\frac{1.0}{\mathrm{eta}_{i}}}
 $$
 - `armington.eqM[MLK_USA]`
 
 $$
-\mathrm{M}_{i} = \frac{\mathrm{gamma}_{i}^{\mathrm{eta}_{i}} \cdot \mathrm{delta\_m}_{i} \cdot \mathrm{pq}_{i}}{1.0 + 0.0 + \mathrm{tau\_m}_{i} \cdot \mathrm{pm}_{i}}^{\frac{1.0}{1.0 + -\mathrm{eta}_{i}}} \cdot \mathrm{Q}_{i}
+\mathrm{M}_{i} = {\left(\frac{{\mathrm{gamma}_{i}}^{\mathrm{eta}_{i}} \cdot \mathrm{delta\_m}_{i} \cdot \mathrm{pq}_{i}}{\left(1.0 + 0.0 + \mathrm{tau\_m}_{i}\right) \cdot \mathrm{pm}_{i}}\right)}^{\frac{1.0}{1.0 - \mathrm{eta}_{i}}} \cdot \mathrm{Q}_{i}
 $$
 - `armington.eqD[MLK_USA]`
 
 $$
-\mathrm{D}_{i} = \frac{\mathrm{gamma}_{i}^{\mathrm{eta}_{i}} \cdot \mathrm{delta\_d}_{i} \cdot \mathrm{pq}_{i}}{1.0 \cdot \mathrm{pd}_{i}}^{\frac{1.0}{1.0 + -\mathrm{eta}_{i}}} \cdot \mathrm{Q}_{i}
+\mathrm{D}_{i} = {\left(\frac{{\mathrm{gamma}_{i}}^{\mathrm{eta}_{i}} \cdot \mathrm{delta\_d}_{i} \cdot \mathrm{pq}_{i}}{1.0 \cdot \mathrm{pd}_{i}}\right)}^{\frac{1.0}{1.0 - \mathrm{eta}_{i}}} \cdot \mathrm{Q}_{i}
 $$
 - `transformation.eqZ[BRD_USA]`
 
 $$
-\mathrm{Z}_{i} = \mathrm{theta}_{i} \cdot \mathrm{xie}_{i} \cdot \mathrm{E}_{i}^{\mathrm{phi}_{i}} + \mathrm{xid}_{i} \cdot \mathrm{D}_{i}^{\mathrm{phi}_{i}}^{\frac{1.0}{\mathrm{phi}_{i}}}
+\mathrm{Z}_{i} = \mathrm{theta}_{i} \cdot {\left(\mathrm{xie}_{i} \cdot {\mathrm{E}_{i}}^{\mathrm{phi}_{i}} + \mathrm{xid}_{i} \cdot {\mathrm{D}_{i}}^{\mathrm{phi}_{i}}\right)}^{\frac{1.0}{\mathrm{phi}_{i}}}
 $$
 - `transformation.eqE[BRD_USA]`
 
 $$
-\mathrm{E}_{i} = \frac{\mathrm{theta}_{i}^{\mathrm{phi}_{i}} \cdot \mathrm{xie}_{i} \cdot 1.0 + \mathrm{tau\_z}_{i} \cdot \mathrm{pz}_{i}}{\mathrm{pe}_{i}}^{\frac{1.0}{1.0 + -\mathrm{phi}_{i}}} \cdot \mathrm{Z}_{i}
+\mathrm{E}_{i} = {\left(\frac{{\mathrm{theta}_{i}}^{\mathrm{phi}_{i}} \cdot \mathrm{xie}_{i} \cdot \left(1.0 + \mathrm{tau\_z}_{i}\right) \cdot \mathrm{pz}_{i}}{\mathrm{pe}_{i}}\right)}^{\frac{1.0}{1.0 - \mathrm{phi}_{i}}} \cdot \mathrm{Z}_{i}
 $$
 - `transformation.eqDs[BRD_USA]`
 
 $$
-\mathrm{D}_{i} = \frac{\mathrm{theta}_{i}^{\mathrm{phi}_{i}} \cdot \mathrm{xid}_{i} \cdot 1.0 + \mathrm{tau\_z}_{i} \cdot \mathrm{pz}_{i}}{\mathrm{pd}_{i}}^{\frac{1.0}{1.0 + -\mathrm{phi}_{i}}} \cdot \mathrm{Z}_{i}
+\mathrm{D}_{i} = {\left(\frac{{\mathrm{theta}_{i}}^{\mathrm{phi}_{i}} \cdot \mathrm{xid}_{i} \cdot \left(1.0 + \mathrm{tau\_z}_{i}\right) \cdot \mathrm{pz}_{i}}{\mathrm{pd}_{i}}\right)}^{\frac{1.0}{1.0 - \mathrm{phi}_{i}}} \cdot \mathrm{Z}_{i}
 $$
 - `transformation.eqZ[MLK_USA]`
 
 $$
-\mathrm{Z}_{i} = \mathrm{theta}_{i} \cdot \mathrm{xie}_{i} \cdot \mathrm{E}_{i}^{\mathrm{phi}_{i}} + \mathrm{xid}_{i} \cdot \mathrm{D}_{i}^{\mathrm{phi}_{i}}^{\frac{1.0}{\mathrm{phi}_{i}}}
+\mathrm{Z}_{i} = \mathrm{theta}_{i} \cdot {\left(\mathrm{xie}_{i} \cdot {\mathrm{E}_{i}}^{\mathrm{phi}_{i}} + \mathrm{xid}_{i} \cdot {\mathrm{D}_{i}}^{\mathrm{phi}_{i}}\right)}^{\frac{1.0}{\mathrm{phi}_{i}}}
 $$
 - `transformation.eqE[MLK_USA]`
 
 $$
-\mathrm{E}_{i} = \frac{\mathrm{theta}_{i}^{\mathrm{phi}_{i}} \cdot \mathrm{xie}_{i} \cdot 1.0 + \mathrm{tau\_z}_{i} \cdot \mathrm{pz}_{i}}{\mathrm{pe}_{i}}^{\frac{1.0}{1.0 + -\mathrm{phi}_{i}}} \cdot \mathrm{Z}_{i}
+\mathrm{E}_{i} = {\left(\frac{{\mathrm{theta}_{i}}^{\mathrm{phi}_{i}} \cdot \mathrm{xie}_{i} \cdot \left(1.0 + \mathrm{tau\_z}_{i}\right) \cdot \mathrm{pz}_{i}}{\mathrm{pe}_{i}}\right)}^{\frac{1.0}{1.0 - \mathrm{phi}_{i}}} \cdot \mathrm{Z}_{i}
 $$
 - `transformation.eqDs[MLK_USA]`
 
 $$
-\mathrm{D}_{i} = \frac{\mathrm{theta}_{i}^{\mathrm{phi}_{i}} \cdot \mathrm{xid}_{i} \cdot 1.0 + \mathrm{tau\_z}_{i} \cdot \mathrm{pz}_{i}}{\mathrm{pd}_{i}}^{\frac{1.0}{1.0 + -\mathrm{phi}_{i}}} \cdot \mathrm{Z}_{i}
+\mathrm{D}_{i} = {\left(\frac{{\mathrm{theta}_{i}}^{\mathrm{phi}_{i}} \cdot \mathrm{xid}_{i} \cdot \left(1.0 + \mathrm{tau\_z}_{i}\right) \cdot \mathrm{pz}_{i}}{\mathrm{pd}_{i}}\right)}^{\frac{1.0}{1.0 - \mathrm{phi}_{i}}} \cdot \mathrm{Z}_{i}
 $$
 - `market.eqQ[BRD_JPN]`
 
@@ -522,12 +522,12 @@ $$
 - `utility.eqUU[JPN]`
 
 $$
-\mathrm{UU}_{r} = \prod_{i \in \{BRD_JPN, MLK_JPN\}} \mathrm{Xp}_{i}^{\mathrm{alpha}_{i}}
+\mathrm{UU}_{r} = \prod_{i \in \{BRD_JPN, MLK_JPN\}} {\mathrm{Xp}_{i}}^{\mathrm{alpha}_{i}}
 $$
 - `utility.eqUU[USA]`
 
 $$
-\mathrm{UU}_{r} = \prod_{i \in \{BRD_USA, MLK_USA\}} \mathrm{Xp}_{i}^{\mathrm{alpha}_{i}}
+\mathrm{UU}_{r} = \prod_{i \in \{BRD_USA, MLK_USA\}} {\mathrm{Xp}_{i}}^{\mathrm{alpha}_{i}}
 $$
 - `utility.objective` maximize social welfare
 - `init.start[Xv_BRD_JPN]` start Xv_BRD_JPN = 16.0

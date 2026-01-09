@@ -2,7 +2,7 @@
 - `prod.eqZ[BRD]`
 
 $$
-\mathrm{Z}_{j} = \mathrm{b}_{j} \cdot \prod_{h \in \{CAP, LAB\}} \mathrm{F}_{h,j}^{\mathrm{beta}_{h,j}}
+\mathrm{Z}_{j} = \mathrm{b}_{j} \cdot \prod_{h \in \{CAP, LAB\}} {\mathrm{F}_{h,j}}^{\mathrm{beta}_{h,j}}
 $$
 - `prod.eqF[CAP,BRD]`
 
@@ -17,7 +17,7 @@ $$
 - `prod.eqZ[MLK]`
 
 $$
-\mathrm{Z}_{j} = \mathrm{b}_{j} \cdot \prod_{h \in \{CAP, LAB\}} \mathrm{F}_{h,j}^{\mathrm{beta}_{h,j}}
+\mathrm{Z}_{j} = \mathrm{b}_{j} \cdot \prod_{h \in \{CAP, LAB\}} {\mathrm{F}_{h,j}}^{\mathrm{beta}_{h,j}}
 $$
 - `prod.eqF[CAP,MLK]`
 
