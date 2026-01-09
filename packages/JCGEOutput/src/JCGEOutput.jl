@@ -1266,9 +1266,9 @@ function _render_equation_line(eq; format::Symbol, show_defs::Bool)
             if isempty(label)
                 return "\$\$\n$(info)\n\$\$"
             end
-            return "- `$(label)`\n\n\$\$\n$(info)\n\$\$"
+            return "`$(label)`\n\n\$\$\n$(info)\n\$\$"
         end
-        return isempty(label) ? "- $(info)" : "- `$(label)` $(info)"
+        return isempty(label) ? "$(info)" : "`$(label)` $(info)"
     elseif format == :latex
         if isempty(label)
             return "% $(info)"
