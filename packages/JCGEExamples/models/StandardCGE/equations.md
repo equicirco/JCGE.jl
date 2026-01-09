@@ -2,242 +2,242 @@
 - `prod.eqpy[BRD]`
 
 $$
-Y_{i} = b_{i} \cdot \prod_{h \in \{CAP, LAB\}} F_{h,i}^{beta_{h,i}}
+\mathrm{Y}_{i} = \mathrm{b}_{i} \cdot \prod_{h \in \{CAP, LAB\}} \mathrm{F}_{h,i}^{\mathrm{beta}_{h,i}}
 $$
 - `prod.eqF[CAP,BRD]`
 
 $$
-F_{h,i} = \frac{beta_{h,i} \cdot py_{i} \cdot Y_{i}}{pf_{h}}
+\mathrm{F}_{h,i} = \frac{\mathrm{beta}_{h,i} \cdot \mathrm{py}_{i} \cdot \mathrm{Y}_{i}}{\mathrm{pf}_{h}}
 $$
 - `prod.eqF[LAB,BRD]`
 
 $$
-F_{h,i} = \frac{beta_{h,i} \cdot py_{i} \cdot Y_{i}}{pf_{h}}
+\mathrm{F}_{h,i} = \frac{\mathrm{beta}_{h,i} \cdot \mathrm{py}_{i} \cdot \mathrm{Y}_{i}}{\mathrm{pf}_{h}}
 $$
 - `prod.eqX[BRD,BRD]`
 
 $$
-X_{j,i} = ax_{j,i} \cdot Z_{i}
+\mathrm{X}_{j,i} = \mathrm{ax}_{j,i} \cdot \mathrm{Z}_{i}
 $$
 - `prod.eqX[MLK,BRD]`
 
 $$
-X_{j,i} = ax_{j,i} \cdot Z_{i}
+\mathrm{X}_{j,i} = \mathrm{ax}_{j,i} \cdot \mathrm{Z}_{i}
 $$
 - `prod.eqY[BRD]`
 
 $$
-Y_{i} = ay_{i} \cdot Z_{i}
+\mathrm{Y}_{i} = \mathrm{ay}_{i} \cdot \mathrm{Z}_{i}
 $$
 - `prod.eqpzs[BRD]`
 
 $$
-pz_{i} = ay_{i} \cdot py_{i} + \sum_{j \in \{BRD, MLK\}} ax_{j,i} \cdot pq_{j} + 0.0
+\mathrm{pz}_{i} = \mathrm{ay}_{i} \cdot \mathrm{py}_{i} + \sum_{j \in \{BRD, MLK\}} \mathrm{ax}_{j,i} \cdot \mathrm{pq}_{j} + 0.0
 $$
 - `prod.eqpy[MLK]`
 
 $$
-Y_{i} = b_{i} \cdot \prod_{h \in \{CAP, LAB\}} F_{h,i}^{beta_{h,i}}
+\mathrm{Y}_{i} = \mathrm{b}_{i} \cdot \prod_{h \in \{CAP, LAB\}} \mathrm{F}_{h,i}^{\mathrm{beta}_{h,i}}
 $$
 - `prod.eqF[CAP,MLK]`
 
 $$
-F_{h,i} = \frac{beta_{h,i} \cdot py_{i} \cdot Y_{i}}{pf_{h}}
+\mathrm{F}_{h,i} = \frac{\mathrm{beta}_{h,i} \cdot \mathrm{py}_{i} \cdot \mathrm{Y}_{i}}{\mathrm{pf}_{h}}
 $$
 - `prod.eqF[LAB,MLK]`
 
 $$
-F_{h,i} = \frac{beta_{h,i} \cdot py_{i} \cdot Y_{i}}{pf_{h}}
+\mathrm{F}_{h,i} = \frac{\mathrm{beta}_{h,i} \cdot \mathrm{py}_{i} \cdot \mathrm{Y}_{i}}{\mathrm{pf}_{h}}
 $$
 - `prod.eqX[BRD,MLK]`
 
 $$
-X_{j,i} = ax_{j,i} \cdot Z_{i}
+\mathrm{X}_{j,i} = \mathrm{ax}_{j,i} \cdot \mathrm{Z}_{i}
 $$
 - `prod.eqX[MLK,MLK]`
 
 $$
-X_{j,i} = ax_{j,i} \cdot Z_{i}
+\mathrm{X}_{j,i} = \mathrm{ax}_{j,i} \cdot \mathrm{Z}_{i}
 $$
 - `prod.eqY[MLK]`
 
 $$
-Y_{i} = ay_{i} \cdot Z_{i}
+\mathrm{Y}_{i} = \mathrm{ay}_{i} \cdot \mathrm{Z}_{i}
 $$
 - `prod.eqpzs[MLK]`
 
 $$
-pz_{i} = ay_{i} \cdot py_{i} + \sum_{j \in \{BRD, MLK\}} ax_{j,i} \cdot pq_{j} + 0.0
+\mathrm{pz}_{i} = \mathrm{ay}_{i} \cdot \mathrm{py}_{i} + \sum_{j \in \{BRD, MLK\}} \mathrm{ax}_{j,i} \cdot \mathrm{pq}_{j} + 0.0
 $$
 - `factor_market.eqF[CAP]`
 
 $$
-\sum_{j \in \{BRD, MLK\}} F_{h,j} = FF_{h}
+\sum_{j \in \{BRD, MLK\}} \mathrm{F}_{h,j} = \mathrm{FF}_{h}
 $$
 - `factor_market.eqF[LAB]`
 
 $$
-\sum_{j \in \{BRD, MLK\}} F_{h,j} = FF_{h}
+\sum_{j \in \{BRD, MLK\}} \mathrm{F}_{h,j} = \mathrm{FF}_{h}
 $$
 - `government.eqTd`
 
 $$
-Td = tau_d \cdot \sum_{h \in \{CAP, LAB\}} pf_{h} \cdot FF_{h} + 0.0 + 0.0
+Td = tau\_d \cdot \sum_{h \in \{CAP, LAB\}} \mathrm{pf}_{h} \cdot \mathrm{FF}_{h} + 0.0 + 0.0
 $$
 - `government.eqTz[BRD]`
 
 $$
-Tz_{i} = tau_z_{i} \cdot pz_{i} \cdot Z_{i}
+\mathrm{Tz}_{i} = \mathrm{tau\_z}_{i} \cdot \mathrm{pz}_{i} \cdot \mathrm{Z}_{i}
 $$
 - `government.eqTm[BRD]`
 
 $$
-Tm_{i} = tau_m_{i} \cdot pm_{i} \cdot M_{i}
+\mathrm{Tm}_{i} = \mathrm{tau\_m}_{i} \cdot \mathrm{pm}_{i} \cdot \mathrm{M}_{i}
 $$
 - `government.eqXg[BRD]`
 
 $$
-Xg_{i} = \frac{mu_{i} \cdot Td + \sum_{j \in \{BRD, MLK\}} Tz_{j} + \sum_{j \in \{BRD, MLK\}} Tm_{j} + -Sg}{pq_{i}}
+\mathrm{Xg}_{i} = \frac{\mathrm{mu}_{i} \cdot Td + \sum_{j \in \{BRD, MLK\}} \mathrm{Tz}_{j} + \sum_{j \in \{BRD, MLK\}} \mathrm{Tm}_{j} + -Sg}{\mathrm{pq}_{i}}
 $$
 - `government.eqTz[MLK]`
 
 $$
-Tz_{i} = tau_z_{i} \cdot pz_{i} \cdot Z_{i}
+\mathrm{Tz}_{i} = \mathrm{tau\_z}_{i} \cdot \mathrm{pz}_{i} \cdot \mathrm{Z}_{i}
 $$
 - `government.eqTm[MLK]`
 
 $$
-Tm_{i} = tau_m_{i} \cdot pm_{i} \cdot M_{i}
+\mathrm{Tm}_{i} = \mathrm{tau\_m}_{i} \cdot \mathrm{pm}_{i} \cdot \mathrm{M}_{i}
 $$
 - `government.eqXg[MLK]`
 
 $$
-Xg_{i} = \frac{mu_{i} \cdot Td + \sum_{j \in \{BRD, MLK\}} Tz_{j} + \sum_{j \in \{BRD, MLK\}} Tm_{j} + -Sg}{pq_{i}}
+\mathrm{Xg}_{i} = \frac{\mathrm{mu}_{i} \cdot Td + \sum_{j \in \{BRD, MLK\}} \mathrm{Tz}_{j} + \sum_{j \in \{BRD, MLK\}} \mathrm{Tm}_{j} + -Sg}{\mathrm{pq}_{i}}
 $$
 - `government.eqSg`
 
 $$
-Sg = ssg \cdot Td + \sum_{i \in \{BRD, MLK\}} Tz_{i} + \sum_{i \in \{BRD, MLK\}} Tm_{i}
+Sg = ssg \cdot Td + \sum_{i \in \{BRD, MLK\}} \mathrm{Tz}_{i} + \sum_{i \in \{BRD, MLK\}} \mathrm{Tm}_{i}
 $$
 - `private_saving.eqSp`
 
 $$
-Sp = ssp \cdot \sum_{h \in \{CAP, LAB\}} pf_{h} \cdot FF_{h} + 0.0 + 0.0
+Sp = ssp \cdot \sum_{h \in \{CAP, LAB\}} \mathrm{pf}_{h} \cdot \mathrm{FF}_{h} + 0.0 + 0.0
 $$
 - `investment.eqXv[BRD]`
 
 $$
-Xv_{i} = \frac{lambda_{i} \cdot Sp + Sg + epsilon \cdot Sf}{pq_{i}}
+\mathrm{Xv}_{i} = \frac{\mathrm{lambda}_{i} \cdot Sp + Sg + epsilon \cdot Sf}{\mathrm{pq}_{i}}
 $$
 - `investment.eqXv[MLK]`
 
 $$
-Xv_{i} = \frac{lambda_{i} \cdot Sp + Sg + epsilon \cdot Sf}{pq_{i}}
+\mathrm{Xv}_{i} = \frac{\mathrm{lambda}_{i} \cdot Sp + Sg + epsilon \cdot Sf}{\mathrm{pq}_{i}}
 $$
 - `household.eqXp[BRD]`
 
 $$
-Xp_{i} = \frac{alpha_{i} \cdot \sum_{h \in \{CAP, LAB\}} pf_{h} \cdot FF_{h} + -Sp + -Td + 0.0 + 0.0}{pq_{i}}
+\mathrm{Xp}_{i} = \frac{\mathrm{alpha}_{i} \cdot \sum_{h \in \{CAP, LAB\}} \mathrm{pf}_{h} \cdot \mathrm{FF}_{h} + -Sp + -Td + 0.0 + 0.0}{\mathrm{pq}_{i}}
 $$
 - `household.eqXp[MLK]`
 
 $$
-Xp_{i} = \frac{alpha_{i} \cdot \sum_{h \in \{CAP, LAB\}} pf_{h} \cdot FF_{h} + -Sp + -Td + 0.0 + 0.0}{pq_{i}}
+\mathrm{Xp}_{i} = \frac{\mathrm{alpha}_{i} \cdot \sum_{h \in \{CAP, LAB\}} \mathrm{pf}_{h} \cdot \mathrm{FF}_{h} + -Sp + -Td + 0.0 + 0.0}{\mathrm{pq}_{i}}
 $$
 - `prices.eqpe[BRD]`
 
 $$
-pe_{i} = epsilon \cdot pWe_{i}
+\mathrm{pe}_{i} = epsilon \cdot \mathrm{pWe}_{i}
 $$
 - `prices.eqpm[BRD]`
 
 $$
-pm_{i} = epsilon \cdot pWm_{i}
+\mathrm{pm}_{i} = epsilon \cdot \mathrm{pWm}_{i}
 $$
 - `prices.eqpe[MLK]`
 
 $$
-pe_{i} = epsilon \cdot pWe_{i}
+\mathrm{pe}_{i} = epsilon \cdot \mathrm{pWe}_{i}
 $$
 - `prices.eqpm[MLK]`
 
 $$
-pm_{i} = epsilon \cdot pWm_{i}
+\mathrm{pm}_{i} = epsilon \cdot \mathrm{pWm}_{i}
 $$
 - `bop.eqBOP`
 
 $$
-\sum_{i \in \{BRD, MLK\}} pWe_{i} \cdot E_{i} + Sf = \sum_{i \in \{BRD, MLK\}} pWm_{i} \cdot M_{i}
+\sum_{i \in \{BRD, MLK\}} \mathrm{pWe}_{i} \cdot \mathrm{E}_{i} + Sf = \sum_{i \in \{BRD, MLK\}} \mathrm{pWm}_{i} \cdot \mathrm{M}_{i}
 $$
 - `armington.eqQ[BRD]`
 
 $$
-Q_{i} = gamma_{i} \cdot delta_m_{i} \cdot M_{i}^{eta_{i}} + delta_d_{i} \cdot D_{i}^{eta_{i}}^{\frac{1.0}{eta_{i}}}
+\mathrm{Q}_{i} = \mathrm{gamma}_{i} \cdot \mathrm{delta\_m}_{i} \cdot \mathrm{M}_{i}^{\mathrm{eta}_{i}} + \mathrm{delta\_d}_{i} \cdot \mathrm{D}_{i}^{\mathrm{eta}_{i}}^{\frac{1.0}{\mathrm{eta}_{i}}}
 $$
 - `armington.eqM[BRD]`
 
 $$
-M_{i} = \frac{gamma_{i}^{eta_{i}} \cdot delta_m_{i} \cdot pq_{i}}{1.0 + 0.0 + tau_m_{i} \cdot pm_{i}}^{\frac{1.0}{1.0 + -eta_{i}}} \cdot Q_{i}
+\mathrm{M}_{i} = \frac{\mathrm{gamma}_{i}^{\mathrm{eta}_{i}} \cdot \mathrm{delta\_m}_{i} \cdot \mathrm{pq}_{i}}{1.0 + 0.0 + \mathrm{tau\_m}_{i} \cdot \mathrm{pm}_{i}}^{\frac{1.0}{1.0 + -\mathrm{eta}_{i}}} \cdot \mathrm{Q}_{i}
 $$
 - `armington.eqD[BRD]`
 
 $$
-D_{i} = \frac{gamma_{i}^{eta_{i}} \cdot delta_d_{i} \cdot pq_{i}}{1.0 \cdot pd_{i}}^{\frac{1.0}{1.0 + -eta_{i}}} \cdot Q_{i}
+\mathrm{D}_{i} = \frac{\mathrm{gamma}_{i}^{\mathrm{eta}_{i}} \cdot \mathrm{delta\_d}_{i} \cdot \mathrm{pq}_{i}}{1.0 \cdot \mathrm{pd}_{i}}^{\frac{1.0}{1.0 + -\mathrm{eta}_{i}}} \cdot \mathrm{Q}_{i}
 $$
 - `armington.eqQ[MLK]`
 
 $$
-Q_{i} = gamma_{i} \cdot delta_m_{i} \cdot M_{i}^{eta_{i}} + delta_d_{i} \cdot D_{i}^{eta_{i}}^{\frac{1.0}{eta_{i}}}
+\mathrm{Q}_{i} = \mathrm{gamma}_{i} \cdot \mathrm{delta\_m}_{i} \cdot \mathrm{M}_{i}^{\mathrm{eta}_{i}} + \mathrm{delta\_d}_{i} \cdot \mathrm{D}_{i}^{\mathrm{eta}_{i}}^{\frac{1.0}{\mathrm{eta}_{i}}}
 $$
 - `armington.eqM[MLK]`
 
 $$
-M_{i} = \frac{gamma_{i}^{eta_{i}} \cdot delta_m_{i} \cdot pq_{i}}{1.0 + 0.0 + tau_m_{i} \cdot pm_{i}}^{\frac{1.0}{1.0 + -eta_{i}}} \cdot Q_{i}
+\mathrm{M}_{i} = \frac{\mathrm{gamma}_{i}^{\mathrm{eta}_{i}} \cdot \mathrm{delta\_m}_{i} \cdot \mathrm{pq}_{i}}{1.0 + 0.0 + \mathrm{tau\_m}_{i} \cdot \mathrm{pm}_{i}}^{\frac{1.0}{1.0 + -\mathrm{eta}_{i}}} \cdot \mathrm{Q}_{i}
 $$
 - `armington.eqD[MLK]`
 
 $$
-D_{i} = \frac{gamma_{i}^{eta_{i}} \cdot delta_d_{i} \cdot pq_{i}}{1.0 \cdot pd_{i}}^{\frac{1.0}{1.0 + -eta_{i}}} \cdot Q_{i}
+\mathrm{D}_{i} = \frac{\mathrm{gamma}_{i}^{\mathrm{eta}_{i}} \cdot \mathrm{delta\_d}_{i} \cdot \mathrm{pq}_{i}}{1.0 \cdot \mathrm{pd}_{i}}^{\frac{1.0}{1.0 + -\mathrm{eta}_{i}}} \cdot \mathrm{Q}_{i}
 $$
 - `transformation.eqZ[BRD]`
 
 $$
-Z_{i} = theta_{i} \cdot xie_{i} \cdot E_{i}^{phi_{i}} + xid_{i} \cdot D_{i}^{phi_{i}}^{\frac{1.0}{phi_{i}}}
+\mathrm{Z}_{i} = \mathrm{theta}_{i} \cdot \mathrm{xie}_{i} \cdot \mathrm{E}_{i}^{\mathrm{phi}_{i}} + \mathrm{xid}_{i} \cdot \mathrm{D}_{i}^{\mathrm{phi}_{i}}^{\frac{1.0}{\mathrm{phi}_{i}}}
 $$
 - `transformation.eqE[BRD]`
 
 $$
-E_{i} = \frac{theta_{i}^{phi_{i}} \cdot xie_{i} \cdot 1.0 + tau_z_{i} \cdot pz_{i}}{pe_{i}}^{\frac{1.0}{1.0 + -phi_{i}}} \cdot Z_{i}
+\mathrm{E}_{i} = \frac{\mathrm{theta}_{i}^{\mathrm{phi}_{i}} \cdot \mathrm{xie}_{i} \cdot 1.0 + \mathrm{tau\_z}_{i} \cdot \mathrm{pz}_{i}}{\mathrm{pe}_{i}}^{\frac{1.0}{1.0 + -\mathrm{phi}_{i}}} \cdot \mathrm{Z}_{i}
 $$
 - `transformation.eqDs[BRD]`
 
 $$
-D_{i} = \frac{theta_{i}^{phi_{i}} \cdot xid_{i} \cdot 1.0 + tau_z_{i} \cdot pz_{i}}{pd_{i}}^{\frac{1.0}{1.0 + -phi_{i}}} \cdot Z_{i}
+\mathrm{D}_{i} = \frac{\mathrm{theta}_{i}^{\mathrm{phi}_{i}} \cdot \mathrm{xid}_{i} \cdot 1.0 + \mathrm{tau\_z}_{i} \cdot \mathrm{pz}_{i}}{\mathrm{pd}_{i}}^{\frac{1.0}{1.0 + -\mathrm{phi}_{i}}} \cdot \mathrm{Z}_{i}
 $$
 - `transformation.eqZ[MLK]`
 
 $$
-Z_{i} = theta_{i} \cdot xie_{i} \cdot E_{i}^{phi_{i}} + xid_{i} \cdot D_{i}^{phi_{i}}^{\frac{1.0}{phi_{i}}}
+\mathrm{Z}_{i} = \mathrm{theta}_{i} \cdot \mathrm{xie}_{i} \cdot \mathrm{E}_{i}^{\mathrm{phi}_{i}} + \mathrm{xid}_{i} \cdot \mathrm{D}_{i}^{\mathrm{phi}_{i}}^{\frac{1.0}{\mathrm{phi}_{i}}}
 $$
 - `transformation.eqE[MLK]`
 
 $$
-E_{i} = \frac{theta_{i}^{phi_{i}} \cdot xie_{i} \cdot 1.0 + tau_z_{i} \cdot pz_{i}}{pe_{i}}^{\frac{1.0}{1.0 + -phi_{i}}} \cdot Z_{i}
+\mathrm{E}_{i} = \frac{\mathrm{theta}_{i}^{\mathrm{phi}_{i}} \cdot \mathrm{xie}_{i} \cdot 1.0 + \mathrm{tau\_z}_{i} \cdot \mathrm{pz}_{i}}{\mathrm{pe}_{i}}^{\frac{1.0}{1.0 + -\mathrm{phi}_{i}}} \cdot \mathrm{Z}_{i}
 $$
 - `transformation.eqDs[MLK]`
 
 $$
-D_{i} = \frac{theta_{i}^{phi_{i}} \cdot xid_{i} \cdot 1.0 + tau_z_{i} \cdot pz_{i}}{pd_{i}}^{\frac{1.0}{1.0 + -phi_{i}}} \cdot Z_{i}
+\mathrm{D}_{i} = \frac{\mathrm{theta}_{i}^{\mathrm{phi}_{i}} \cdot \mathrm{xid}_{i} \cdot 1.0 + \mathrm{tau\_z}_{i} \cdot \mathrm{pz}_{i}}{\mathrm{pd}_{i}}^{\frac{1.0}{1.0 + -\mathrm{phi}_{i}}} \cdot \mathrm{Z}_{i}
 $$
 - `market.eqQ[BRD]`
 
 $$
-Q_{i} = Xp_{i} + Xg_{i} + Xv_{i} + \sum_{j \in \{BRD, MLK\}} X_{i,j}
+\mathrm{Q}_{i} = \mathrm{Xp}_{i} + \mathrm{Xg}_{i} + \mathrm{Xv}_{i} + \sum_{j \in \{BRD, MLK\}} \mathrm{X}_{i,j}
 $$
 - `market.eqQ[MLK]`
 
 $$
-Q_{i} = Xp_{i} + Xg_{i} + Xv_{i} + \sum_{j \in \{BRD, MLK\}} X_{i,j}
+\mathrm{Q}_{i} = \mathrm{Xp}_{i} + \mathrm{Xg}_{i} + \mathrm{Xv}_{i} + \sum_{j \in \{BRD, MLK\}} \mathrm{X}_{i,j}
 $$
 - `utility.objective` maximize Cobb-Douglas utility over Xp
 - `init.start[X_MLK_BRD]` start X_MLK_BRD = 17.0

@@ -1408,20 +1408,28 @@ end
 
 function _render_symbol(name::Symbol, idxs::Union{Nothing,Vector{Any}}; format::Symbol)
     if idxs === nothing || isempty(idxs)
-        return string(name)
+        text = string(name)
+        return format == :latex ? _latex_escape(text) : text
     end
-    idx_text = join(map(_render_index, idxs), ",")
     if format == :latex
-        return string(name, "_{", idx_text, "}")
+        idx_text = join(map(idx -> _render_index(idx; format=format), idxs), ",")
+        return string("\\mathrm{", _latex_escape(string(name)), "}_{", idx_text, "}")
     end
+    idx_text = join(map(idx -> _render_index(idx; format=format), idxs), ",")
     return string(name, "[", idx_text, "]")
 end
 
-function _render_index(idx)
+function _render_index(idx; format::Symbol)
     if idx isa EIndex
-        return string(idx.name)
+        text = string(idx.name)
+        return format == :latex ? _latex_escape(text) : text
     end
-    return string(idx)
+    text = string(idx)
+    return format == :latex ? _latex_escape(text) : text
+end
+
+function _latex_escape(text::AbstractString)
+    replace(text, "_" => "\\_")
 end
 
 function _format_bullet(format::Symbol, text::String)
