@@ -2,7 +2,7 @@
 `production.activity[ag-subsist]`
 
 $$
-\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \{\mathrm{rural}, \mathrm{urban-unsk}\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\}} \mathrm{alphl}_{lc,i}}
+\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \left\{\mathrm{rural}, \mathrm{urban-unsk}\right\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \left\{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\right\}} \mathrm{alphl}_{lc,i}}
 $$
 
 `production.profitmax[ag-subsist,rural]`
@@ -20,7 +20,7 @@ $$
 `production.activity[ag-exp+ind]`
 
 $$
-\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\}} \mathrm{alphl}_{lc,i}}
+\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \left\{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\right\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \left\{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\right\}} \mathrm{alphl}_{lc,i}}
 $$
 
 `production.profitmax[ag-exp+ind,rural]`
@@ -44,7 +44,7 @@ $$
 `production.activity[sylvicult]`
 
 $$
-\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\}} \mathrm{alphl}_{lc,i}}
+\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \left\{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\right\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \left\{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\right\}} \mathrm{alphl}_{lc,i}}
 $$
 
 `production.profitmax[sylvicult,rural]`
@@ -68,7 +68,7 @@ $$
 `production.activity[ind-alim]`
 
 $$
-\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\}} \mathrm{alphl}_{lc,i}}
+\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \left\{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\right\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \left\{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\right\}} \mathrm{alphl}_{lc,i}}
 $$
 
 `production.profitmax[ind-alim,rural]`
@@ -92,7 +92,7 @@ $$
 `production.activity[biens-cons]`
 
 $$
-\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\}} \mathrm{alphl}_{lc,i}}
+\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \left\{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\right\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \left\{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\right\}} \mathrm{alphl}_{lc,i}}
 $$
 
 `production.profitmax[biens-cons,rural]`
@@ -116,7 +116,7 @@ $$
 `production.activity[biens-int]`
 
 $$
-\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\}} \mathrm{alphl}_{lc,i}}
+\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \left\{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\right\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \left\{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\right\}} \mathrm{alphl}_{lc,i}}
 $$
 
 `production.profitmax[biens-int,rural]`
@@ -140,7 +140,7 @@ $$
 `production.activity[cim-int]`
 
 $$
-\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\}} \mathrm{alphl}_{lc,i}}
+\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \left\{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\right\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \left\{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\right\}} \mathrm{alphl}_{lc,i}}
 $$
 
 `production.profitmax[cim-int,rural]`
@@ -164,7 +164,7 @@ $$
 `production.activity[biens-cap]`
 
 $$
-\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\}} \mathrm{alphl}_{lc,i}}
+\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \left\{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\right\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \left\{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\right\}} \mathrm{alphl}_{lc,i}}
 $$
 
 `production.profitmax[biens-cap,rural]`
@@ -188,7 +188,7 @@ $$
 `production.activity[construct]`
 
 $$
-\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\}} \mathrm{alphl}_{lc,i}}
+\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \left\{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\right\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \left\{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\right\}} \mathrm{alphl}_{lc,i}}
 $$
 
 `production.profitmax[construct,rural]`
@@ -212,7 +212,7 @@ $$
 `production.activity[services]`
 
 $$
-\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\}} \mathrm{alphl}_{lc,i}}
+\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \left\{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\right\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \left\{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\right\}} \mathrm{alphl}_{lc,i}}
 $$
 
 `production.profitmax[services,rural]`
@@ -236,7 +236,7 @@ $$
 `production.activity[publiques]`
 
 $$
-\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \{\mathrm{urban-unsk}, \mathrm{urban-skil}\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\}} \mathrm{alphl}_{lc,i}}
+\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \left\{\mathrm{urban-unsk}, \mathrm{urban-skil}\right\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \left\{\mathrm{rural}, \mathrm{urban-unsk}, \mathrm{urban-skil}\right\}} \mathrm{alphl}_{lc,i}}
 $$
 
 `production.profitmax[publiques,urban-unsk]`
@@ -254,19 +254,19 @@ $$
 `labor_market.lmequil[rural]`
 
 $$
-\sum_{i \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{l}_{i,lc} = \mathrm{ls}_{lc}
+\sum_{i \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{l}_{i,lc} = \mathrm{ls}_{lc}
 $$
 
 `labor_market.lmequil[urban-unsk]`
 
 $$
-\sum_{i \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{l}_{i,lc} = \mathrm{ls}_{lc}
+\sum_{i \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{l}_{i,lc} = \mathrm{ls}_{lc}
 $$
 
 `labor_market.lmequil[urban-skil]`
 
 $$
-\sum_{i \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{l}_{i,lc} = \mathrm{ls}_{lc}
+\sum_{i \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{l}_{i,lc} = \mathrm{ls}_{lc}
 $$
 
 `government_demand.gdeq[ag-subsist]`
@@ -338,19 +338,19 @@ $$
 `government_finance.tariffdef`
 
 $$
-tariff = \sum_{i \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{services}\}} \mathrm{tm}_{i} \cdot \mathrm{m}_{i} \cdot \mathrm{pwm}_{i} \cdot er
+tariff = \sum_{i \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{services}\right\}} \mathrm{tm}_{i} \cdot \mathrm{m}_{i} \cdot \mathrm{pwm}_{i} \cdot er
 $$
 
 `government_finance.indtaxdef`
 
 $$
-indtax = \sum_{i \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{itax}_{i} \cdot \mathrm{px}_{i} \cdot \mathrm{xd}_{i}
+indtax = \sum_{i \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{itax}_{i} \cdot \mathrm{px}_{i} \cdot \mathrm{xd}_{i}
 $$
 
 `government_finance.dutydef`
 
 $$
-duty = \sum_{i \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{services}\}} \mathrm{te}_{i} \cdot \mathrm{e}_{i} \cdot \mathrm{pe}_{i}
+duty = \sum_{i \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{services}\right\}} \mathrm{te}_{i} \cdot \mathrm{e}_{i} \cdot \mathrm{pe}_{i}
 $$
 
 `government_finance.greq`
@@ -362,13 +362,13 @@ $$
 `government_finance.gruse`
 
 $$
-gr = \sum_{i \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{p}_{i} \cdot \mathrm{gd}_{i} + govsav
+gr = \sum_{i \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{p}_{i} \cdot \mathrm{gd}_{i} + govsav
 $$
 
 `savings.depreq`
 
 $$
-deprecia = \sum_{i \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{depr}_{i} \cdot \mathrm{pk}_{i} \cdot \mathrm{k}_{i}
+deprecia = \sum_{i \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{depr}_{i} \cdot \mathrm{pk}_{i} \cdot \mathrm{k}_{i}
 $$
 
 `savings.totsav`
@@ -380,133 +380,133 @@ $$
 `savings.prodinv[ag-subsist]`
 
 $$
-\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
+\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
 $$
 
 `savings.prodinv[ag-exp+ind]`
 
 $$
-\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
+\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
 $$
 
 `savings.prodinv[sylvicult]`
 
 $$
-\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
+\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
 $$
 
 `savings.prodinv[ind-alim]`
 
 $$
-\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
+\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
 $$
 
 `savings.prodinv[biens-cons]`
 
 $$
-\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
+\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
 $$
 
 `savings.prodinv[biens-int]`
 
 $$
-\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
+\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
 $$
 
 `savings.prodinv[cim-int]`
 
 $$
-\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
+\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
 $$
 
 `savings.prodinv[biens-cap]`
 
 $$
-\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
+\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
 $$
 
 `savings.prodinv[construct]`
 
 $$
-\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
+\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
 $$
 
 `savings.prodinv[services]`
 
 $$
-\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
+\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
 $$
 
 `savings.prodinv[publiques]`
 
 $$
-\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
+\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot savings - \mathrm{kio}_{i} \cdot \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
 $$
 
 `savings.ieq[ag-subsist]`
 
 $$
-\mathrm{id}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
+\mathrm{id}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
 $$
 
 `savings.ieq[ag-exp+ind]`
 
 $$
-\mathrm{id}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
+\mathrm{id}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
 $$
 
 `savings.ieq[sylvicult]`
 
 $$
-\mathrm{id}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
+\mathrm{id}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
 $$
 
 `savings.ieq[ind-alim]`
 
 $$
-\mathrm{id}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
+\mathrm{id}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
 $$
 
 `savings.ieq[biens-cons]`
 
 $$
-\mathrm{id}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
+\mathrm{id}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
 $$
 
 `savings.ieq[biens-int]`
 
 $$
-\mathrm{id}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
+\mathrm{id}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
 $$
 
 `savings.ieq[cim-int]`
 
 $$
-\mathrm{id}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
+\mathrm{id}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
 $$
 
 `savings.ieq[biens-cap]`
 
 $$
-\mathrm{id}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
+\mathrm{id}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
 $$
 
 `savings.ieq[construct]`
 
 $$
-\mathrm{id}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
+\mathrm{id}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
 $$
 
 `savings.ieq[services]`
 
 $$
-\mathrm{id}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
+\mathrm{id}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
 $$
 
 `savings.ieq[publiques]`
 
 $$
-\mathrm{id}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
+\mathrm{id}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
 $$
 
 `household.cdeq[ag-subsist]`
@@ -824,199 +824,199 @@ $$
 `activity_price.actp[ag-subsist]`
 
 $$
-\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
+\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
 $$
 
 `activity_price.inteq[ag-subsist]`
 
 $$
-\mathrm{int}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
+\mathrm{int}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
 $$
 
 `activity_price.actp[ag-exp+ind]`
 
 $$
-\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
+\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
 $$
 
 `activity_price.inteq[ag-exp+ind]`
 
 $$
-\mathrm{int}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
+\mathrm{int}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
 $$
 
 `activity_price.actp[sylvicult]`
 
 $$
-\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
+\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
 $$
 
 `activity_price.inteq[sylvicult]`
 
 $$
-\mathrm{int}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
+\mathrm{int}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
 $$
 
 `activity_price.actp[ind-alim]`
 
 $$
-\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
+\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
 $$
 
 `activity_price.inteq[ind-alim]`
 
 $$
-\mathrm{int}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
+\mathrm{int}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
 $$
 
 `activity_price.actp[biens-cons]`
 
 $$
-\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
+\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
 $$
 
 `activity_price.inteq[biens-cons]`
 
 $$
-\mathrm{int}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
+\mathrm{int}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
 $$
 
 `activity_price.actp[biens-int]`
 
 $$
-\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
+\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
 $$
 
 `activity_price.inteq[biens-int]`
 
 $$
-\mathrm{int}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
+\mathrm{int}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
 $$
 
 `activity_price.actp[cim-int]`
 
 $$
-\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
+\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
 $$
 
 `activity_price.inteq[cim-int]`
 
 $$
-\mathrm{int}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
+\mathrm{int}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
 $$
 
 `activity_price.actp[biens-cap]`
 
 $$
-\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
+\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
 $$
 
 `activity_price.inteq[biens-cap]`
 
 $$
-\mathrm{int}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
+\mathrm{int}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
 $$
 
 `activity_price.actp[construct]`
 
 $$
-\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
+\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
 $$
 
 `activity_price.inteq[construct]`
 
 $$
-\mathrm{int}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
+\mathrm{int}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
 $$
 
 `activity_price.actp[services]`
 
 $$
-\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
+\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
 $$
 
 `activity_price.inteq[services]`
 
 $$
-\mathrm{int}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
+\mathrm{int}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
 $$
 
 `activity_price.actp[publiques]`
 
 $$
-\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
+\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
 $$
 
 `activity_price.inteq[publiques]`
 
 $$
-\mathrm{int}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
+\mathrm{int}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
 $$
 
 `capital_price.pkdef[ag-subsist]`
 
 $$
-\mathrm{pk}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
+\mathrm{pk}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
 $$
 
 `capital_price.pkdef[ag-exp+ind]`
 
 $$
-\mathrm{pk}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
+\mathrm{pk}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
 $$
 
 `capital_price.pkdef[sylvicult]`
 
 $$
-\mathrm{pk}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
+\mathrm{pk}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
 $$
 
 `capital_price.pkdef[ind-alim]`
 
 $$
-\mathrm{pk}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
+\mathrm{pk}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
 $$
 
 `capital_price.pkdef[biens-cons]`
 
 $$
-\mathrm{pk}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
+\mathrm{pk}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
 $$
 
 `capital_price.pkdef[biens-int]`
 
 $$
-\mathrm{pk}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
+\mathrm{pk}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
 $$
 
 `capital_price.pkdef[cim-int]`
 
 $$
-\mathrm{pk}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
+\mathrm{pk}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
 $$
 
 `capital_price.pkdef[biens-cap]`
 
 $$
-\mathrm{pk}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
+\mathrm{pk}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
 $$
 
 `capital_price.pkdef[construct]`
 
 $$
-\mathrm{pk}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
+\mathrm{pk}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
 $$
 
 `capital_price.pkdef[services]`
 
 $$
-\mathrm{pk}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
+\mathrm{pk}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
 $$
 
 `capital_price.pkdef[publiques]`
 
 $$
-\mathrm{pk}_{i} = \sum_{j \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
+\mathrm{pk}_{i} = \sum_{j \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
 $$
 
 `cet.cet[ag-subsist]`
@@ -1382,7 +1382,7 @@ $$
 `gdp.gdp`
 
 $$
-y = \sum_{i \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} \mathrm{pva}_{i} \cdot \mathrm{xd}_{i} - deprecia
+y = \sum_{i \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} \mathrm{pva}_{i} \cdot \mathrm{xd}_{i} - deprecia
 $$
 
 `market.equil[ag-subsist]`
@@ -1454,7 +1454,7 @@ $$
 `objective.objective`
 
 $$
-omega = \prod_{i \in \{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\}} {\mathrm{cd}_{i}}^{\mathrm{alpha}_{i}}
+omega = \prod_{i \in \left\{\mathrm{ag-subsist}, \mathrm{ag-exp+ind}, \mathrm{sylvicult}, \mathrm{ind-alim}, \mathrm{biens-cons}, \mathrm{biens-int}, \mathrm{cim-int}, \mathrm{biens-cap}, \mathrm{construct}, \mathrm{services}, \mathrm{publiques}\right\}} {\mathrm{cd}_{i}}^{\mathrm{alpha}_{i}}
 $$
 
 `init.start[pwm_biens-cap]` start pwm_biens-cap = 3.7554453958239447
