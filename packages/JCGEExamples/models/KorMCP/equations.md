@@ -2,7 +2,7 @@
 `production.activity[agricult]`
 
 $$
-\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \left\{\mathrm{labor1}, \mathrm{labor2}\right\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \left\{\mathrm{labor1}, \mathrm{labor2}, \mathrm{labor3}\right\}} \mathrm{alphl}_{lc,i}}
+\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \lbrace \mathrm{labor1}, \mathrm{labor2} \rbrace} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \lbrace \mathrm{labor1}, \mathrm{labor2}, \mathrm{labor3} \rbrace} \mathrm{alphl}_{lc,i}}
 $$
 
 `production.profitmax[agricult,labor1]`
@@ -20,7 +20,7 @@ $$
 `production.activity[industry]`
 
 $$
-\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \left\{\mathrm{labor2}\right\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \left\{\mathrm{labor1}, \mathrm{labor2}, \mathrm{labor3}\right\}} \mathrm{alphl}_{lc,i}}
+\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \lbrace \mathrm{labor2} \rbrace} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \lbrace \mathrm{labor1}, \mathrm{labor2}, \mathrm{labor3} \rbrace} \mathrm{alphl}_{lc,i}}
 $$
 
 `production.profitmax[industry,labor2]`
@@ -32,7 +32,7 @@ $$
 `production.activity[services]`
 
 $$
-\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \left\{\mathrm{labor2}, \mathrm{labor3}\right\}} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \left\{\mathrm{labor1}, \mathrm{labor2}, \mathrm{labor3}\right\}} \mathrm{alphl}_{lc,i}}
+\mathrm{xd}_{i} = \mathrm{ad}_{i} \cdot \prod_{lc \in \lbrace \mathrm{labor2}, \mathrm{labor3} \rbrace} {\mathrm{l}_{i,lc}}^{\mathrm{alphl}_{lc,i}} \cdot {\mathrm{k}_{i}}^{1.0 - \sum_{lc \in \lbrace \mathrm{labor1}, \mathrm{labor2}, \mathrm{labor3} \rbrace} \mathrm{alphl}_{lc,i}}
 $$
 
 `production.profitmax[services,labor2]`
@@ -50,19 +50,19 @@ $$
 `labor_market.lmequil[labor1]`
 
 $$
-\sum_{i \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{l}_{i,lc} = \mathrm{ls}_{lc}
+\sum_{i \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{l}_{i,lc} = \mathrm{ls}_{lc}
 $$
 
 `labor_market.lmequil[labor2]`
 
 $$
-\sum_{i \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{l}_{i,lc} = \mathrm{ls}_{lc}
+\sum_{i \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{l}_{i,lc} = \mathrm{ls}_{lc}
 $$
 
 `labor_market.lmequil[labor3]`
 
 $$
-\sum_{i \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{l}_{i,lc} = \mathrm{ls}_{lc}
+\sum_{i \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{l}_{i,lc} = \mathrm{ls}_{lc}
 $$
 
 `government_demand.gdeq[agricult]`
@@ -86,19 +86,19 @@ $$
 `government_revenue.tariffdef`
 
 $$
-tariff = \sum_{i \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{tm}_{i} \cdot \mathrm{m}_{i} \cdot \mathrm{pwm}_{i} \cdot er
+tariff = \sum_{i \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{tm}_{i} \cdot \mathrm{m}_{i} \cdot \mathrm{pwm}_{i} \cdot er
 $$
 
 `government_revenue.indtaxdef`
 
 $$
-indtax = \sum_{i \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{itax}_{i} \cdot \mathrm{px}_{i} \cdot \mathrm{xd}_{i}
+indtax = \sum_{i \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{itax}_{i} \cdot \mathrm{px}_{i} \cdot \mathrm{xd}_{i}
 $$
 
 `government_revenue.netsubdef`
 
 $$
-netsub = \sum_{i \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{te}_{i} \cdot \mathrm{e}_{i} \cdot \mathrm{pwe}_{i} \cdot er
+netsub = \sum_{i \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{te}_{i} \cdot \mathrm{e}_{i} \cdot \mathrm{pwe}_{i} \cdot er
 $$
 
 `government_revenue.greq`
@@ -110,13 +110,13 @@ $$
 `government_revenue.gruse`
 
 $$
-gr = \sum_{i \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{p}_{i} \cdot \mathrm{gd}_{i} + govsav
+gr = \sum_{i \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{p}_{i} \cdot \mathrm{gd}_{i} + govsav
 $$
 
 `savings.depreq`
 
 $$
-deprecia = \sum_{i \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{depr}_{i} \cdot \mathrm{pk}_{i} \cdot \mathrm{k}_{i}
+deprecia = \sum_{i \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{depr}_{i} \cdot \mathrm{pk}_{i} \cdot \mathrm{k}_{i}
 $$
 
 `savings.totsav`
@@ -128,85 +128,85 @@ $$
 `savings.prodinv[agricult]`
 
 $$
-\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot invest - \mathrm{kio}_{i} \cdot \sum_{j \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
+\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot invest - \mathrm{kio}_{i} \cdot \sum_{j \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
 $$
 
 `savings.prodinv[industry]`
 
 $$
-\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot invest - \mathrm{kio}_{i} \cdot \sum_{j \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
+\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot invest - \mathrm{kio}_{i} \cdot \sum_{j \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
 $$
 
 `savings.prodinv[services]`
 
 $$
-\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot invest - \mathrm{kio}_{i} \cdot \sum_{j \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
+\mathrm{pk}_{i} \cdot \mathrm{dk}_{i} = \mathrm{kio}_{i} \cdot invest - \mathrm{kio}_{i} \cdot \sum_{j \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{dst}_{j} \cdot \mathrm{p}_{j}
 $$
 
 `savings.ieq[agricult]`
 
 $$
-\mathrm{id}_{i} = \sum_{j \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
+\mathrm{id}_{i} = \sum_{j \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
 $$
 
 `savings.ieq[industry]`
 
 $$
-\mathrm{id}_{i} = \sum_{j \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
+\mathrm{id}_{i} = \sum_{j \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
 $$
 
 `savings.ieq[services]`
 
 $$
-\mathrm{id}_{i} = \sum_{j \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
+\mathrm{id}_{i} = \sum_{j \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{imat}_{i,j} \cdot \mathrm{dk}_{j}
 $$
 
 `household_demand.cdeq[agricult]`
 
 $$
-\mathrm{p}_{i} \cdot \mathrm{cd}_{i} = \sum_{hh \in \left\{\mathrm{lab-hh}, \mathrm{cap-hh}\right\}} \mathrm{cles}_{i,hh} \cdot \left(1.0 - \mathrm{mps}_{hh}\right) \cdot \mathrm{yh}_{hh} \cdot \left(1.0 - \mathrm{htax}_{hh}\right)
+\mathrm{p}_{i} \cdot \mathrm{cd}_{i} = \sum_{hh \in \lbrace \mathrm{lab-hh}, \mathrm{cap-hh} \rbrace} \mathrm{cles}_{i,hh} \cdot \left(1.0 - \mathrm{mps}_{hh}\right) \cdot \mathrm{yh}_{hh} \cdot \left(1.0 - \mathrm{htax}_{hh}\right)
 $$
 
 `household_demand.cdeq[industry]`
 
 $$
-\mathrm{p}_{i} \cdot \mathrm{cd}_{i} = \sum_{hh \in \left\{\mathrm{lab-hh}, \mathrm{cap-hh}\right\}} \mathrm{cles}_{i,hh} \cdot \left(1.0 - \mathrm{mps}_{hh}\right) \cdot \mathrm{yh}_{hh} \cdot \left(1.0 - \mathrm{htax}_{hh}\right)
+\mathrm{p}_{i} \cdot \mathrm{cd}_{i} = \sum_{hh \in \lbrace \mathrm{lab-hh}, \mathrm{cap-hh} \rbrace} \mathrm{cles}_{i,hh} \cdot \left(1.0 - \mathrm{mps}_{hh}\right) \cdot \mathrm{yh}_{hh} \cdot \left(1.0 - \mathrm{htax}_{hh}\right)
 $$
 
 `household_demand.cdeq[services]`
 
 $$
-\mathrm{p}_{i} \cdot \mathrm{cd}_{i} = \sum_{hh \in \left\{\mathrm{lab-hh}, \mathrm{cap-hh}\right\}} \mathrm{cles}_{i,hh} \cdot \left(1.0 - \mathrm{mps}_{hh}\right) \cdot \mathrm{yh}_{hh} \cdot \left(1.0 - \mathrm{htax}_{hh}\right)
+\mathrm{p}_{i} \cdot \mathrm{cd}_{i} = \sum_{hh \in \lbrace \mathrm{lab-hh}, \mathrm{cap-hh} \rbrace} \mathrm{cles}_{i,hh} \cdot \left(1.0 - \mathrm{mps}_{hh}\right) \cdot \mathrm{yh}_{hh} \cdot \left(1.0 - \mathrm{htax}_{hh}\right)
 $$
 
 `household_demand.hhsaveq`
 
 $$
-hhsav = \sum_{hh \in \left\{\mathrm{lab-hh}, \mathrm{cap-hh}\right\}} \mathrm{mps}_{hh} \cdot \mathrm{yh}_{hh} \cdot \left(1.0 - \mathrm{htax}_{hh}\right)
+hhsav = \sum_{hh \in \lbrace \mathrm{lab-hh}, \mathrm{cap-hh} \rbrace} \mathrm{mps}_{hh} \cdot \mathrm{yh}_{hh} \cdot \left(1.0 - \mathrm{htax}_{hh}\right)
 $$
 
 `household_income.labory[lab-hh]`
 
 $$
-\mathrm{yh}_{\mathrm{lab-hh}} = \sum_{lc \in \left\{\mathrm{labor1}, \mathrm{labor2}, \mathrm{labor3}\right\}} \mathrm{wa}_{lc} \cdot \mathrm{ls}_{lc} + remit \cdot er
+\mathrm{yh}_{\mathrm{lab-hh}} = \sum_{lc \in \lbrace \mathrm{labor1}, \mathrm{labor2}, \mathrm{labor3} \rbrace} \mathrm{wa}_{lc} \cdot \mathrm{ls}_{lc} + remit \cdot er
 $$
 
 `household_income.capitaly[cap-hh]`
 
 $$
-\mathrm{yh}_{\mathrm{cap-hh}} = \sum_{i \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{pva}_{i} \cdot \mathrm{xd}_{i} - deprecia - \sum_{lc \in \left\{\mathrm{labor1}, \mathrm{labor2}, \mathrm{labor3}\right\}} \mathrm{wa}_{lc} \cdot \mathrm{ls}_{lc} + fbor \cdot er + ypr
+\mathrm{yh}_{\mathrm{cap-hh}} = \sum_{i \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{pva}_{i} \cdot \mathrm{xd}_{i} - deprecia - \sum_{lc \in \lbrace \mathrm{labor1}, \mathrm{labor2}, \mathrm{labor3} \rbrace} \mathrm{wa}_{lc} \cdot \mathrm{ls}_{lc} + fbor \cdot er + ypr
 $$
 
 `household_tax.hhtaxdef`
 
 $$
-tothhtax = \sum_{hh \in \left\{\mathrm{lab-hh}, \mathrm{cap-hh}\right\}} \mathrm{htax}_{hh} \cdot \mathrm{yh}_{hh}
+tothhtax = \sum_{hh \in \lbrace \mathrm{lab-hh}, \mathrm{cap-hh} \rbrace} \mathrm{htax}_{hh} \cdot \mathrm{yh}_{hh}
 $$
 
 `household_sum.gdp`
 
 $$
-y = \sum_{hh \in \left\{\mathrm{lab-hh}, \mathrm{cap-hh}\right\}} \mathrm{yh}_{hh}
+y = \sum_{hh \in \lbrace \mathrm{lab-hh}, \mathrm{cap-hh} \rbrace} \mathrm{yh}_{hh}
 $$
 
 `trade_price.pmdef[agricult]`
@@ -284,73 +284,73 @@ $$
 `activity_price.actp[agricult]`
 
 $$
-\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
+\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
 $$
 
 `activity_price.inteq[agricult]`
 
 $$
-\mathrm{int}_{i} = \sum_{j \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
+\mathrm{int}_{i} = \sum_{j \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
 $$
 
 `activity_price.actp[industry]`
 
 $$
-\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
+\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
 $$
 
 `activity_price.inteq[industry]`
 
 $$
-\mathrm{int}_{i} = \sum_{j \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
+\mathrm{int}_{i} = \sum_{j \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
 $$
 
 `activity_price.actp[services]`
 
 $$
-\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
+\mathrm{px}_{i} \cdot \left(1.0 - \mathrm{itax}_{i}\right) = \mathrm{pva}_{i} + \sum_{j \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{io}_{j,i} \cdot \mathrm{p}_{j}
 $$
 
 `activity_price.inteq[services]`
 
 $$
-\mathrm{int}_{i} = \sum_{j \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
+\mathrm{int}_{i} = \sum_{j \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{io}_{i,j} \cdot \mathrm{xd}_{j}
 $$
 
 `capital_price.pkdef[agricult]`
 
 $$
-\mathrm{pk}_{i} = \sum_{j \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
+\mathrm{pk}_{i} = \sum_{j \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
 $$
 
 `capital_price.pkdef[industry]`
 
 $$
-\mathrm{pk}_{i} = \sum_{j \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
+\mathrm{pk}_{i} = \sum_{j \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
 $$
 
 `capital_price.pkdef[services]`
 
 $$
-\mathrm{pk}_{i} = \sum_{j \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
+\mathrm{pk}_{i} = \sum_{j \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{p}_{j} \cdot \mathrm{imat}_{j,i}
 $$
 
 `premium_income.premium`
 
 $$
-ypr = \sum_{i \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{pwm}_{i} \cdot \mathrm{m}_{i} \cdot er \cdot pr
+ypr = \sum_{i \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{pwm}_{i} \cdot \mathrm{m}_{i} \cdot er \cdot pr
 $$
 
 `price_index.pindexdef`
 
 $$
-pindex = \sum_{i \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{p}_{i} \cdot \mathrm{pwts}_{i}
+pindex = \sum_{i \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{p}_{i} \cdot \mathrm{pwts}_{i}
 $$
 
 `bop.caeq`
 
 $$
-\sum_{i \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{pwm}_{i} \cdot \mathrm{M}_{i} = \sum_{i \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} \mathrm{pwe}_{i} \cdot \mathrm{E}_{i} + fsav + remit + fbor
+\sum_{i \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{pwm}_{i} \cdot \mathrm{M}_{i} = \sum_{i \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} \mathrm{pwe}_{i} \cdot \mathrm{E}_{i} + fsav + remit + fbor
 $$
 
 `cet.cet[agricult]`
@@ -464,7 +464,7 @@ $$
 `objective.objective`
 
 $$
-omega = \prod_{i \in \left\{\mathrm{agricult}, \mathrm{industry}, \mathrm{services}\right\}} {\mathrm{cd}_{i}}^{\mathrm{alpha}_{i}}
+omega = \prod_{i \in \lbrace \mathrm{agricult}, \mathrm{industry}, \mathrm{services} \rbrace} {\mathrm{cd}_{i}}^{\mathrm{alpha}_{i}}
 $$
 
 `init.start[er]` start er = 1.0

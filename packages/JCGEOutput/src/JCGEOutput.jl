@@ -1406,7 +1406,7 @@ function _render_expr(expr::EquationExpr; format::Symbol)
         domain = join(map(idx -> _render_index(idx; format=format), expr.domain), ", ")
         if format == :latex
             idx = _latex_escape(string(expr.index))
-            return string("\\sum_{", idx, " \\in \\left\\{", domain, "\\right\\}} ", inner)
+            return string("\\sum_{", idx, " \\in \\lbrace ", domain, " \\rbrace} ", inner)
         end
         return string("sum_", expr.index, "∈{", domain, "}(", inner, ")")
     elseif expr isa EProd
@@ -1414,7 +1414,7 @@ function _render_expr(expr::EquationExpr; format::Symbol)
         domain = join(map(idx -> _render_index(idx; format=format), expr.domain), ", ")
         if format == :latex
             idx = _latex_escape(string(expr.index))
-            return string("\\prod_{", idx, " \\in \\left\\{", domain, "\\right\\}} ", inner)
+            return string("\\prod_{", idx, " \\in \\lbrace ", domain, " \\rbrace} ", inner)
         end
         return string("prod_", expr.index, "∈{", domain, "}(", inner, ")")
     elseif expr isa EEq
