@@ -1489,9 +1489,9 @@ end
 
 function _wrap_if_needed(expr::EquationExpr, rendered::AbstractString; format::Symbol)
     if expr isa EAdd
-        return format == :latex ? string("\\left(", rendered, "\\right)") : string("(", rendered, ")")
+        return string("(", rendered, ")")
     elseif expr isa EDiv
-        return format == :latex ? string("\\left(", rendered, "\\right)") : string("(", rendered, ")")
+        return string("(", rendered, ")")
     end
     return rendered
 end
