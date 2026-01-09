@@ -1452,6 +1452,14 @@ function _render_expr(expr::EquationExpr; format::Symbol)
         base = _wrap_if_needed(expr.base, _render_expr(expr.base; format=format); format=format)
         exp = _render_expr(expr.exponent; format=format)
         if format == :latex
+            if expr.exponent isa EDiv
+                num = expr.exponent.numerator
+                den = expr.exponent.denominator
+                if num isa EConst && num.value == 1
+                    den_render = _wrap_if_needed(den, _render_expr(den; format=format); format=format)
+                    return string(base, "^{", den_render, "^{-1}}")
+                end
+            end
             return string(base, "^{", exp, "}")
         end
         return string(base, "^", exp)
