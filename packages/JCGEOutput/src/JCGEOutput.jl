@@ -1449,7 +1449,7 @@ function _render_expr(expr::EquationExpr; format::Symbol)
         base = _wrap_if_needed(expr.base, _render_expr(expr.base; format=format); format=format)
         exp = _render_expr(expr.exponent; format=format)
         if format == :latex
-            return string("{", base, "}^{", exp, "}")
+            return string(base, "^{", exp, "}")
         end
         return string(base, "^", exp)
     elseif expr isa EDiv
