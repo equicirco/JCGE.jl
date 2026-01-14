@@ -1,4 +1,4 @@
-# JCGE
+# Julia Computable General Equilibrium Framework
 
 ```@raw html
 <picture>
@@ -8,7 +8,7 @@
 ```
 
 JCGE is a modular, block-based framework for Computable General Equilibrium (CGE)
-modeling in Julia. This repository is the entry point for the project: it describes
+modeling in Julia. This documentation is the entry point for the project: it describes
 architecture, workflows, and package boundaries. Each package is developed and
 documented independently, and is intended to live in the Julia General Registry.
 

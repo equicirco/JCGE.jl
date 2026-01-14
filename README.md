@@ -4,11 +4,11 @@
   <img alt="JCGE logo" src="docs/src/assets/jcge_logo_light.png" width="130">
 </picture>
 
-# JCGE
+# Julia Computable General Equilibrium
 
-This repository is the entry point for the block-based Julia CGE (JCGE) modeling and execution tool.
+This repository is the entry point for the block-based Julia CGE (JCGE) framework.
 
-Project documentation is available on the docs site, which will be reachable at `jcge.org`.
+Project documentation is available on the docs site, which is reachable at [https://equicirco.github.io/JCGE.jl](https://equicirco.github.io/JCGE.jl).
 
 Author: Riccardo Boero <ribo@nilu.no>
 
