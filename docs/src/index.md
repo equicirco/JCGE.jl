@@ -25,13 +25,13 @@
 - [Packages](packages.md): what each package does in the ecosystem
 - [Guides](guides/modeling.md): modeling, calibration, output, and imports
 
-## What this project is
+## What this website is
 
 - Project overview and architecture
 - Cross-package guides for modeling, calibration, and output
 - A stable reference to how the ecosystem fits together
 
-## What this project is not
+## What this website is not
 
 - A single monolithic package
 - The source of truth for package-level APIs (each package has its own docs)
