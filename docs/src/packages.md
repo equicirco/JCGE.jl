@@ -23,12 +23,12 @@ those package docs.
 
 | Package | Source Code | Documentation |
 |---|---|---|
-| `JCGECore` | <https://github.com/equicirco/JCGECore.jl> | <https://equicirco.github.io/JCGECore.jl> |
-| `JCGEBlocks` | <https://github.com/equicirco/JCGEBlocks.jl> | <https://equicirco.github.io/JCGEBlocks.jl> |
-| `JCGERuntime` | <https://github.com/equicirco/JCGERuntime.jl> | <https://equicirco.github.io/JCGERuntime.jl> |
-| `JCGECalibrate` | <https://github.com/equicirco/JCGECalibrate.jl> | <https://equicirco.github.io/JCGECalibrate.jl> |
-| `JCGEOutput` | <https://github.com/equicirco/JCGEOutput.jl> | <https://equicirco.github.io/JCGEOutput.jl> |
-| `JCGEExamples` | <https://github.com/equicirco/JCGEExamples.jl> | <https://equicirco.github.io/JCGEExamples.jl> |
-| `JCGEImportData` | <https://github.com/equicirco/JCGEImportData.jl> | <https://equicirco.github.io/JCGEImportData.jl> |
-| `JCGEImportMPSGE` | <https://github.com/equicirco/JCGEImportMPSGE.jl> | <https://equicirco.github.io/JCGEImportMPSGE.jl> |
-| `JCGEAgentInterface` | <https://github.com/equicirco/JCGEAgentInterface.jl> | <https://equicirco.github.io/JCGEAgentInterface.jl> |
+| `JCGECore` | <https://github.com/equicirco/JCGECore.jl> | <https://Core.JCGE.org> |
+| `JCGEBlocks` | <https://github.com/equicirco/JCGEBlocks.jl> | <https://Blocks.JCGE.org> |
+| `JCGERuntime` | <https://github.com/equicirco/JCGERuntime.jl> | <https://Runtime.JCGE.org> |
+| `JCGECalibrate` | <https://github.com/equicirco/JCGECalibrate.jl> | <https://Calibrate.JCGE.org> |
+| `JCGEOutput` | <https://github.com/equicirco/JCGEOutput.jl> | <https://Output.JCGE.org> |
+| `JCGEExamples` | <https://github.com/equicirco/JCGEExamples.jl> | <https://Examples.JCGE.org> |
+| `JCGEImportData` | <https://github.com/equicirco/JCGEImportData.jl> | <https://ImportData.JCGE.org> |
+| `JCGEImportMPSGE` | <https://github.com/equicirco/JCGEImportMPSGE.jl> | <https://ImportMPSGE.JCGE.org> |
+| `JCGEAgentInterface` | <https://github.com/equicirco/JCGEAgentInterface.jl> | <https://AgentInterface.JCGE.org> |
