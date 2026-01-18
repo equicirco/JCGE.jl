@@ -12,9 +12,8 @@ makedocs(
     ),
     pages = [
         "Home" => "index.md",
-        "Getting Started" => "getting-started.md",
         "Project" => "project.md",
-        "Contact & Citation" => "contact.md",
+        "Getting Started" => "getting-started.md",
         "Packages" => "packages.md",
         "Guides" => [
             "Modeling" => "guides/modeling.md",
@@ -24,6 +23,7 @@ makedocs(
             "Output & Reporting" => "guides/output.md",
             "Imports" => "guides/imports.md",
         ],
+        "Contact & Citation" => "contact.md",
     ],
 )
 
