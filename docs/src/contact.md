@@ -21,7 +21,7 @@ If you use JCGE in your CGE models, please cite it as:
 ```
 Boero, R. JCGE - Julia Computable General Equilibrium Framework [software], 2026
 DOI: 10.5281/zenodo.18282436
-URL: https://doi.org/10.5281/zenodo.18282436
+URL: https://JCGE.org
 ```
 
 BibTeX:
